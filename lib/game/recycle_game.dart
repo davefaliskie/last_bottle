@@ -10,13 +10,13 @@ class RecycleGame extends FlameGame {
     super.onLoad();
 
     world.add(Player(
-      position: Vector2(0, 0),
-      radius: 20.0,
+      position: Vector2(-270, 0),
+      radius: 270.0,
     ));
 
     world.add(Player(
-      position: Vector2(0, 50),
-      radius: 10.0,
+      position: Vector2(270, 0),
+      radius: 270.0,
       color: Colors.white,
     ));
   }
