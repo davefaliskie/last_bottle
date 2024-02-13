@@ -1,9 +1,17 @@
+import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:recycle/constants.dart';
 import 'package:recycle/game/sprites/player.dart';
 
 class RecycleGame extends FlameGame {
-  RecycleGame({super.children});
+  RecycleGame()
+      : super(
+          camera: CameraComponent.withFixedResolution(
+            width: gameWidth,
+            height: gameHeight,
+          ),
+        );
 
   @override
   Future<void> onLoad() async {
