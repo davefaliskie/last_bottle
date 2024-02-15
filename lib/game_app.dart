@@ -25,7 +25,7 @@ class _MyAppState extends State<RecycleApp> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        scaffoldBackgroundColor: Colors.yellow,
+        scaffoldBackgroundColor: Colors.blue.shade300,
       ),
       home: Scaffold(
         body: SafeArea(
