@@ -24,4 +24,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/
+    - assets/audio/
+    - assets/images/
+    - assets/tiles/
