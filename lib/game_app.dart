@@ -11,7 +11,7 @@ class RecycleApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<RecycleApp> {
-  late final RecycleGame game;
+  late RecycleGame game;
 
   @override
   void initState() {
@@ -28,14 +28,26 @@ class _MyAppState extends State<RecycleApp> {
         scaffoldBackgroundColor: Colors.blue.shade300,
       ),
       home: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 40,
+          actions: [
+            IconButton(
+              onPressed: () {
+                debugPrint("restart");
+                setState(() {
+                  game = RecycleGame();
+                });
+              },
+              icon: const Icon(Icons.restart_alt),
+            )
+          ],
+        ),
         body: SafeArea(
-          child: Center(
-            child: FittedBox(
-              child: SizedBox(
-                height: gameHeight,
-                width: gameWidth,
-                child: GameWidget(game: game),
-              ),
+          child: FittedBox(
+            child: SizedBox(
+              height: gameHeight,
+              width: gameWidth,
+              child: GameWidget(game: game),
             ),
           ),
         ),
