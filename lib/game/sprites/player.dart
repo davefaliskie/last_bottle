@@ -5,7 +5,7 @@ class Player extends SpriteComponent with HasGameRef {
   Future<void> onLoad() async {
     sprite = await Sprite.load('bottle.png');
     size = Vector2.all(100);
-    position = Vector2(gameRef.size.x / 2, 0 + size.y / 2);
+    position = Vector2(0, -(gameRef.size.y / 2));
     anchor = Anchor.center;
   }
 
