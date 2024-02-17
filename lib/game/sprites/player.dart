@@ -1,4 +1,5 @@
 import 'package:flame/components.dart';
+import 'package:recycle/constants.dart';
 
 class Player extends SpriteComponent with HasGameRef {
   @override
@@ -15,6 +16,10 @@ class Player extends SpriteComponent with HasGameRef {
     // This makes the sprite fall down
     double newYPosition = position.y + (100 * dt);
 
+    // if (newYPosition > 0) {
+    //   newYPosition = position.y + (50 * dt);
+    // }
+
     // THIS PREVENTS GOING PAST BOTTOM
     if (newYPosition > (gameRef.size.y / 2) - (size.y / 2)) {
       newYPosition = (gameRef.size.y / 2) - (size.y / 2);
@@ -25,10 +30,13 @@ class Player extends SpriteComponent with HasGameRef {
   }
 
   void move(double deltaX) {
-    final newX = position.x + deltaX;
+    double newXPosition = position.x + deltaX;
 
-    if (newX >= size.x / 2 && newX <= gameRef.size.x - size.x / 2) {
-      position.add(Vector2(deltaX, 0));
-    }
+    // Ensure the player does not move off-screen
+    double minX = -gameRef.size.x / 2 + size.x / 2; // Left boundary
+    double maxX = gameRef.size.x / 2 - size.x / 2; // Right boundary
+    newXPosition = newXPosition.clamp(minX, maxX);
+
+    position.x = newXPosition;
   }
 }

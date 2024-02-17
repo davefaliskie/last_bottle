@@ -44,11 +44,13 @@ class _MyAppState extends State<RecycleApp> {
           ],
         ),
         body: SafeArea(
-          child: FittedBox(
-            child: SizedBox(
-              height: gameHeight,
-              width: gameWidth,
-              child: GameWidget(game: game),
+          child: Center(
+            child: FittedBox(
+              child: SizedBox(
+                height: gameHeight,
+                width: gameWidth,
+                child: GameWidget(game: game),
+              ),
             ),
           ),
         ),
