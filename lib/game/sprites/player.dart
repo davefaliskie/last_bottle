@@ -5,7 +5,7 @@ class Player extends SpriteComponent with HasGameRef {
   Future<void> onLoad() async {
     sprite = await Sprite.load('bottle.png');
     size = Vector2.all(100);
-    position = Vector2(0, -(gameRef.size.y / 2));
+    position = Vector2(0, -(gameRef.size.y / 2) + (size.y / 2));
     anchor = Anchor.center;
   }
 
@@ -13,19 +13,7 @@ class Player extends SpriteComponent with HasGameRef {
   void update(double dt) {
     super.update(dt);
     // This makes the sprite fall down
-    double newYPosition = position.y + (300 * dt);
-
-    // Check if the new Y position is greater than the game height minus half the sprite size
-    // If so, set the Y position to the bottom of the game area
-
-    // THIS PREVENTS GOING PAST CENTER
-    if (newYPosition > 0) {
-      // slow it down till the bottom
-      // newYPosition = position.y + (50 * dt);
-
-      // make it stay at 0,0
-      newYPosition = 0;
-    }
+    double newYPosition = position.y + (100 * dt);
 
     // THIS PREVENTS GOING PAST BOTTOM
     if (newYPosition > (gameRef.size.y / 2) - (size.y / 2)) {

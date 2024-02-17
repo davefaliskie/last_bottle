@@ -25,11 +25,12 @@ class _MyAppState extends State<RecycleApp> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        scaffoldBackgroundColor: Colors.blue.shade300,
+        scaffoldBackgroundColor: Colors.amber,
       ),
       home: Scaffold(
         appBar: AppBar(
           toolbarHeight: 40,
+          backgroundColor: Colors.amber,
           actions: [
             IconButton(
               onPressed: () {
