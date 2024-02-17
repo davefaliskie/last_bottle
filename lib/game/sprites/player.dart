@@ -17,8 +17,19 @@ class Player extends SpriteComponent with HasGameRef {
 
     // Check if the new Y position is greater than the game height minus half the sprite size
     // If so, set the Y position to the bottom of the game area
-    if (newYPosition > gameRef.size.y - size.y / 2) {
-      newYPosition = gameRef.size.y - size.y / 2;
+
+    // THIS PREVENTS GOING PAST CENTER
+    if (newYPosition > 0) {
+      // slow it down till the bottom
+      // newYPosition = position.y + (50 * dt);
+
+      // make it stay at 0,0
+      newYPosition = 0;
+    }
+
+    // THIS PREVENTS GOING PAST BOTTOM
+    if (newYPosition > (gameRef.size.y / 2) - (size.y / 2)) {
+      newYPosition = (gameRef.size.y / 2) - (size.y / 2);
     }
 
     // Apply the calculated or adjusted Y position
