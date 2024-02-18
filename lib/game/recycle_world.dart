@@ -6,12 +6,24 @@ import 'package:recycle/constants.dart';
 import 'package:recycle/game/recycle_game.dart';
 import 'package:recycle/game/sprites/obstacle.dart';
 import 'package:recycle/game/sprites/player.dart';
+import 'package:recycle/level_data.dart';
 
 class RecycleWorld extends World with HasGameRef<RecycleGame> {
   RecycleWorld({super.children});
 
   late final Player player;
   final Random _rand = Random();
+
+  void loadLevel(List<Vector2> levelData) {
+    // remove any existing Obstacles
+    removeAll(children.whereType<Obstacle>().toList());
+
+    // load new obstacles from level data
+    for (var position in levelData) {
+      final obstacle = Obstacle()..position = position;
+      add(obstacle);
+    }
+  }
 
   @override
   FutureOr<void> onLoad() {
@@ -20,7 +32,9 @@ class RecycleWorld extends World with HasGameRef<RecycleGame> {
     player = Player();
     add(player);
 
-    spawnObstacles();
+    loadLevel(LevelData().level1());
+
+    // spawnObstacles();
   }
 
   @override

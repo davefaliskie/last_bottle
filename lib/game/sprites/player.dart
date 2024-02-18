@@ -14,11 +14,11 @@ class Player extends SpriteComponent with HasGameRef {
   void update(double dt) {
     super.update(dt);
     // This makes the sprite fall down
-    double newYPosition = position.y + (100 * dt);
+    double newYPosition = position.y + (400 * dt);
 
-    // if (newYPosition > 0) {
-    //   newYPosition = position.y + (50 * dt);
-    // }
+    if (newYPosition > -(gameHeight / 4)) {
+      newYPosition = -(gameHeight / 4);
+    }
 
     // THIS PREVENTS GOING PAST BOTTOM
     if (newYPosition > (gameRef.size.y / 2) - (size.y / 2)) {
