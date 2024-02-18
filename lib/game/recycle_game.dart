@@ -7,7 +7,7 @@ import 'package:recycle/constants.dart';
 import 'package:recycle/game/recycle_world.dart';
 
 class RecycleGame extends FlameGame<RecycleWorld>
-    with HorizontalDragDetector, KeyboardEvents {
+    with HorizontalDragDetector, KeyboardEvents, HasCollisionDetection {
   RecycleGame()
       : super(
           world: RecycleWorld(),

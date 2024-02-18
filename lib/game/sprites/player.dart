@@ -1,13 +1,16 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:recycle/constants.dart';
+import 'package:recycle/game/recycle_game.dart';
 
-class Player extends SpriteComponent with HasGameRef {
+class Player extends SpriteComponent with HasGameRef<RecycleGame> {
   @override
   Future<void> onLoad() async {
     sprite = await Sprite.load('bottle.png');
     size = Vector2.all(100);
     position = Vector2(0, -(gameRef.size.y / 2) + (size.y / 2));
     anchor = Anchor.center;
+    add(RectangleHitbox());
   }
 
   @override
