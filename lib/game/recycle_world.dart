@@ -14,13 +14,20 @@ class RecycleWorld extends World with HasGameRef<RecycleGame> {
   late final Player player;
   final Random _rand = Random();
 
-  void loadLevel(List<Vector2> levelData) {
+  void loadLevel(List<ObstacleData> levelData) {
     // remove any existing Obstacles
     removeAll(children.whereType<Obstacle>().toList());
 
     // load new obstacles from level data
-    for (var position in levelData) {
-      final obstacle = Obstacle()..position = position;
+    for (var data in levelData) {
+      Obstacle obstacle;
+      if (data.type == ObstacleType.trash) {
+        obstacle = ObstacleTrash()..position = data.position;
+      } else if (data.type == ObstacleType.water) {
+        obstacle = ObstacleWater()..position = data.position;
+      } else {
+        continue;
+      }
       add(obstacle);
     }
   }
@@ -29,10 +36,11 @@ class RecycleWorld extends World with HasGameRef<RecycleGame> {
   FutureOr<void> onLoad() {
     super.onLoad();
 
+    loadLevel(LevelData().level1());
+
+    // Add player last so it's on top.
     player = Player();
     add(player);
-
-    loadLevel(LevelData().level1());
 
     // spawnObstacles();
   }
@@ -59,7 +67,7 @@ class RecycleWorld extends World with HasGameRef<RecycleGame> {
     const int numberOfObstacles = 10;
 
     for (int i = 0; i < numberOfObstacles; i++) {
-      final obstacle = Obstacle()
+      final obstacle = ObstacleTrash()
         ..position = Vector2(
           _rand.nextDouble() * gameRef.size.x - (gameRef.size.x / 2),
           _rand.nextDouble() * extendedHeight - (gameHeight / 2),

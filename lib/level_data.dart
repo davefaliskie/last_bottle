@@ -1,6 +1,18 @@
 import 'package:flame/components.dart';
 import 'package:recycle/constants.dart';
 
+enum ObstacleType {
+  trash,
+  water,
+}
+
+class ObstacleData {
+  final Vector2 position;
+  final ObstacleType type;
+
+  ObstacleData({required this.position, required this.type});
+}
+
 class LevelData {
   final leftSide = -(gameWidth / 2) + (obstacleWidth / 2);
   final rightSide = (gameWidth / 2) - (obstacleWidth / 2);
@@ -13,17 +25,23 @@ class LevelData {
   // 19 "rows"
   final obstacleSpacing = (obstacleHeight * 2);
 
-  List<Vector2> level1() {
-    List<Vector2> level = [];
+  List<ObstacleData> level1() {
+    List<ObstacleData> level = [];
 
     level.addAll(leftRight(yPosition: obstacleSpacing * 0));
 
     level.addAll(middleBlocked(yPosition: obstacleSpacing * 1));
 
-    level.addAll(singleLeftWall(yPosition: obstacleSpacing * 2));
+    level.addAll(singleLeftWall(
+      yPosition: obstacleSpacing * 2,
+      type: ObstacleType.water,
+    ));
     level.addAll(singleLeft(yPosition: obstacleSpacing * 2));
 
-    level.addAll(singleRight(yPosition: obstacleSpacing * 3));
+    level.addAll(singleRight(
+      yPosition: obstacleSpacing * 3,
+      type: ObstacleType.water,
+    ));
 
     level.addAll(middleGaped(yPosition: obstacleSpacing * 4));
 
@@ -31,7 +49,10 @@ class LevelData {
 
     // REPEATING
 
-    level.addAll(leftRight(yPosition: obstacleSpacing * 6));
+    level.addAll(leftRight(
+      yPosition: obstacleSpacing * 6,
+      type: ObstacleType.water,
+    ));
 
     level.addAll(middleBlocked(yPosition: obstacleSpacing * 7));
 
@@ -40,7 +61,10 @@ class LevelData {
 
     level.addAll(singleRight(yPosition: obstacleSpacing * 9));
 
-    level.addAll(middleGaped(yPosition: obstacleSpacing * 10));
+    level.addAll(middleGaped(
+      yPosition: obstacleSpacing * 10,
+      type: ObstacleType.water,
+    ));
 
     level.addAll(tripple(yPosition: obstacleSpacing * 11));
 
@@ -60,57 +84,123 @@ class LevelData {
     return level;
   }
 
-  List<Vector2> leftRight({required double yPosition}) {
+  List<ObstacleData> leftRight({
+    required double yPosition,
+    ObstacleType type = ObstacleType.trash,
+  }) {
     return [
-      Vector2(leftSide, yPosition),
-      Vector2(rightSide, yPosition),
+      ObstacleData(
+        position: Vector2(leftSide, yPosition),
+        type: type,
+      ),
+      ObstacleData(
+        position: Vector2(rightSide, yPosition),
+        type: type,
+      ),
     ];
   }
 
-  List<Vector2> singleLeftWall({required double yPosition}) {
+  List<ObstacleData> singleLeftWall({
+    required double yPosition,
+    ObstacleType type = ObstacleType.trash,
+  }) {
     return [
-      Vector2(leftSide, yPosition),
+      ObstacleData(
+        position: Vector2(leftSide, yPosition),
+        type: type,
+      ),
     ];
   }
 
-  List<Vector2> singleRightWall({required double yPosition}) {
+  List<ObstacleData> singleRightWall({
+    required double yPosition,
+    ObstacleType type = ObstacleType.trash,
+  }) {
     return [
-      Vector2(rightSide, yPosition),
+      ObstacleData(
+        position: Vector2(rightSide, yPosition),
+        type: type,
+      ),
     ];
   }
 
-  List<Vector2> singleLeft({required double yPosition}) {
+  List<ObstacleData> singleLeft({
+    required double yPosition,
+    ObstacleType type = ObstacleType.trash,
+  }) {
     return [
-      Vector2(-(gameWidth / 4), yPosition),
+      ObstacleData(
+        position: Vector2(-(gameWidth / 4), yPosition),
+        type: type,
+      ),
     ];
   }
 
-  List<Vector2> singleRight({required double yPosition}) {
+  List<ObstacleData> singleRight({
+    required double yPosition,
+    ObstacleType type = ObstacleType.trash,
+  }) {
     return [
-      Vector2((gameWidth / 4), yPosition),
+      ObstacleData(
+        position: Vector2((gameWidth / 4), yPosition),
+        type: type,
+      ),
     ];
   }
 
-  List<Vector2> middleGaped({required double yPosition}) {
+  List<ObstacleData> middleGaped({
+    required double yPosition,
+    ObstacleType type = ObstacleType.trash,
+  }) {
     return [
-      Vector2(-(gameWidth / 5), yPosition),
-      Vector2((gameWidth / 5), yPosition),
+      ObstacleData(
+        position: Vector2(-(gameWidth / 5), yPosition),
+        type: type,
+      ),
+      ObstacleData(
+        position: Vector2((gameWidth / 5), yPosition),
+        type: type,
+      ),
     ];
   }
 
-  List<Vector2> middleBlocked({required double yPosition}) {
+  List<ObstacleData> middleBlocked({
+    required double yPosition,
+    ObstacleType type = ObstacleType.trash,
+  }) {
     return [
-      Vector2(-obstacleWidth, yPosition),
-      Vector2(0, yPosition),
-      Vector2(obstacleWidth, yPosition),
+      ObstacleData(
+        position: Vector2(-obstacleWidth, yPosition),
+        type: type,
+      ),
+      ObstacleData(
+        position: Vector2(0, yPosition),
+        type: type,
+      ),
+      ObstacleData(
+        position: Vector2(obstacleWidth, yPosition),
+        type: type,
+      ),
     ];
   }
 
-  List<Vector2> tripple({required double yPosition}) {
+  List<ObstacleData> tripple({
+    required double yPosition,
+    ObstacleType type = ObstacleType.trash,
+  }) {
     return [
-      Vector2(leftSide, yPosition),
-      Vector2(0, yPosition),
-      Vector2(rightSide, yPosition),
+      ObstacleData(
+        position: Vector2(leftSide, yPosition),
+        type: type,
+      ),
+      ObstacleData(
+        position: Vector2(0, yPosition),
+        type: type,
+      ),
+      ObstacleData(
+        position: Vector2(rightSide, yPosition),
+        type: type,
+      ),
     ];
   }
 }
