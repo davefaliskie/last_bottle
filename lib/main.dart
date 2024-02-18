@@ -1,6 +1,6 @@
 import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
-import 'package:recycle/game_app.dart';
+import 'package:recycle/app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

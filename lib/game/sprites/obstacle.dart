@@ -1,9 +1,11 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:recycle/constants.dart';
 import 'package:recycle/game/recycle_game.dart';
 import 'package:recycle/game/sprites/player.dart';
+import 'package:recycle/router.dart';
 
 class Obstacle extends SpriteComponent
     with HasGameRef<RecycleGame>, CollisionCallbacks {
@@ -42,6 +44,7 @@ class ObstacleTrash extends Obstacle {
     if (other is Player) {
       debugPrint("Hit Trash");
       // removeFromParent();
+      game.endAndGo(AppRoute.endTrash);
     }
     super.onCollisionStart(intersectionPoints, other);
   }

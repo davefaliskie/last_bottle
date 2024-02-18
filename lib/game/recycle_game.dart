@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:recycle/constants.dart';
 import 'package:recycle/game/recycle_world.dart';
+import 'package:recycle/router.dart';
 
 class RecycleGame extends FlameGame<RecycleWorld>
     with HorizontalDragDetector, KeyboardEvents, HasCollisionDetection {
-  RecycleGame()
+  final void Function(AppRoute routeName) endAndGo;
+  RecycleGame({required this.endAndGo})
       : super(
           world: RecycleWorld(),
           camera: CameraComponent.withFixedResolution(
