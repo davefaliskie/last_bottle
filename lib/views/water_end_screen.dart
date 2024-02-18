@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:recycle/constants.dart';
 import 'package:recycle/router.dart';
 
-class TrashEndScreen extends StatelessWidget {
-  const TrashEndScreen({super.key});
+class WaterEndScreen extends StatelessWidget {
+  const WaterEndScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +16,17 @@ class TrashEndScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              "🗑️ Game Over 🗑️",
+              "💧 Game Over 💧",
               style: Theme.of(context).textTheme.displayMedium,
               textAlign: TextAlign.center,
             ),
             Text(
-              "You've fallen into a landfill",
+              "You've landed in the water and will be taken out to sea",
               style: Theme.of(context).textTheme.titleLarge,
               textAlign: TextAlign.center,
             ),
             const Text(
-              "This is the same fate as 63% of plastic water bottles",
+              "This is the same fate as 21% of plastic water bottles",
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 100),

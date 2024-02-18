@@ -5,3 +5,5 @@ const extendedHeight = gameHeight * 4;
 
 const obstacleWidth = 200.0;
 const obstacleHeight = 200.0;
+
+const defaultMargin = 12.0;

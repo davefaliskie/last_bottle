@@ -60,6 +60,7 @@ class ObstacleWater extends Obstacle {
   ) {
     if (other is Player) {
       debugPrint("Hit Water");
+      game.endAndGo(AppRoute.endWater);
     }
     super.onCollisionStart(intersectionPoints, other);
   }

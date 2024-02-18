@@ -28,7 +28,10 @@ class LevelData {
   List<ObstacleData> level1() {
     List<ObstacleData> level = [];
 
-    level.addAll(leftRight(yPosition: obstacleSpacing * 0));
+    level.addAll(leftRight(
+      yPosition: obstacleSpacing * 0,
+      type: ObstacleType.water,
+    ));
 
     level.addAll(middleBlocked(yPosition: obstacleSpacing * 1));
 
