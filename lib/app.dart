@@ -2,7 +2,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recycle/constants.dart';
-import 'package:recycle/game/recycle_game.dart';
+import 'package:recycle/recycle_game/recycle_game.dart';
 import 'package:recycle/router.dart';
 
 class RecycleApp extends StatefulWidget {

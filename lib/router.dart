@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recycle/app.dart';
+import 'package:recycle/views/drink_water_screen.dart';
 import 'package:recycle/views/recycle_end_screen.dart';
 import 'package:recycle/views/trash_end_screen.dart';
 import 'package:recycle/views/water_end_screen.dart';
 
 enum AppRoute {
+  drinkWater,
   game,
   endTrash,
   endWater,
@@ -17,6 +19,15 @@ final GoRouter router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
       path: '/',
+      name: AppRoute.drinkWater.name,
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        fullscreenDialog: true,
+        child: const DrinkWaterScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/game',
       name: AppRoute.game.name,
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
