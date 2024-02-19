@@ -2,14 +2,14 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:recycle/constants.dart';
 import 'package:recycle/game/recycle_game.dart';
+import 'package:recycle/game/sprites/obstacle.dart';
 import 'package:recycle/game/sprites/player.dart';
 import 'package:recycle/router.dart';
 
-class Obstacle extends SpriteComponent
+class Bin extends SpriteComponent
     with HasGameRef<RecycleGame>, CollisionCallbacks {
-  Obstacle({
+  Bin({
     required this.spritePath,
   });
 
@@ -18,23 +18,23 @@ class Obstacle extends SpriteComponent
   @override
   Future<void> onLoad() async {
     sprite = await Sprite.load(spritePath);
-    size = Vector2(obstacleWidth, obstacleHeight);
+    // size = Vector2(300, 300);
     anchor = Anchor.center;
     add(RectangleHitbox());
   }
 
   @override
   bool onComponentTypeCheck(PositionComponent other) {
-    if (other is Obstacle) {
-      // do NOT collide with Other Obsticles
+    if (other is Obstacle || other is Bin) {
+      // do NOT collide with Other Obsticles or Bins
       return false;
     }
     return super.onComponentTypeCheck(other);
   }
 }
 
-class ObstacleTrash extends Obstacle {
-  ObstacleTrash() : super(spritePath: 'trash.png');
+class BinTrash extends Obstacle {
+  BinTrash() : super(spritePath: 'bin_trash.png');
 
   @override
   void onCollisionStart(
@@ -42,15 +42,15 @@ class ObstacleTrash extends Obstacle {
     PositionComponent other,
   ) {
     if (other is Player) {
-      debugPrint("Hit Trash");
+      debugPrint("Went in Trash Bin");
       game.endAndGo(AppRoute.endTrash);
     }
     super.onCollisionStart(intersectionPoints, other);
   }
 }
 
-class ObstacleWater extends Obstacle {
-  ObstacleWater() : super(spritePath: 'water.png');
+class BinRecycle extends Obstacle {
+  BinRecycle() : super(spritePath: 'bin_recycle.png');
 
   @override
   void onCollisionStart(
@@ -58,8 +58,8 @@ class ObstacleWater extends Obstacle {
     PositionComponent other,
   ) {
     if (other is Player) {
-      debugPrint("Hit Water");
-      game.endAndGo(AppRoute.endWater);
+      debugPrint("Went to Recycling Bin");
+      game.endAndGo(AppRoute.endRecycle);
     }
     super.onCollisionStart(intersectionPoints, other);
   }

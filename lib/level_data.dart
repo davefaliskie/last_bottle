@@ -4,6 +4,8 @@ import 'package:recycle/constants.dart';
 enum ObstacleType {
   trash,
   water,
+  binTrash,
+  binRecycle,
 }
 
 class ObstacleData {
@@ -83,6 +85,21 @@ class LevelData {
     level.addAll(middleGaped(yPosition: obstacleSpacing * 17));
 
     level.addAll(tripple(yPosition: obstacleSpacing * 18));
+
+    // ADD ROW OF BINS AT extendedHeight
+    level.addAll(
+      tripple(
+        yPosition: extendedHeight,
+        type: ObstacleType.binTrash,
+      ),
+    );
+
+    level.addAll(
+      middleGaped(
+        yPosition: extendedHeight,
+        type: ObstacleType.binRecycle,
+      ),
+    );
 
     return level;
   }
