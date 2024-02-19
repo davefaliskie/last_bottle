@@ -39,7 +39,7 @@ class LevelData {
 
     level.addAll(singleLeftWall(
       yPosition: obstacleSpacing * 2,
-      type: ObstacleType.water,
+      type: ObstacleType.binRecycle,
     ));
     level.addAll(singleLeft(yPosition: obstacleSpacing * 2));
 

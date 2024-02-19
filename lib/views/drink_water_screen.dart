@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:recycle/router.dart';
-import 'package:recycle/utils/sizes.dart';
 
 class DrinkWaterScreen extends StatefulWidget {
   const DrinkWaterScreen({super.key});
