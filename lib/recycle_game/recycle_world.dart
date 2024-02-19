@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:recycle/constants.dart';
-import 'package:recycle/game/recycle_game.dart';
-import 'package:recycle/game/sprites/bin.dart';
-import 'package:recycle/game/sprites/obstacle.dart';
-import 'package:recycle/game/sprites/player.dart';
-import 'package:recycle/level_data.dart';
+import 'package:recycle/recycle_game/recycle_game.dart';
+import 'package:recycle/recycle_game/sprites/bin.dart';
+import 'package:recycle/recycle_game/sprites/obstacle.dart';
+import 'package:recycle/recycle_game/sprites/player.dart';
+import 'package:recycle/recycle_game/level_data.dart';
 
 class RecycleWorld extends World with HasGameRef<RecycleGame> {
   RecycleWorld({super.children});

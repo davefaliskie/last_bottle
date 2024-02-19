@@ -4,7 +4,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:recycle/constants.dart';
-import 'package:recycle/game/recycle_world.dart';
+import 'package:recycle/recycle_game/recycle_world.dart';
 import 'package:recycle/router.dart';
 
 class RecycleGame extends FlameGame<RecycleWorld>

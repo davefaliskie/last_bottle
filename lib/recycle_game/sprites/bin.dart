@@ -2,9 +2,9 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:recycle/game/recycle_game.dart';
-import 'package:recycle/game/sprites/obstacle.dart';
-import 'package:recycle/game/sprites/player.dart';
+import 'package:recycle/recycle_game/recycle_game.dart';
+import 'package:recycle/recycle_game/sprites/obstacle.dart';
+import 'package:recycle/recycle_game/sprites/player.dart';
 import 'package:recycle/router.dart';
 
 class Bin extends SpriteComponent
