@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recycle/constants.dart';
 import 'package:recycle/router.dart';
+import 'package:recycle/utils/sizes.dart';
+import 'package:recycle/widgets/spin_wheel.dart';
 
-class RecycleEndScreen extends StatelessWidget {
-  const RecycleEndScreen({super.key});
+class WheelScreen extends StatefulWidget {
+  const WheelScreen({super.key});
 
+  @override
+  State<WheelScreen> createState() => _WheelScreenState();
+}
+
+class _WheelScreenState extends State<WheelScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,35 +23,23 @@ class RecycleEndScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              "♻️ Game Over ♻️",
+              "Spin The Wheel",
               style: Theme.of(context).textTheme.displayMedium,
               textAlign: TextAlign.center,
             ),
             Text(
-              "You were recycled!",
+              "You have a 17% chance of being recycled",
               style: Theme.of(context).textTheme.titleLarge,
               textAlign: TextAlign.center,
             ),
-            const Text(
-              "Unfortunately only 9% of single use bottles are actually reborn",
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 100),
-            const Text(
-              "Let's increase your chances",
-              textAlign: TextAlign.center,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.goNamed(AppRoute.wheel.name);
-              },
-              child: const Text("Start"),
-            ),
+            gapH32,
+            const SpinWheel(percentage: 25.0),
+            gapH32,
             ElevatedButton(
               onPressed: () {
                 context.goNamed(AppRoute.game.name);
               },
-              child: const Text("Try Again"),
+              child: const Text("New Game"),
             ),
           ],
         ),
