@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:recycle/google-wallet/views/add_to_wallet_button.dart';
 import 'package:recycle/router.dart';
 
 class DrinkWaterScreen extends StatefulWidget {
@@ -59,6 +60,7 @@ class _DrinkWaterScreenState extends State<DrinkWaterScreen>
                   ),
                 ),
               ),
+              const AddToWalletButton(),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.20,
                 width: double.infinity,
@@ -72,7 +74,7 @@ class _DrinkWaterScreenState extends State<DrinkWaterScreen>
                           context.goNamed(AppRoute.game.name);
                         },
                         child: const Text("Recycle The Bottle"),
-                      )
+                      ),
                     ] else ...[
                       Text(
                         "Drink",
