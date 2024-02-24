@@ -10,17 +10,17 @@ class GoogleWalletRepository {
     required String userId,
     required PassType passType,
   }) async {
-    final passData = PassData(
+    final passDataJson = PassData(
       userId: userId,
       passType: passType,
-    );
-    debugPrint("url $backendBaseUrl");
+    ).toJson();
+
     final response = await http.post(
       Uri.parse("$backendBaseUrl/create_pass/"),
       headers: <String, String>{
         "Content-Type": "application/json; charset=utf-8",
       },
-      body: jsonEncode(passData.toJson()),
+      body: jsonEncode(passDataJson),
     );
 
     debugPrint(jsonDecode(response.body)["url"]);

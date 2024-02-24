@@ -79,14 +79,37 @@ class _DrinkWaterScreenState extends State<DrinkWaterScreen>
                         "Drink",
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          context.goNamed(
-                            AppRoute.addToWallet.name,
-                            extra: PassType.recycle,
-                          );
-                        },
-                        child: const Text("See Prize"),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              context.goNamed(
+                                AppRoute.addToWallet.name,
+                                extra: PassType.recycle,
+                              );
+                            },
+                            child: const Text("recycle"),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              context.goNamed(
+                                AppRoute.addToWallet.name,
+                                extra: PassType.water,
+                              );
+                            },
+                            child: const Text("water"),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              context.goNamed(
+                                AppRoute.addToWallet.name,
+                                extra: PassType.trash,
+                              );
+                            },
+                            child: const Text("trash"),
+                          ),
+                        ],
                       ),
                     ]
                   ],
