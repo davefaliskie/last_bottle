@@ -14,8 +14,7 @@ const defaultMargin = 12.0;
 
 String get backendBaseUrl {
   if (kReleaseMode) {
-    // todo set this correctly
-    return "https://api.recycleapp.com";
+    return "https://api.lastbottle.app";
   } else if (Platform.isAndroid) {
     return "http://10.0.2.2:3000";
   } else {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recycle/constants.dart';
-import 'package:recycle/router.dart';
+import 'package:last_bottle/constants.dart';
+import 'package:last_bottle/router.dart';
 
 class TrashEndScreen extends StatelessWidget {
   const TrashEndScreen({super.key});

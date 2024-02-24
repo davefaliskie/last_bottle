@@ -3,9 +3,9 @@ import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:recycle/constants.dart';
-import 'package:recycle/recycle_game/recycle_world.dart';
-import 'package:recycle/router.dart';
+import 'package:last_bottle/constants.dart';
+import 'package:last_bottle/recycle_game/recycle_world.dart';
+import 'package:last_bottle/router.dart';
 
 class RecycleGame extends FlameGame<RecycleWorld>
     with HorizontalDragDetector, KeyboardEvents, HasCollisionDetection {

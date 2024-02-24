@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recycle/google_wallet/domain/pass_data.dart';
-import 'package:recycle/router.dart';
+import 'package:last_bottle/google_wallet/domain/pass_data.dart';
+import 'package:last_bottle/router.dart';
 
 class DrinkWaterScreen extends StatefulWidget {
   const DrinkWaterScreen({super.key});

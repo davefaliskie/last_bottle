@@ -1,4 +1,4 @@
-package com.u1manstartup.recycle.recycle
+package com.onemanstartup.lastbottle
 
 import io.flutter.embedding.android.FlutterActivity
 

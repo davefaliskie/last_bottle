@@ -1,9 +1,9 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recycle/constants.dart';
-import 'package:recycle/recycle_game/recycle_game.dart';
-import 'package:recycle/router.dart';
+import 'package:last_bottle/constants.dart';
+import 'package:last_bottle/recycle_game/recycle_game.dart';
+import 'package:last_bottle/router.dart';
 
 class RecycleApp extends StatefulWidget {
   const RecycleApp({super.key});

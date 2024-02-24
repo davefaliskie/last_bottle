@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recycle/constants.dart';
-import 'package:recycle/google_wallet/domain/pass_content.dart';
-import 'package:recycle/google_wallet/domain/pass_data.dart';
-import 'package:recycle/google_wallet/views/add_to_wallet_button.dart';
-import 'package:recycle/router.dart';
-import 'package:recycle/utils/sizes.dart';
+import 'package:last_bottle/constants.dart';
+import 'package:last_bottle/google_wallet/domain/pass_content.dart';
+import 'package:last_bottle/google_wallet/domain/pass_data.dart';
+import 'package:last_bottle/google_wallet/views/add_to_wallet_button.dart';
+import 'package:last_bottle/router.dart';
+import 'package:last_bottle/utils/sizes.dart';
 
 class AddToWalletScreen extends StatelessWidget {
   const AddToWalletScreen({

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:recycle/google_wallet/data/google_wallet_repository.dart';
-import 'package:recycle/google_wallet/domain/pass_data.dart';
-import 'package:recycle/local_data/hive_repository.dart';
+import 'package:last_bottle/google_wallet/data/google_wallet_repository.dart';
+import 'package:last_bottle/google_wallet/domain/pass_data.dart';
+import 'package:last_bottle/local_data/hive_repository.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AddToWalletButton extends ConsumerWidget {

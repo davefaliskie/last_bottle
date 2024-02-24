@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recycle/app.dart';
-import 'package:recycle/google_wallet/domain/pass_data.dart';
-import 'package:recycle/google_wallet/views/add_to_wallet_screen.dart';
-import 'package:recycle/views/drink_water_screen.dart';
-import 'package:recycle/views/error_screen.dart';
-import 'package:recycle/views/recycle_end_screen.dart';
-import 'package:recycle/views/trash_end_screen.dart';
-import 'package:recycle/views/water_end_screen.dart';
+import 'package:last_bottle/app.dart';
+import 'package:last_bottle/google_wallet/domain/pass_data.dart';
+import 'package:last_bottle/google_wallet/views/add_to_wallet_screen.dart';
+import 'package:last_bottle/views/drink_water_screen.dart';
+import 'package:last_bottle/views/error_screen.dart';
+import 'package:last_bottle/views/recycle_end_screen.dart';
+import 'package:last_bottle/views/trash_end_screen.dart';
+import 'package:last_bottle/views/water_end_screen.dart';
 
 enum AppRoute {
   drinkWater,

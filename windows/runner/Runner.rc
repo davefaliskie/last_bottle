@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.1manstartup.recycle" "\0"
-            VALUE "FileDescription", "recycle" "\0"
+            VALUE "CompanyName", "com.onemanstartup.lastbottle" "\0"
+            VALUE "FileDescription", "last_bottle" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "recycle" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 com.1manstartup.recycle. All rights reserved." "\0"
-            VALUE "OriginalFilename", "recycle.exe" "\0"
-            VALUE "ProductName", "recycle" "\0"
+            VALUE "InternalName", "last_bottle" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 1ManStartup LLC. All rights reserved." "\0"
+            VALUE "OriginalFilename", "last_bottle.exe" "\0"
+            VALUE "ProductName", "last_bottle" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

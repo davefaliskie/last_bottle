@@ -2,10 +2,10 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:recycle/recycle_game/recycle_game.dart';
-import 'package:recycle/recycle_game/sprites/obstacle.dart';
-import 'package:recycle/recycle_game/sprites/player.dart';
-import 'package:recycle/router.dart';
+import 'package:last_bottle/recycle_game/recycle_game.dart';
+import 'package:last_bottle/recycle_game/sprites/obstacle.dart';
+import 'package:last_bottle/recycle_game/sprites/player.dart';
+import 'package:last_bottle/router.dart';
 
 class Bin extends SpriteComponent
     with HasGameRef<RecycleGame>, CollisionCallbacks {

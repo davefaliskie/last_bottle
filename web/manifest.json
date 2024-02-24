@@ -1,6 +1,6 @@
 {
-    "name": "recycle",
-    "short_name": "recycle",
+    "name": "last_bottle",
+    "short_name": "last_bottle",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

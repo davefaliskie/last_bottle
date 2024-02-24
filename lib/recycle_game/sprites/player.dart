@@ -1,7 +1,7 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:recycle/constants.dart';
-import 'package:recycle/recycle_game/recycle_game.dart';
+import 'package:last_bottle/constants.dart';
+import 'package:last_bottle/recycle_game/recycle_game.dart';
 
 class Player extends SpriteComponent with HasGameRef<RecycleGame> {
   @override

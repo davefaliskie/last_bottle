@@ -1,5 +1,5 @@
 import 'package:flame/components.dart';
-import 'package:recycle/constants.dart';
+import 'package:last_bottle/constants.dart';
 
 enum ObstacleType {
   trash,

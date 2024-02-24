@@ -1,4 +1,4 @@
-import 'package:recycle/google_wallet/domain/pass_content.dart';
+import 'package:last_bottle/google_wallet/domain/pass_content.dart';
 
 enum PassType {
   water,
