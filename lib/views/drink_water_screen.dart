@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:recycle/google_wallet/domain/pass_data.dart';
 import 'package:recycle/router.dart';
 
 class DrinkWaterScreen extends StatefulWidget {
@@ -72,11 +73,43 @@ class _DrinkWaterScreenState extends State<DrinkWaterScreen>
                           context.goNamed(AppRoute.game.name);
                         },
                         child: const Text("Recycle The Bottle"),
-                      )
+                      ),
                     ] else ...[
                       Text(
                         "Drink",
                         style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              context.goNamed(
+                                AppRoute.addToWallet.name,
+                                extra: PassType.recycle,
+                              );
+                            },
+                            child: const Text("recycle"),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              context.goNamed(
+                                AppRoute.addToWallet.name,
+                                extra: PassType.water,
+                              );
+                            },
+                            child: const Text("water"),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              context.goNamed(
+                                AppRoute.addToWallet.name,
+                                extra: PassType.trash,
+                              );
+                            },
+                            child: const Text("trash"),
+                          ),
+                        ],
                       ),
                     ]
                   ],
