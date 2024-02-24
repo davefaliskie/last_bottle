@@ -6,15 +6,15 @@ import 'package:recycle/constants.dart';
 import 'package:recycle/google-wallet/domain/pass_data.dart';
 
 class GoogleWalletRepository {
-  // for testing create the pass object
-
-  Future<String> createPass({required PassType passType}) async {
-    // todo generate uuid and save to local db
+  Future<String> createPassUrl({
+    required String userId,
+    required PassType passType,
+  }) async {
     final passData = PassData(
-      userId: "1111111",
+      userId: userId,
       passType: passType,
     );
-
+    debugPrint("url $backendBaseUrl");
     final response = await http.post(
       Uri.parse("$backendBaseUrl/create_pass/"),
       headers: <String, String>{
