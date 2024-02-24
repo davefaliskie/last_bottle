@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:recycle/constants.dart';
 import 'package:recycle/google_wallet/domain/pass_content.dart';
 import 'package:recycle/google_wallet/domain/pass_data.dart';
 import 'package:recycle/google_wallet/views/add_to_wallet_button.dart';
@@ -21,33 +22,44 @@ class AddToWalletScreen extends StatelessWidget {
     final passContent = PassContent.fromPassType(passType);
     return Scaffold(
       backgroundColor: passContent.dartColor,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "New Fact",
-              style: Theme.of(context).textTheme.displayMedium,
-            ),
-            Text(
-              "Did you know?",
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            Consumer(
-              builder: (context, ref, child) {
-                final userId = ref.watch(hiveRepositoryProvider).userId;
-                return Text("userId: $userId");
-              },
-            ),
-            gapH32,
-            AddToWalletButton(passType: passType),
-            TextButton(
-              onPressed: () {
-                context.goNamed(AppRoute.drinkWater.name);
-              },
-              child: const Text("Not Now"),
-            ),
-          ],
+      body: Padding(
+        padding: const EdgeInsets.all(defaultMargin),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Spacer(),
+              Text(
+                passContent.title,
+                style: Theme.of(context).textTheme.displayMedium,
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                passContent.header,
+                style: Theme.of(context).textTheme.titleMedium,
+                textAlign: TextAlign.center,
+              ),
+              gapH24,
+              Image.network(passContent.imageUrl),
+              const Spacer(),
+              Text(
+                "Add to google wallet to share this fact with your friends",
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              gapH8,
+              AddToWalletButton(passType: passType),
+              TextButton(
+                onPressed: () {
+                  context.goNamed(AppRoute.drinkWater.name);
+                },
+                child: const Text(
+                  "Not Now",
+                  style: TextStyle(color: Colors.black87),
+                ),
+              ),
+              const Spacer(),
+            ],
+          ),
         ),
       ),
     );
