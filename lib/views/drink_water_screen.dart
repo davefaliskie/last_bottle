@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:recycle/google-wallet/domain/pass_data.dart';
 import 'package:recycle/google-wallet/views/add_to_wallet_button.dart';
 import 'package:recycle/router.dart';
 
@@ -60,7 +61,9 @@ class _DrinkWaterScreenState extends State<DrinkWaterScreen>
                   ),
                 ),
               ),
-              const AddToWalletButton(),
+              const AddToWalletButton(passType: PassType.water),
+              const AddToWalletButton(passType: PassType.trash),
+              const AddToWalletButton(passType: PassType.recycle),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.20,
                 width: double.infinity,
