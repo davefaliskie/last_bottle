@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/foundation.dart';
 import 'package:recycle/constants.dart';
-import 'package:recycle/google-wallet/domain/pass_data.dart';
+import 'package:recycle/google_wallet/domain/pass_data.dart';
 
 class GoogleWalletRepository {
   Future<String> createPassUrl({
