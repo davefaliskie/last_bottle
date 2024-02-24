@@ -10,15 +10,17 @@ class AddToWalletButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return IconButton(
       onPressed: () async {
-        debugPrint("Add this to the wallet");
         String? walletUrl = await GoogleWalletRepository().createPass(
           passType: passType,
         );
-        launchUrl(Uri.parse(walletUrl));
+        await launchUrl(Uri.parse(walletUrl));
       },
-      child: Text("add ${passType.name} to wallet"),
+      icon: Image.asset(
+        "assets/images/google_wallet/en_add_button.png",
+        height: 48,
+      ),
     );
   }
 }
