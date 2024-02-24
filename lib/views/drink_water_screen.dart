@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recycle/google_wallet/domain/pass_data.dart';
-import 'package:recycle/google_wallet/views/add_to_wallet_button.dart';
-import 'package:recycle/local_data/hive_repository.dart';
 import 'package:recycle/router.dart';
 
 class DrinkWaterScreen extends StatefulWidget {
@@ -63,15 +60,6 @@ class _DrinkWaterScreenState extends State<DrinkWaterScreen>
                   ),
                 ),
               ),
-              Consumer(
-                builder: (context, ref, child) {
-                  final userId = ref.watch(hiveRepositoryProvider).userId;
-                  return Text("userId: $userId");
-                },
-              ),
-              const AddToWalletButton(passType: PassType.water),
-              const AddToWalletButton(passType: PassType.trash),
-              const AddToWalletButton(passType: PassType.recycle),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.20,
                 width: double.infinity,
@@ -90,6 +78,15 @@ class _DrinkWaterScreenState extends State<DrinkWaterScreen>
                       Text(
                         "Drink",
                         style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          context.goNamed(
+                            AppRoute.addToWallet.name,
+                            extra: PassType.recycle,
+                          );
+                        },
+                        child: const Text("See Prize"),
                       ),
                     ]
                   ],

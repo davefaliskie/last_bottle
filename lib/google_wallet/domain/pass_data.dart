@@ -1,4 +1,8 @@
-enum PassType { water, trash, recycle }
+enum PassType {
+  water,
+  trash,
+  recycle,
+}
 
 class PassData {
   final String userId;
