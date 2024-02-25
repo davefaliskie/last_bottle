@@ -27,4 +27,7 @@ Future<void> initHive() async {
   if (Hive.box("gameData").get("appStartTime") == null) {
     Hive.box("gameData").put("appStartTime", DateTime.now());
   }
+
+  // force reset
+  // Hive.box("gameData").clear();
 }

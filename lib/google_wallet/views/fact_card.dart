@@ -28,7 +28,7 @@ class FactCard extends StatelessWidget {
                   "Did You Know?",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 25.0,
+                    fontSize: 24.0,
                   ),
                 ),
               ),

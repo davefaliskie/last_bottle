@@ -25,13 +25,11 @@ class AddToWalletScreen extends StatelessWidget {
       body: AnimateGradient(
         duration: const Duration(seconds: 5),
         primaryColors: [
-          passContent.bgColor.shade300,
-          passContent.bgColor2.shade200,
+          Colors.blue.shade400,
           Colors.white,
         ],
         secondaryColors: [
-          passContent.bgColor.shade700,
-          passContent.bgColor2.shade700,
+          Colors.blue.shade100,
           Colors.white,
         ],
         child: SafeArea(
@@ -42,9 +40,12 @@ class AddToWalletScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(),
-                  Text(
+                  const Text(
                     "New Fact Unlocked",
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: TextStyle(
+                      fontSize: 32.0,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   const Spacer(),
                   FloatingComponent(
