@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:last_bottle/constants.dart';
 import 'package:last_bottle/recycle_game/recycle_game.dart';
 import 'package:last_bottle/router.dart';
+import 'package:last_bottle/theme.dart';
 
 class RecycleApp extends StatefulWidget {
   const RecycleApp({super.key});
@@ -18,10 +19,7 @@ class _MyAppState extends State<RecycleApp> {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: router,
-      theme: ThemeData(
-        useMaterial3: true,
-        scaffoldBackgroundColor: Colors.amber,
-      ),
+      theme: themeData,
     );
   }
 }
