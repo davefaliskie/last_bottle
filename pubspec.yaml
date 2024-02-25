@@ -31,6 +31,7 @@ dev_dependencies:
   hive_generator: ^2.0.0
   riverpod_generator: ^2.3.11
   riverpod_lint: ^2.3.9
+  flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true
@@ -40,3 +41,17 @@ flutter:
     - assets/images/
     - assets/images/background/
     - assets/images/google_wallet/
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/Logo.png"
+  min_sdk_android: 21
+  remove_alpha_ios: true
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/LogoTransparent.png"
+  web:
+    generate: true
+    image_path: "assets/images/LogoTransparentLg.png"
+    background_color: "#FFFFFF"
+    theme_color: "#FFFFFF"
