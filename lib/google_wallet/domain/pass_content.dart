@@ -9,6 +9,7 @@ class PassContent {
   final String imageDesc;
   final String title;
   final String header;
+  final String sourceUrl;
 
   const PassContent({
     required this.color,
@@ -17,6 +18,7 @@ class PassContent {
     required this.imageDesc,
     required this.title,
     required this.header,
+    required this.sourceUrl,
   });
 
   factory PassContent.fromPassType(PassType passType) {
@@ -29,7 +31,9 @@ class PassContent {
           imageDesc: "Floating Water Bottle",
           title: "Bottles In Water",
           header: "53% of all plastic water bottles end up in the ocean.",
+          sourceUrl: "https://lastbottle.com/water",
         );
+
       case PassType.trash:
         return const PassContent(
           color: "#4287f5",
@@ -39,6 +43,7 @@ class PassContent {
           imageDesc: "Landfill",
           title: "Bottles In Landfill",
           header: "22% of all plastic water bottles end up in landfills",
+          sourceUrl: "https://lastbottle.com/landfill",
         );
 
       case PassType.recycle:
@@ -49,6 +54,7 @@ class PassContent {
           imageDesc: "Floating Water Bottle",
           title: "Recycled",
           header: "Only 9% of all plastic water bottles get recycled",
+          sourceUrl: "https://lastbottle.com/recycle",
         );
     }
   }

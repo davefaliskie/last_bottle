@@ -25,6 +25,7 @@ class PassData {
       "image_desc": passContent.imageDesc,
       "title": passContent.title,
       "header": passContent.header,
+      "source_url": passContent.sourceUrl,
     };
   }
 }
