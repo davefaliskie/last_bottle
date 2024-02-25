@@ -41,17 +41,18 @@ flutter:
     - assets/images/
     - assets/images/background/
     - assets/images/google_wallet/
+    - assets/images/logo/
 
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/images/Logo.png"
+  image_path: "assets/images/logo/Logo.png"
   min_sdk_android: 21
   remove_alpha_ios: true
   adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: "assets/images/LogoTransparent.png"
+  adaptive_icon_foreground: "assets/images/logo/LogoTransparent.png"
   web:
     generate: true
-    image_path: "assets/images/LogoTransparentLg.png"
+    image_path: "assets/images/logo/LogoTransparentLg.png"
     background_color: "#FFFFFF"
     theme_color: "#FFFFFF"
