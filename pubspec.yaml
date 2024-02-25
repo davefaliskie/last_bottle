@@ -21,6 +21,7 @@ dependencies:
   uuid: ^4.3.3
   flutter_riverpod: ^2.4.10
   riverpod_annotation: ^2.3.4
+  animate_gradient: ^0.0.2+1
 
 dev_dependencies:
   flutter_test:

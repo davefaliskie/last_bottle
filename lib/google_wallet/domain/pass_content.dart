@@ -10,6 +10,8 @@ class PassContent {
   final String title;
   final String header;
   final String sourceUrl;
+  final MaterialColor bgColor;
+  final MaterialAccentColor bgColor2;
 
   const PassContent({
     required this.color,
@@ -19,6 +21,8 @@ class PassContent {
     required this.title,
     required this.header,
     required this.sourceUrl,
+    this.bgColor = Colors.blue,
+    this.bgColor2 = Colors.blueAccent,
   });
 
   factory PassContent.fromPassType(PassType passType) {
@@ -27,6 +31,8 @@ class PassContent {
         return const PassContent(
           color: "#32a852",
           dartColor: Color(0xFF32a852),
+          bgColor: Colors.amber,
+          bgColor2: Colors.amberAccent,
           imageUrl: "https://images.unsplash.com/photo-1558640476-437a2b9438a2",
           imageDesc: "Floating Water Bottle",
           title: "Bottles In Water",
