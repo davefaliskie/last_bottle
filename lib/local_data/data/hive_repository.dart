@@ -32,6 +32,17 @@ class HiveRepository {
     debugPrint("BOX: ${box.toMap()}");
   }
 
+  void saveSpin({required bool didWin}) {
+    if (didWin == true) {
+      final winEndCount = box.get("winEndCount", defaultValue: 0);
+      box.put("winEndCount", winEndCount + 1);
+    } else {
+      final trashEndCount = box.get("trashEndCount", defaultValue: 0);
+      box.put("trashEndCount", trashEndCount + 1);
+    }
+    debugPrint("BOX: ${box.toMap()}");
+  }
+
   // The level will be set based on the attempt conditions
   int setLevel() {
     // todo calculate which level to show.

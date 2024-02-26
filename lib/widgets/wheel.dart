@@ -4,7 +4,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:last_bottle/constants.dart';
 import 'package:last_bottle/local_data/data/hive_repository.dart';
+import 'package:last_bottle/router.dart';
 
 class Wheel extends ConsumerStatefulWidget {
   const Wheel({super.key});
@@ -15,6 +18,7 @@ class Wheel extends ConsumerStatefulWidget {
 
 class _WheelState extends ConsumerState<Wheel> {
   StreamController<int> controller = StreamController<int>();
+  bool spinWon = false;
 
   @override
   void dispose() {
@@ -71,14 +75,94 @@ class _WheelState extends ConsumerState<Wheel> {
         int outcome = outcomes[Random().nextInt(outcomes.length)];
         debugPrint("Outcome: $outcome");
 
+        if (outcome == 0) {
+          setState(() => spinWon = true);
+        }
+
         controller.add(outcome);
       },
       onAnimationEnd: () {
-        debugPrint("Done");
-
-        // change state for win/lose
+        // Save Outcome to Hive
+        ref.read(hiveRepositoryProvider).saveSpin(didWin: spinWon);
 
         // update hive counts with outcome
+        if (spinWon == true) {
+          _winDialog();
+        } else {
+          _landfillDialog();
+        }
+      },
+    );
+  }
+
+  // todo consider combining the Dialogs
+  Future<void> _landfillDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Column(
+          children: [
+            AlertDialog(
+              insetPadding: const EdgeInsets.all(defaultMargin),
+              title: const Text('Oh No, Landfill'),
+              content: const SingleChildScrollView(
+                child: ListBody(
+                  children: <Widget>[
+                    Text(
+                      'This happens all the time, just because something was recycled does not mean it will be recycled successfully.',
+                    ),
+                  ],
+                ),
+              ),
+              actionsAlignment: MainAxisAlignment.center,
+              actions: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    context.goNamed(AppRoute.game.name);
+                  },
+                  child: const Text("Play Again"),
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _winDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Column(
+          children: [
+            AlertDialog(
+              insetPadding: const EdgeInsets.all(defaultMargin),
+              title: const Text('You got reused!'),
+              content: const SingleChildScrollView(
+                child: ListBody(
+                  children: <Widget>[
+                    Text(
+                      "Did you know the vast majority of all plastic produced can't be or won't be recycled. The plastics industry promoted recycling to keep plastic bans at bay.",
+                    ),
+                  ],
+                ),
+              ),
+              actionsAlignment: MainAxisAlignment.center,
+              actions: <Widget>[
+                // todo update
+                ElevatedButton(
+                  onPressed: () {
+                    context.goNamed(AppRoute.game.name);
+                  },
+                  child: const Text("See Your Stats"),
+                ),
+              ],
+            ),
+          ],
+        );
       },
     );
   }
