@@ -16,8 +16,8 @@ class ObstacleData {
 }
 
 class LevelData {
-  final leftSide = -(gameWidth / 2) + (obstacleWidth / 2);
-  final rightSide = (gameWidth / 2) - (obstacleWidth / 2);
+  final leftSide = -(gameWidth / 2) + (obstacleSize / 2);
+  final rightSide = (gameWidth / 2) - (obstacleSize / 2);
   final initialMaxHeight = -(gameHeight / 2);
 
   // A level can fill extendedHeight (Y).
@@ -25,7 +25,7 @@ class LevelData {
   // with each row being a height of obstacleHeight * 3
 
   // 19 "rows"
-  final obstacleSpacing = (obstacleHeight * 2);
+  final obstacleSpacing = (obstacleSize * 2);
 
   List<ObstacleData> level1() {
     List<ObstacleData> level = [];
@@ -190,7 +190,7 @@ class LevelData {
   }) {
     return [
       ObstacleData(
-        position: Vector2(-obstacleWidth, yPosition),
+        position: Vector2(-obstacleSize, yPosition),
         type: type,
       ),
       ObstacleData(
@@ -198,7 +198,7 @@ class LevelData {
         type: type,
       ),
       ObstacleData(
-        position: Vector2(obstacleWidth, yPosition),
+        position: Vector2(obstacleSize, yPosition),
         type: type,
       ),
     ];

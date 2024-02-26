@@ -7,8 +7,12 @@ const gameHeight = 1920.0;
 
 const extendedHeight = gameHeight * 4;
 
-const obstacleWidth = 200.0;
-const obstacleHeight = 200.0;
+// player's image size is 70x200
+const playerWidth = 52.5;
+const playerHeight = 150.0;
+
+// obstacle's image size are 200x200
+const obstacleSize = 200.0;
 
 const defaultMargin = 12.0;
 

@@ -6,9 +6,10 @@ import 'package:last_bottle/recycle_game/recycle_game.dart';
 class Player extends SpriteComponent with HasGameRef<RecycleGame> {
   @override
   Future<void> onLoad() async {
-    sprite = await Sprite.load('bottle.png');
-    size = Vector2.all(100);
+    sprite = await Sprite.load('player.png');
+    size = Vector2(playerWidth, playerHeight);
     position = Vector2(0, -(gameRef.size.y / 2) + (size.y / 2));
+    angle = 0.5;
     anchor = Anchor.center;
     add(RectangleHitbox());
   }

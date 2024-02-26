@@ -29,7 +29,7 @@ class RecycleGame extends FlameGame<RecycleWorld>
 
   @override
   Color backgroundColor() {
-    return Colors.amber;
+    return Colors.white;
   }
 
   @override

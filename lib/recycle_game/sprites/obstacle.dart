@@ -18,7 +18,7 @@ class Obstacle extends SpriteComponent
   @override
   Future<void> onLoad() async {
     sprite = await Sprite.load(spritePath);
-    size = Vector2(obstacleWidth, obstacleHeight);
+    size = Vector2.all(obstacleSize);
     anchor = Anchor.center;
     add(RectangleHitbox());
   }
