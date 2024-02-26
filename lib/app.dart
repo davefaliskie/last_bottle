@@ -40,6 +40,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
   // Handle the game's End Logic in this callback to access context & ref
   RecycleGame getGame() {
     return RecycleGame(
+      level: ref.read(hiveRepositoryProvider).setLevel(),
       endAndGo: (GameEndState endState) {
         // save attempt
         ref.read(hiveRepositoryProvider).saveAttempt(endState);

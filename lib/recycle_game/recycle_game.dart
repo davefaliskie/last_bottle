@@ -9,15 +9,19 @@ import 'package:last_bottle/recycle_game/recycle_world.dart';
 
 class RecycleGame extends FlameGame<RecycleWorld>
     with HorizontalDragDetector, KeyboardEvents, HasCollisionDetection {
-  final void Function(GameEndState endState) endAndGo;
-  RecycleGame({required this.endAndGo})
-      : super(
+  RecycleGame({
+    required this.level,
+    required this.endAndGo,
+  }) : super(
           world: RecycleWorld(),
           camera: CameraComponent.withFixedResolution(
             width: gameWidth,
             height: gameHeight,
           ),
         );
+
+  final int level;
+  final void Function(GameEndState endState) endAndGo;
 
   @override
   Future<void> onLoad() async {

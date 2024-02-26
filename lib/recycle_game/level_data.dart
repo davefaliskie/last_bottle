@@ -20,11 +20,23 @@ class LevelData {
   final leftSide = -(gameWidth / 2) + (obstacleSize / 2);
   final rightSide = (gameWidth / 2) - (obstacleSize / 2);
   final initialMaxHeight = -(gameHeight / 2);
-
-  // MAX 15 total rows
   final obstacleSpacing = obstacleSize + (playerHeight * 2);
 
-  List<ObstacleData> level1() {
+  List<ObstacleData> getLevel(int levelNumber) {
+    final Map<int, List<ObstacleData> Function()> levelConfigs = {
+      1: () => _level1(),
+      2: () => _level2(),
+    };
+    if (levelConfigs.containsKey(levelNumber)) {
+      return levelConfigs[levelNumber]!();
+    } else {
+      throw Exception('Level not found');
+    }
+  }
+
+  // MAX 15 total rows
+
+  List<ObstacleData> _level1() {
     List<ObstacleData> level = [];
 
     level.addAll(obstacleRow(
@@ -40,6 +52,54 @@ class LevelData {
     level.addAll(obstacleRow(
       row: 2,
       item3: ObstacleType.trash,
+      item4: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 4,
+      item1: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 5,
+      item4: ObstacleType.trash,
+      item5: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 7,
+      item2: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 8,
+      item1: ObstacleType.binTrash,
+      item2: ObstacleType.binTrash,
+      item3: ObstacleType.binRecycle,
+      item4: ObstacleType.binTrash,
+      item5: ObstacleType.binTrash,
+    ));
+
+    return level;
+  }
+
+  List<ObstacleData> _level2() {
+    List<ObstacleData> level = [];
+
+    level.addAll(obstacleRow(
+      row: 0,
+      item1: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 1,
+      item1: ObstacleType.water,
+      item5: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 2,
+      item3: ObstacleType.water,
       item4: ObstacleType.trash,
     ));
 

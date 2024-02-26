@@ -31,6 +31,15 @@ class HiveRepository {
 
     debugPrint("BOX: ${box.toMap()}");
   }
+
+  // The level will be set based on the attempt conditions
+  int setLevel() {
+    // todo calculate which level to show.
+    if (box.get("totalAttempts") > 30) {
+      return 2;
+    }
+    return 1;
+  }
 }
 
 @Riverpod(keepAlive: true)

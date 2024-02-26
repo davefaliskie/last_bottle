@@ -41,7 +41,7 @@ class RecycleWorld extends World with HasGameRef<RecycleGame> {
   FutureOr<void> onLoad() {
     super.onLoad();
 
-    loadLevel(LevelData().level1());
+    loadLevel(LevelData().getLevel(game.level));
 
     // Add player last so it's on top.
     player = Player();
