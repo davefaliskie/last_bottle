@@ -22,7 +22,7 @@ class RecycleGame extends FlameGame<RecycleWorld>
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    debugMode = true;
+    // debugMode = true;
 
     // camera.backdrop.add(Background(speed: 10));
   }

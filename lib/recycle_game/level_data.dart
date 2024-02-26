@@ -25,7 +25,7 @@ class LevelData {
   // with each row being a height of obstacleHeight * 3
 
   // 19 "rows"
-  final obstacleSpacing = (obstacleSize * 2);
+  final obstacleSpacing = obstacleSize + (playerHeight * 2);
 
   List<ObstacleData> level1() {
     List<ObstacleData> level = [];

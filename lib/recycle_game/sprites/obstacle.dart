@@ -11,16 +11,23 @@ class Obstacle extends SpriteComponent
     with HasGameRef<RecycleGame>, CollisionCallbacks {
   Obstacle({
     required this.spritePath,
+    this.cirlceHitbox = false,
   });
 
   final String spritePath;
+  final bool cirlceHitbox;
 
   @override
   Future<void> onLoad() async {
     sprite = await Sprite.load(spritePath);
     size = Vector2.all(obstacleSize);
     anchor = Anchor.center;
-    add(RectangleHitbox());
+
+    if (cirlceHitbox == true) {
+      add(CircleHitbox());
+    } else {
+      add(RectangleHitbox());
+    }
   }
 
   @override
@@ -34,7 +41,11 @@ class Obstacle extends SpriteComponent
 }
 
 class ObstacleTrash extends Obstacle {
-  ObstacleTrash() : super(spritePath: 'trash.png');
+  ObstacleTrash()
+      : super(
+          spritePath: 'trash.png',
+          cirlceHitbox: true,
+        );
 
   @override
   void onCollisionStart(
@@ -50,7 +61,11 @@ class ObstacleTrash extends Obstacle {
 }
 
 class ObstacleWater extends Obstacle {
-  ObstacleWater() : super(spritePath: 'water.png');
+  ObstacleWater()
+      : super(
+          spritePath: 'water.png',
+          cirlceHitbox: true,
+        );
 
   @override
   void onCollisionStart(
