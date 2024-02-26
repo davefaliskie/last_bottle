@@ -24,6 +24,8 @@ class RecycleWorld extends World with HasGameRef<RecycleGame> {
         obstacle = ObstacleTrash()..position = data.position;
       } else if (data.type == ObstacleType.water) {
         obstacle = ObstacleWater()..position = data.position;
+      } else if (data.type == ObstacleType.fire) {
+        obstacle = ObstacleFire()..position = data.position;
       } else if (data.type == ObstacleType.binTrash) {
         obstacle = BinTrash()..position = data.position;
       } else if (data.type == ObstacleType.binRecycle) {

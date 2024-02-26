@@ -4,6 +4,7 @@ import 'package:last_bottle/constants.dart';
 enum ObstacleType {
   trash,
   water,
+  fire,
   binTrash,
   binRecycle,
 }
@@ -41,7 +42,11 @@ class LevelData {
       yPosition: obstacleSpacing * 2,
       type: ObstacleType.binRecycle,
     ));
-    level.addAll(singleLeft(yPosition: obstacleSpacing * 2));
+
+    level.addAll(singleLeft(
+      yPosition: obstacleSpacing * 2,
+      type: ObstacleType.fire,
+    ));
 
     level.addAll(singleRight(
       yPosition: obstacleSpacing * 3,

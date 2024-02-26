@@ -79,3 +79,23 @@ class ObstacleWater extends Obstacle {
     super.onCollisionStart(intersectionPoints, other);
   }
 }
+
+class ObstacleFire extends Obstacle {
+  ObstacleFire()
+      : super(
+          spritePath: 'fire.png',
+          cirlceHitbox: true,
+        );
+
+  @override
+  void onCollisionStart(
+    Set<Vector2> intersectionPoints,
+    PositionComponent other,
+  ) {
+    if (other is Player) {
+      debugPrint("Hit Fire");
+      game.endAndGo(AppRoute.endFire);
+    }
+    super.onCollisionStart(intersectionPoints, other);
+  }
+}

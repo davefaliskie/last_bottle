@@ -5,6 +5,7 @@ import 'package:last_bottle/google_wallet/domain/pass_data.dart';
 import 'package:last_bottle/google_wallet/views/add_to_wallet_screen.dart';
 import 'package:last_bottle/views/drink_water_screen.dart';
 import 'package:last_bottle/views/error_screen.dart';
+import 'package:last_bottle/views/fire_end_screen.dart';
 import 'package:last_bottle/views/recycle_end_screen.dart';
 import 'package:last_bottle/views/trash_end_screen.dart';
 import 'package:last_bottle/views/water_end_screen.dart';
@@ -14,12 +15,13 @@ enum AppRoute {
   game,
   endTrash,
   endWater,
+  endFire,
   endRecycle,
   addToWallet,
 }
 
 final GoRouter router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/game',
   routes: <RouteBase>[
     GoRoute(
       path: '/',
@@ -55,6 +57,15 @@ final GoRouter router = GoRouter(
         key: state.pageKey,
         fullscreenDialog: true,
         child: const WaterEndScreen(),
+      ),
+    ),
+    GoRoute(
+      path: "/endFire",
+      name: AppRoute.endFire.name,
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        fullscreenDialog: true,
+        child: const FireEndScreen(),
       ),
     ),
     GoRoute(
