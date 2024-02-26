@@ -21,211 +21,117 @@ class LevelData {
   final rightSide = (gameWidth / 2) - (obstacleSize / 2);
   final initialMaxHeight = -(gameHeight / 2);
 
-  // A level can fill extendedHeight (Y).
-  // First determine how many rows of obsticles we'll have
-  // with each row being a height of obstacleHeight * 3
-
-  // 19 "rows"
+  // MAX 15 total rows
   final obstacleSpacing = obstacleSize + (playerHeight * 2);
 
   List<ObstacleData> level1() {
     List<ObstacleData> level = [];
 
-    level.addAll(leftRight(
-      yPosition: obstacleSpacing * 0,
-      type: ObstacleType.water,
+    level.addAll(obstacleRow(
+      row: 0,
+      item1: ObstacleType.trash,
     ));
 
-    level.addAll(middleBlocked(yPosition: obstacleSpacing * 1));
-
-    level.addAll(singleLeftWall(
-      yPosition: obstacleSpacing * 2,
-      type: ObstacleType.binRecycle,
+    level.addAll(obstacleRow(
+      row: 1,
+      item5: ObstacleType.trash,
     ));
 
-    level.addAll(singleLeft(
-      yPosition: obstacleSpacing * 2,
-      type: ObstacleType.fire,
+    level.addAll(obstacleRow(
+      row: 2,
+      item3: ObstacleType.trash,
+      item4: ObstacleType.trash,
     ));
 
-    level.addAll(singleRight(
-      yPosition: obstacleSpacing * 3,
-      type: ObstacleType.water,
+    level.addAll(obstacleRow(
+      row: 4,
+      item1: ObstacleType.trash,
     ));
 
-    level.addAll(middleGaped(yPosition: obstacleSpacing * 4));
-
-    level.addAll(tripple(yPosition: obstacleSpacing * 5));
-
-    // REPEATING
-
-    level.addAll(leftRight(
-      yPosition: obstacleSpacing * 6,
-      type: ObstacleType.water,
+    level.addAll(obstacleRow(
+      row: 5,
+      item4: ObstacleType.trash,
+      item5: ObstacleType.trash,
     ));
 
-    level.addAll(middleBlocked(yPosition: obstacleSpacing * 7));
-
-    level.addAll(singleLeftWall(yPosition: obstacleSpacing * 8));
-    level.addAll(singleLeft(yPosition: obstacleSpacing * 8));
-
-    level.addAll(singleRight(yPosition: obstacleSpacing * 9));
-
-    level.addAll(middleGaped(
-      yPosition: obstacleSpacing * 10,
-      type: ObstacleType.water,
+    level.addAll(obstacleRow(
+      row: 7,
+      item2: ObstacleType.trash,
     ));
 
-    level.addAll(tripple(yPosition: obstacleSpacing * 11));
-
-    level.addAll(leftRight(yPosition: obstacleSpacing * 12));
-
-    level.addAll(middleBlocked(yPosition: obstacleSpacing * 13));
-
-    level.addAll(singleLeftWall(yPosition: obstacleSpacing * 14));
-    level.addAll(singleLeft(yPosition: obstacleSpacing * 15));
-
-    level.addAll(singleRight(yPosition: obstacleSpacing * 16));
-
-    level.addAll(middleGaped(yPosition: obstacleSpacing * 17));
-
-    level.addAll(tripple(yPosition: obstacleSpacing * 18));
-
-    // ADD ROW OF BINS AT extendedHeight
-    level.addAll(
-      tripple(
-        yPosition: extendedHeight,
-        type: ObstacleType.binTrash,
-      ),
-    );
-
-    level.addAll(
-      middleGaped(
-        yPosition: extendedHeight,
-        type: ObstacleType.binRecycle,
-      ),
-    );
+    level.addAll(obstacleRow(
+      row: 8,
+      item1: ObstacleType.binTrash,
+      item2: ObstacleType.binTrash,
+      item3: ObstacleType.binRecycle,
+      item4: ObstacleType.binTrash,
+      item5: ObstacleType.binTrash,
+    ));
 
     return level;
   }
 
-  List<ObstacleData> leftRight({
-    required double yPosition,
-    ObstacleType type = ObstacleType.trash,
+  // Each obstacleRow can have 5 obstacles. Each will be 1/5 the screen width
+  // this means if all 5 are included the player will have to hit one.
+  // visually the items will be displayed [1,2,3,4,5]
+  //
+  // row (int) should be between 0..14
+  List<ObstacleData> obstacleRow({
+    required int row,
+    ObstacleType? item1,
+    ObstacleType? item2,
+    ObstacleType? item3,
+    ObstacleType? item4,
+    ObstacleType? item5,
   }) {
-    return [
-      ObstacleData(
-        position: Vector2(leftSide, yPosition),
-        type: type,
-      ),
-      ObstacleData(
-        position: Vector2(rightSide, yPosition),
-        type: type,
-      ),
-    ];
-  }
+    List<ObstacleData> content = [];
+    final yPosition = obstacleSpacing * row;
 
-  List<ObstacleData> singleLeftWall({
-    required double yPosition,
-    ObstacleType type = ObstacleType.trash,
-  }) {
-    return [
-      ObstacleData(
-        position: Vector2(leftSide, yPosition),
-        type: type,
-      ),
-    ];
-  }
+    if (row < 0 || row > 14) {
+      throw Exception("Row is out of range must be between 0..14");
+    }
 
-  List<ObstacleData> singleRightWall({
-    required double yPosition,
-    ObstacleType type = ObstacleType.trash,
-  }) {
-    return [
-      ObstacleData(
-        position: Vector2(rightSide, yPosition),
-        type: type,
-      ),
-    ];
-  }
+    if (item1 != null) {
+      content.add(
+        ObstacleData(
+          position: Vector2(leftSide, yPosition),
+          type: item1,
+        ),
+      );
+    }
+    if (item2 != null) {
+      content.add(
+        ObstacleData(
+          position: Vector2(leftSide + (gameWidth / 5), yPosition),
+          type: item2,
+        ),
+      );
+    }
+    if (item3 != null) {
+      content.add(
+        ObstacleData(
+          position: Vector2(0, yPosition),
+          type: item3,
+        ),
+      );
+    }
+    if (item4 != null) {
+      content.add(
+        ObstacleData(
+          position: Vector2(rightSide - (gameWidth / 5), yPosition),
+          type: item4,
+        ),
+      );
+    }
+    if (item5 != null) {
+      content.add(
+        ObstacleData(
+          position: Vector2(rightSide, yPosition),
+          type: item5,
+        ),
+      );
+    }
 
-  List<ObstacleData> singleLeft({
-    required double yPosition,
-    ObstacleType type = ObstacleType.trash,
-  }) {
-    return [
-      ObstacleData(
-        position: Vector2(-(gameWidth / 4), yPosition),
-        type: type,
-      ),
-    ];
-  }
-
-  List<ObstacleData> singleRight({
-    required double yPosition,
-    ObstacleType type = ObstacleType.trash,
-  }) {
-    return [
-      ObstacleData(
-        position: Vector2((gameWidth / 4), yPosition),
-        type: type,
-      ),
-    ];
-  }
-
-  List<ObstacleData> middleGaped({
-    required double yPosition,
-    ObstacleType type = ObstacleType.trash,
-  }) {
-    return [
-      ObstacleData(
-        position: Vector2(-(gameWidth / 5), yPosition),
-        type: type,
-      ),
-      ObstacleData(
-        position: Vector2((gameWidth / 5), yPosition),
-        type: type,
-      ),
-    ];
-  }
-
-  List<ObstacleData> middleBlocked({
-    required double yPosition,
-    ObstacleType type = ObstacleType.trash,
-  }) {
-    return [
-      ObstacleData(
-        position: Vector2(-obstacleSize, yPosition),
-        type: type,
-      ),
-      ObstacleData(
-        position: Vector2(0, yPosition),
-        type: type,
-      ),
-      ObstacleData(
-        position: Vector2(obstacleSize, yPosition),
-        type: type,
-      ),
-    ];
-  }
-
-  List<ObstacleData> tripple({
-    required double yPosition,
-    ObstacleType type = ObstacleType.trash,
-  }) {
-    return [
-      ObstacleData(
-        position: Vector2(leftSide, yPosition),
-        type: type,
-      ),
-      ObstacleData(
-        position: Vector2(0, yPosition),
-        type: type,
-      ),
-      ObstacleData(
-        position: Vector2(rightSide, yPosition),
-        type: type,
-      ),
-    ];
+    return content;
   }
 }
