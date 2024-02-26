@@ -4,12 +4,12 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:last_bottle/constants.dart';
+import 'package:last_bottle/local_data/domain/game_end_state.dart';
 import 'package:last_bottle/recycle_game/recycle_world.dart';
-import 'package:last_bottle/router.dart';
 
 class RecycleGame extends FlameGame<RecycleWorld>
     with HorizontalDragDetector, KeyboardEvents, HasCollisionDetection {
-  final void Function(AppRoute routeName) endAndGo;
+  final void Function(GameEndState endState) endAndGo;
   RecycleGame({required this.endAndGo})
       : super(
           world: RecycleWorld(),
