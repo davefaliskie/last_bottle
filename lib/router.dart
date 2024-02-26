@@ -21,7 +21,7 @@ enum AppRoute {
 }
 
 final GoRouter router = GoRouter(
-  initialLocation: '/game',
+  initialLocation: '/endRecycle',
   routes: <RouteBase>[
     GoRoute(
       path: '/',
