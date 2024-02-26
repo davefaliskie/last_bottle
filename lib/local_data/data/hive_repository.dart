@@ -35,7 +35,7 @@ class HiveRepository {
   // The level will be set based on the attempt conditions
   int setLevel() {
     // todo calculate which level to show.
-    if (box.get("totalAttempts") > 30) {
+    if (box.get("totalAttempts", defaultValue: 0) > 30) {
       return 2;
     }
     return 1;
