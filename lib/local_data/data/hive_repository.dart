@@ -40,6 +40,14 @@ class HiveRepository {
     }
     return 1;
   }
+
+  bool canWin() {
+    // don't allow winning until player has attempted 5x & seen all levels
+    if (box.get("recycleEndCount", defaultValue: 0) > 4) {
+      return true;
+    }
+    return false;
+  }
 }
 
 @Riverpod(keepAlive: true)

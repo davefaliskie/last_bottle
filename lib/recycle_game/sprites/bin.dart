@@ -59,7 +59,7 @@ class BinRecycle extends Obstacle {
   ) {
     if (other is Player) {
       debugPrint("Went to Recycling Bin");
-      game.endAndGo(GameEndState.recycled);
+      game.endAndGo(GameEndState.recycle);
     }
     super.onCollisionStart(intersectionPoints, other);
   }

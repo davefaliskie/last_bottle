@@ -1,16 +1,19 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:last_bottle/local_data/data/hive_repository.dart';
 
-class Wheel extends StatefulWidget {
+class Wheel extends ConsumerStatefulWidget {
   const Wheel({super.key});
 
   @override
-  State<Wheel> createState() => _WheelState();
+  ConsumerState<Wheel> createState() => _WheelState();
 }
 
-class _WheelState extends State<Wheel> {
+class _WheelState extends ConsumerState<Wheel> {
   StreamController<int> controller = StreamController<int>();
 
   @override
@@ -25,6 +28,7 @@ class _WheelState extends State<Wheel> {
       key: const Key("wheel"),
       animateFirst: false,
       selected: controller.stream,
+      hapticImpact: HapticImpact.medium,
       indicators: [
         FortuneIndicator(
           alignment: Alignment.topCenter,
@@ -56,8 +60,25 @@ class _WheelState extends State<Wheel> {
         // whatever we add to the controller is the value that will be picked
         // key:
         // 0 => Recycle
-        // 1-8 => Landfil
-        controller.add(7);
+        // 1-8 => Landfill
+        List<int> outcomes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        if (ref.read(hiveRepositoryProvider).canWin() == true) {
+          debugPrint("WINNING is possible");
+          outcomes.add(0);
+        }
+
+        // randomly choose one of the options
+        int outcome = outcomes[Random().nextInt(outcomes.length)];
+        debugPrint("Outcome: $outcome");
+
+        controller.add(outcome);
+      },
+      onAnimationEnd: () {
+        debugPrint("Done");
+
+        // change state for win/lose
+
+        // update hive counts with outcome
       },
     );
   }

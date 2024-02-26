@@ -36,7 +36,7 @@ class RecycleEndScreen extends StatelessWidget {
                 onPressed: () {
                   context.goNamed(AppRoute.game.name);
                 },
-                child: const Text("Try Again"),
+                child: const Text("Play Again"),
               ),
             ],
           ),

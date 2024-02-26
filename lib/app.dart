@@ -56,7 +56,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
           case GameEndState.fire:
             context.goNamed(AppRoute.endFire.name);
             break;
-          case GameEndState.recycled:
+          case GameEndState.recycle:
             context.goNamed(AppRoute.endRecycle.name);
             break;
           default:
