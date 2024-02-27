@@ -68,7 +68,11 @@ class AddToWalletScreen extends StatelessWidget {
                   gapH8,
                   TextButton(
                     onPressed: () {
-                      context.goNamed(AppRoute.drinkWater.name);
+                      if (context.canPop()) {
+                        context.pop();
+                      } else {
+                        context.goNamed(AppRoute.menu.name);
+                      }
                     },
                     child: const Text(
                       "Continue",

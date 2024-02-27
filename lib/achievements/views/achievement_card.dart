@@ -12,17 +12,23 @@ class AchievementCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Column(
-        children: [
-          Text(
-            achievement.title,
-            style: Theme.of(context).textTheme.titleSmall,
-          ),
-          Text(
-            achievement.hint,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-        ],
+      color: achievement.obtained
+          ? achievement.passContent.dartColor
+          : Colors.grey,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text(
+              achievement.title,
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+            Text(
+              achievement.hint,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -3,5 +3,6 @@ enum GameEndState {
   water,
   fire,
   recycle,
+  turtle,
   win,
 }

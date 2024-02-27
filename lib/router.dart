@@ -3,13 +3,12 @@ import 'package:go_router/go_router.dart';
 import 'package:last_bottle/app.dart';
 import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 import 'package:last_bottle/google_wallet/views/add_to_wallet_screen.dart';
+import 'package:last_bottle/local_data/domain/game_end_state.dart';
 import 'package:last_bottle/views/drink_water_screen.dart';
+import 'package:last_bottle/views/end_screen.dart';
 import 'package:last_bottle/views/error_screen.dart';
-import 'package:last_bottle/views/fire_end_screen.dart';
 import 'package:last_bottle/views/menu_screen.dart';
 import 'package:last_bottle/views/recycle_end_screen.dart';
-import 'package:last_bottle/views/trash_end_screen.dart';
-import 'package:last_bottle/views/water_end_screen.dart';
 
 enum AppRoute {
   drinkWater,
@@ -49,7 +48,7 @@ final GoRouter router = GoRouter(
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
         fullscreenDialog: true,
-        child: const TrashEndScreen(),
+        child: const EndScreen(gameEndState: GameEndState.trash),
       ),
     ),
     GoRoute(
@@ -58,7 +57,7 @@ final GoRouter router = GoRouter(
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
         fullscreenDialog: true,
-        child: const WaterEndScreen(),
+        child: const EndScreen(gameEndState: GameEndState.water),
       ),
     ),
     GoRoute(
@@ -67,7 +66,7 @@ final GoRouter router = GoRouter(
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
         fullscreenDialog: true,
-        child: const FireEndScreen(),
+        child: const EndScreen(gameEndState: GameEndState.fire),
       ),
     ),
     GoRoute(

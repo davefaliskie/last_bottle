@@ -10,6 +10,10 @@ part 'hive_repository.g.dart';
 class HiveRepository {
   final box = Hive.box("gameData");
 
+  dynamic getValue(String key) {
+    return box.get(key);
+  }
+
   String get userId {
     if (box.get("userId") != null) {
       return box.get("userId");
@@ -29,6 +33,8 @@ class HiveRepository {
     final endCounterKey = "${endState.name}EndCount";
     final endCount = box.get(endCounterKey, defaultValue: 0);
     box.put(endCounterKey, endCount + 1);
+
+    awardPasses();
 
     debugPrint("BOX: ${box.toMap()}");
   }
@@ -67,10 +73,34 @@ class HiveRepository {
     return false;
   }
 
-  // sets the pass to awarded
-  // todo award Passes
-  void awardPass(PassType passType) {
-    box.put("${passType.name}PassAwarded", true);
+  // This is called after each game ends,
+  // passes are awarded based on specific data numbers.
+  // passes can't be "lost", and maybe set to true multiple time but that's okay for now
+  // * Each PassType should have a condition to be marked true
+  void awardPasses() {
+    if (box.get("trashEndCount", defaultValue: 0) == 1) {
+      box.put("${PassType.trash.name}PassAwarded", true);
+    }
+
+    if (box.get("waterEndCount", defaultValue: 0) == 1) {
+      box.put("${PassType.water.name}PassAwarded", true);
+    }
+
+    if (box.get("fireEndCount", defaultValue: 0) == 1) {
+      box.put("${PassType.fire.name}PassAwarded", true);
+    }
+
+    if (box.get("turtleEndCount", defaultValue: 0) == 1) {
+      box.put("${PassType.turtle.name}PassAwarded", true);
+    }
+
+    if (box.get("recycleEndCount", defaultValue: 0) == 5) {
+      box.put("${PassType.recycle.name}PassAwarded", true);
+    }
+
+    if (box.get("winEndCount", defaultValue: 0) == 1) {
+      box.put("${PassType.recycleSuccess.name}PassAwarded", true);
+    }
   }
 
   // see if a pass was awarded by passType
