@@ -62,17 +62,7 @@ class _WheelState extends ConsumerState<Wheel> {
       ],
       onFling: () {
         // whatever we add to the controller is the value that will be picked
-        // key:
-        // 0 => Recycle
-        // 1-8 => Landfill
-        List<int> outcomes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-        if (ref.read(hiveRepositoryProvider).canWin() == true) {
-          debugPrint("WINNING is possible");
-          outcomes.add(0);
-        }
-
-        // randomly choose one of the options
-        int outcome = outcomes[Random().nextInt(outcomes.length)];
+        int outcome = _getOutcome();
         debugPrint("Outcome: $outcome");
 
         if (outcome == 0) {
@@ -93,6 +83,21 @@ class _WheelState extends ConsumerState<Wheel> {
         }
       },
     );
+  }
+
+  int _getOutcome() {
+    debugPrint("getting outcome");
+    // There are 10 total options of the spinner outcome:
+    // 0 => Recycle (Win)
+    // 1-8 => Landfill (Lose)
+    List<int> outcomes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    if (ref.read(hiveRepositoryProvider).canWin() == true) {
+      debugPrint("WINNING is possible");
+      outcomes.add(0);
+    }
+
+    // randomly choose one of the options
+    return outcomes[Random().nextInt(outcomes.length)];
   }
 
   // todo consider combining the Dialogs
