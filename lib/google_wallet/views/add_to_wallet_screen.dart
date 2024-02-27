@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:last_bottle/constants.dart';
 import 'package:last_bottle/google_wallet/domain/pass_content.dart';
-import 'package:last_bottle/google_wallet/domain/pass_data.dart';
+import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 import 'package:last_bottle/google_wallet/views/add_to_wallet_button.dart';
 import 'package:last_bottle/google_wallet/views/fact_card.dart';
 import 'package:last_bottle/router.dart';

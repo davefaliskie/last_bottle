@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:last_bottle/app.dart';
-import 'package:last_bottle/google_wallet/domain/pass_data.dart';
+import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 import 'package:last_bottle/google_wallet/views/add_to_wallet_screen.dart';
 import 'package:last_bottle/views/drink_water_screen.dart';
 import 'package:last_bottle/views/error_screen.dart';
 import 'package:last_bottle/views/fire_end_screen.dart';
+import 'package:last_bottle/views/menu_screen.dart';
 import 'package:last_bottle/views/recycle_end_screen.dart';
 import 'package:last_bottle/views/trash_end_screen.dart';
 import 'package:last_bottle/views/water_end_screen.dart';
@@ -17,11 +18,12 @@ enum AppRoute {
   endWater,
   endFire,
   endRecycle,
+  menu,
   addToWallet,
 }
 
 final GoRouter router = GoRouter(
-  initialLocation: '/endRecycle',
+  initialLocation: '/menu',
   routes: <RouteBase>[
     GoRoute(
       path: '/',
@@ -75,6 +77,15 @@ final GoRouter router = GoRouter(
         key: state.pageKey,
         fullscreenDialog: true,
         child: const RecycleEndScreen(),
+      ),
+    ),
+    GoRoute(
+      path: "/menu",
+      name: AppRoute.menu.name,
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        fullscreenDialog: true,
+        child: const MenuScreen(),
       ),
     ),
     GoRoute(

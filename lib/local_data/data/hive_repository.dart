@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 import 'package:last_bottle/local_data/domain/game_end_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
@@ -64,6 +65,17 @@ class HiveRepository {
       return true;
     }
     return false;
+  }
+
+  // sets the pass to awarded
+  // todo award Passes
+  void awardPass(PassType passType) {
+    box.put("${passType.name}PassAwarded", true);
+  }
+
+  // see if a pass was awarded by passType
+  bool passAwarded(PassType passType) {
+    return box.get("${passType.name}PassAwarded", defaultValue: false);
   }
 }
 

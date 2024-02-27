@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:last_bottle/google_wallet/domain/pass_data.dart';
+import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 
 @immutable
 class PassContent {
@@ -23,6 +23,15 @@ class PassContent {
 
   factory PassContent.fromPassType(PassType passType) {
     switch (passType) {
+      case PassType.trash:
+        return const PassContent(
+          imageUrl: "https://images.unsplash.com/photo-1558640476-437a2b9438a2",
+          imageDesc: "Floating Water Bottle",
+          title: "Recycled",
+          header: "Only 9% of all plastic water bottles get recycled",
+          sourceUrl: "https://lastbottle.com/recycle",
+        );
+
       case PassType.water:
         return const PassContent(
           imageUrl: "https://images.unsplash.com/photo-1558640476-437a2b9438a2",
@@ -33,7 +42,17 @@ class PassContent {
           sourceUrl: "https://lastbottle.com/water",
         );
 
-      case PassType.trash:
+      case PassType.fire:
+        return const PassContent(
+          imageUrl:
+              "https://images.unsplash.com/photo-1674321576323-82be6b715ebd",
+          imageDesc: "Fire",
+          title: "Fire",
+          header: "22% of all plastic water bottles end up in landfills",
+          sourceUrl: "https://lastbottle.com/landfill",
+        );
+
+      case PassType.turtle:
         return const PassContent(
           imageUrl:
               "https://images.unsplash.com/photo-1674321576323-82be6b715ebd",
@@ -45,11 +64,22 @@ class PassContent {
 
       case PassType.recycle:
         return const PassContent(
-          imageUrl: "https://images.unsplash.com/photo-1558640476-437a2b9438a2",
-          imageDesc: "Floating Water Bottle",
-          title: "Recycled",
-          header: "Only 9% of all plastic water bottles get recycled",
-          sourceUrl: "https://lastbottle.com/recycle",
+          imageUrl:
+              "https://images.unsplash.com/photo-1674321576323-82be6b715ebd",
+          imageDesc: "Landfill",
+          title: "Bottles In Landfill",
+          header: "22% of all plastic water bottles end up in landfills",
+          sourceUrl: "https://lastbottle.com/landfill",
+        );
+
+      case PassType.recycleSuccess:
+        return const PassContent(
+          imageUrl:
+              "https://images.unsplash.com/photo-1674321576323-82be6b715ebd",
+          imageDesc: "Landfill",
+          title: "Bottles In Landfill",
+          header: "22% of all plastic water bottles end up in landfills",
+          sourceUrl: "https://lastbottle.com/landfill",
         );
     }
   }

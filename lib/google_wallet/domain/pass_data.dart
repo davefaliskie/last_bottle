@@ -1,10 +1,5 @@
 import 'package:last_bottle/google_wallet/domain/pass_content.dart';
-
-enum PassType {
-  water,
-  trash,
-  recycle,
-}
+import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 
 class PassData {
   final String userId;
