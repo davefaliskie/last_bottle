@@ -44,8 +44,8 @@ class HiveRepository {
       final winEndCount = box.get("winEndCount", defaultValue: 0);
       box.put("winEndCount", winEndCount + 1);
     } else {
-      final trashEndCount = box.get("trashEndCount", defaultValue: 0);
-      box.put("trashEndCount", trashEndCount + 1);
+      final trashEndCount = box.get("trashSpinEndCount", defaultValue: 0);
+      box.put("trashSpinEndCount", trashEndCount + 1);
     }
     debugPrint("BOX: ${box.toMap()}");
   }

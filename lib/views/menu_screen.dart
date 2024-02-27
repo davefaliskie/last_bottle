@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:last_bottle/achievements/data/achievements_repository.dart';
 import 'package:last_bottle/achievements/views/achievement_card.dart';
 import 'package:last_bottle/constants.dart';
@@ -43,11 +44,19 @@ class MenuScreen extends ConsumerWidget {
                   return AchievementCard(achievement: achievements[index]);
                 },
               ),
-              Text(
-                "Game Stats",
-                style: Theme.of(context).textTheme.titleLarge,
-                textAlign: TextAlign.left,
+              ElevatedButton(
+                onPressed: () {
+                  Hive.box("gameData").clear();
+                  context.goNamed(AppRoute.game.name);
+                },
+                child: const Text("Reset Game"),
               ),
+              // todo add game stats
+              // Text(
+              //   "Game Stats",
+              //   style: Theme.of(context).textTheme.titleLarge,
+              //   textAlign: TextAlign.left,
+              // ),
             ],
           ),
         ),

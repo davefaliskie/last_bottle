@@ -122,6 +122,12 @@ class _WheelState extends ConsumerState<Wheel> {
               ),
               actionsAlignment: MainAxisAlignment.center,
               actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    context.goNamed(AppRoute.menu.name);
+                  },
+                  child: const Text("Main Menu"),
+                ),
                 ElevatedButton(
                   onPressed: () {
                     context.goNamed(AppRoute.game.name);
