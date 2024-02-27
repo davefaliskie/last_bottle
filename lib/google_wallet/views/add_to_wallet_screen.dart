@@ -41,7 +41,7 @@ class AddToWalletScreen extends StatelessWidget {
                 children: [
                   const Spacer(),
                   const Text(
-                    "New Fact Unlocked",
+                    "New Trading Card",
                     style: TextStyle(
                       fontSize: 32.0,
                       fontWeight: FontWeight.w500,
@@ -57,7 +57,7 @@ class AddToWalletScreen extends StatelessWidget {
                     flex: 2,
                   ),
                   const Text(
-                    "Add this fact to Google Wallet to share with your friends",
+                    "Add this to Google Wallet to share with your friends",
                     style: TextStyle(
                       color: Colors.black54,
                       fontSize: 12.0,
@@ -75,7 +75,7 @@ class AddToWalletScreen extends StatelessWidget {
                       }
                     },
                     child: const Text(
-                      "Continue",
+                      "Close",
                       style: TextStyle(color: Colors.black87),
                     ),
                   ),
