@@ -36,9 +36,8 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/game',
       name: AppRoute.game.name,
-      pageBuilder: (context, state) => MaterialPage(
+      pageBuilder: (context, state) => NoTransitionPage<void>(
         key: state.pageKey,
-        fullscreenDialog: true,
         child: const GameScreen(),
       ),
     ),
@@ -81,9 +80,8 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: "/menu",
       name: AppRoute.menu.name,
-      pageBuilder: (context, state) => MaterialPage(
+      pageBuilder: (context, state) => NoTransitionPage<void>(
         key: state.pageKey,
-        fullscreenDialog: true,
         child: const MenuScreen(),
       ),
     ),

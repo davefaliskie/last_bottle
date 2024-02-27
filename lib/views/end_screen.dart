@@ -6,6 +6,7 @@ import 'package:last_bottle/local_data/data/hive_repository.dart';
 import 'package:last_bottle/local_data/domain/end_screen_date.dart';
 import 'package:last_bottle/local_data/domain/game_end_state.dart';
 import 'package:last_bottle/router.dart';
+import 'package:last_bottle/widgets/bottle_app_bar.dart';
 
 class EndScreen extends ConsumerWidget {
   const EndScreen({
@@ -28,44 +29,58 @@ class EndScreen extends ConsumerWidget {
     }
 
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(defaultMargin),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              "🗑️ Game Over 🗑️",
-              style: Theme.of(context).textTheme.displayMedium,
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              endScreenData.title,
-              style: Theme.of(context).textTheme.titleLarge,
-              textAlign: TextAlign.center,
-            ),
-            const Text(
-              "This is the same fate as 63% of plastic water bottles",
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 100),
-            ElevatedButton(
-              onPressed: () {
-                context.goNamed(AppRoute.game.name);
-              },
-              child: const Text("Try Again"),
-            ),
-            if (award == true)
-              ElevatedButton(
-                onPressed: () {
-                  context.pushNamed(
-                    AppRoute.addToWallet.name,
-                    extra: endScreenData.passType,
-                  );
-                },
-                child: const Text("♻️ Achievement Unlocked ♻️"),
+      appBar: bottleAppBar(context),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(defaultMargin),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                "🗑️ Game Over 🗑️",
+                style: Theme.of(context).textTheme.displayMedium,
+                textAlign: TextAlign.center,
               ),
-          ],
+              Text(
+                endScreenData.title,
+                style: Theme.of(context).textTheme.titleLarge,
+                textAlign: TextAlign.center,
+              ),
+              const Text(
+                "This is the same fate as 63% of plastic water bottles",
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 100),
+              if (award == true)
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushNamed(
+                      AppRoute.addToWallet.name,
+                      extra: endScreenData.passType,
+                    );
+                  },
+                  child: const Text("♻️ Achievement Unlocked ♻️"),
+                ),
+              TextButton(
+                onPressed: () {
+                  context.goNamed(AppRoute.menu.name);
+                },
+                child: const Text("Main Menu"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(defaultMargin),
+          child: ElevatedButton(
+            onPressed: () {
+              context.goNamed(AppRoute.game.name);
+            },
+            child: const Text("Start New Game"),
+          ),
         ),
       ),
     );
