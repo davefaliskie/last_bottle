@@ -52,3 +52,7 @@ ThemeData get themeData {
     ),
   );
 }
+
+final primaryButtonStyle = ButtonStyle(
+  backgroundColor: MaterialStatePropertyAll(Colors.blue.shade900),
+);

@@ -6,6 +6,7 @@ import 'package:last_bottle/achievements/data/achievements_repository.dart';
 import 'package:last_bottle/achievements/views/achievement_card.dart';
 import 'package:last_bottle/constants.dart';
 import 'package:last_bottle/router.dart';
+import 'package:last_bottle/theme.dart';
 import 'package:last_bottle/utils/sizes.dart';
 import 'package:last_bottle/widgets/bottle_app_bar.dart';
 
@@ -68,7 +69,11 @@ class MenuScreen extends ConsumerWidget {
             onPressed: () {
               context.goNamed(AppRoute.game.name);
             },
-            child: const Text("Start New Game"),
+            style: primaryButtonStyle,
+            child: const Text(
+              "Start New Game",
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ),
       ),
