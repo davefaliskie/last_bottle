@@ -26,6 +26,7 @@ class EndScreen extends ConsumerWidget {
     final endScreenData = EndScreenData.fromGameEndState(gameEndState);
     bool? award;
     Color bottomColor = Colors.blue.shade300;
+    bool winner = gameEndState == GameEndState.win;
 
     if (endScreenData.passType != null) {
       award = ref
@@ -115,18 +116,19 @@ class EndScreen extends ConsumerWidget {
                         ],
                       ),
                     const Spacer(flex: 2),
-                    TextButton(
-                      onPressed: () {
-                        context.goNamed(AppRoute.menu.name);
-                      },
-                      child: Text(
-                        "Main Menu",
-                        style: TextStyle(
-                          color: Colors.blue.shade900,
-                          fontSize: 16,
+                    if (!winner)
+                      TextButton(
+                        onPressed: () {
+                          context.goNamed(AppRoute.menu.name);
+                        },
+                        child: Text(
+                          "Main Menu",
+                          style: TextStyle(
+                            color: Colors.blue.shade900,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
-                    ),
                   ],
                 ),
               ),
@@ -141,12 +143,16 @@ class EndScreen extends ConsumerWidget {
             padding: const EdgeInsets.all(defaultMargin),
             child: ElevatedButton(
               onPressed: () {
-                context.goNamed(AppRoute.game.name);
+                if (winner) {
+                  context.goNamed(AppRoute.menu.name);
+                } else {
+                  context.goNamed(AppRoute.game.name);
+                }
               },
               style: primaryButtonStyle,
-              child: const Text(
-                "Try Again",
-                style: TextStyle(color: Colors.white),
+              child: Text(
+                winner == true ? "Main Menu" : "Try Again",
+                style: const TextStyle(color: Colors.white),
               ),
             ),
           ),

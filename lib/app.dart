@@ -57,10 +57,11 @@ class _GameScreenState extends ConsumerState<GameScreen> {
             context.goNamed(AppRoute.endFire.name);
             break;
           case GameEndState.recycle:
-            context.goNamed(AppRoute.endRecycle.name);
+            // go to spin wheel which will redirect to Win/Lose
+            context.goNamed(AppRoute.spinWheel.name);
             break;
           default:
-          // todo default would be some generic retry page?
+          // todo remove default & handle all cases
         }
       },
     );

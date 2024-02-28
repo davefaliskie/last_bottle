@@ -50,11 +50,20 @@ class EndScreenData {
           imagePath: "assets/images/trash.png",
         );
 
-      default:
+      case GameEndState.recycle:
         return EndScreenData(
-          title: "Game over",
-          subtitle: "This is the fate of xx% of plastic",
-          imagePath: "assets/images/trash.png",
+          title: "You did your best",
+          passType: PassType.recycle,
+          subtitle: "Only 9% of plastic producted is recycled",
+          imagePath: "assets/images/bin_recycle.png",
+        );
+
+      case GameEndState.win:
+        return EndScreenData(
+          title: "Congratulations",
+          passType: PassType.recycleSuccess,
+          subtitle: "You were one of the lucky 9% that was recycled",
+          imagePath: "assets/images/player.png",
         );
     }
   }

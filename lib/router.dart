@@ -17,12 +17,14 @@ enum AppRoute {
   endWater,
   endFire,
   endRecycle,
+  endWin,
+  spinWheel,
   menu,
   addToWallet,
 }
 
 final GoRouter router = GoRouter(
-  initialLocation: '/menu',
+  initialLocation: '/spinWheel',
   routes: <RouteBase>[
     GoRoute(
       path: '/',
@@ -71,6 +73,24 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: "/endRecycle",
       name: AppRoute.endRecycle.name,
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        fullscreenDialog: true,
+        child: const EndScreen(gameEndState: GameEndState.recycle),
+      ),
+    ),
+    GoRoute(
+      path: "/endWin",
+      name: AppRoute.endWin.name,
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        fullscreenDialog: true,
+        child: const EndScreen(gameEndState: GameEndState.win),
+      ),
+    ),
+    GoRoute(
+      path: "/spinWheel",
+      name: AppRoute.spinWheel.name,
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
         fullscreenDialog: true,

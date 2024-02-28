@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:last_bottle/constants.dart';
 import 'package:last_bottle/local_data/data/hive_repository.dart';
 import 'package:last_bottle/router.dart';
 
@@ -55,7 +54,7 @@ class _WheelState extends ConsumerState<Wheel> {
             borderWidth: 0,
           ),
         ),
-        ...centeredThird(
+        ..._losing90(
           imagePath: "assets/images/trash.png",
           color: Colors.brown.shade700,
         ),
@@ -71,15 +70,15 @@ class _WheelState extends ConsumerState<Wheel> {
 
         controller.add(outcome);
       },
-      onAnimationEnd: () {
+      onAnimationEnd: () async {
         // Save Outcome to Hive
         ref.read(hiveRepositoryProvider).saveSpin(didWin: spinWon);
 
         // update hive counts with outcome
         if (spinWon == true) {
-          _winDialog();
+          context.goNamed(AppRoute.endWin.name);
         } else {
-          _landfillDialog();
+          context.goNamed(AppRoute.endRecycle.name);
         }
       },
     );
@@ -100,85 +99,7 @@ class _WheelState extends ConsumerState<Wheel> {
     return outcomes[Random().nextInt(outcomes.length)];
   }
 
-  // todo consider combining the Dialogs
-  Future<void> _landfillDialog() async {
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return Column(
-          children: [
-            AlertDialog(
-              insetPadding: const EdgeInsets.all(defaultMargin),
-              title: const Text('Oh No, Landfill'),
-              content: const SingleChildScrollView(
-                child: ListBody(
-                  children: <Widget>[
-                    Text(
-                      'This happens all the time, just because something was recycled does not mean it will be recycled successfully.',
-                    ),
-                  ],
-                ),
-              ),
-              actionsAlignment: MainAxisAlignment.center,
-              actions: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    context.goNamed(AppRoute.menu.name);
-                  },
-                  child: const Text("Main Menu"),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    context.goNamed(AppRoute.game.name);
-                  },
-                  child: const Text("Play Again"),
-                ),
-              ],
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  Future<void> _winDialog() async {
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return Column(
-          children: [
-            AlertDialog(
-              insetPadding: const EdgeInsets.all(defaultMargin),
-              title: const Text('You got reused!'),
-              content: const SingleChildScrollView(
-                child: ListBody(
-                  children: <Widget>[
-                    Text(
-                      "Did you know the vast majority of all plastic produced can't be or won't be recycled. The plastics industry promoted recycling to keep plastic bans at bay.",
-                    ),
-                  ],
-                ),
-              ),
-              actionsAlignment: MainAxisAlignment.center,
-              actions: <Widget>[
-                // todo update
-                ElevatedButton(
-                  onPressed: () {
-                    context.goNamed(AppRoute.game.name);
-                  },
-                  child: const Text("See Your Stats"),
-                ),
-              ],
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  List<FortuneItem> centeredThird({
+  List<FortuneItem> _losing90({
     required String imagePath,
     required Color color,
   }) {
