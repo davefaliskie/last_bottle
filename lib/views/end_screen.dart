@@ -75,11 +75,12 @@ class EndScreen extends ConsumerWidget {
               flex: award == true ? 10 : 6,
               child: Container(
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                  colors: [Colors.white, bottomColor],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                )),
+                  gradient: LinearGradient(
+                    colors: [Colors.white, bottomColor],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                ),
                 child: Column(
                   children: [
                     const Spacer(),

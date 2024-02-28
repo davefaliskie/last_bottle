@@ -27,60 +27,73 @@ class _WheelState extends ConsumerState<Wheel> {
 
   @override
   Widget build(BuildContext context) {
-    return FortuneWheel(
-      key: const Key("wheel"),
-      animateFirst: false,
-      selected: controller.stream,
-      hapticImpact: HapticImpact.medium,
-      indicators: [
-        FortuneIndicator(
-          alignment: Alignment.topCenter,
-          child: TriangleIndicator(
-            color: Colors.green.shade700,
-            width: 40.0,
-            height: 40.0,
-            elevation: 5,
+    return Material(
+      color: Colors.transparent,
+      shape: const CircleBorder(),
+      elevation: 6,
+      child: FortuneWheel(
+        key: const Key("wheel"),
+        animateFirst: false,
+        selected: controller.stream,
+        hapticImpact: HapticImpact.medium,
+        indicators: const [
+          FortuneIndicator(
+            alignment: Alignment.topCenter,
+            child: TriangleIndicator(
+              color: Colors.black45,
+              width: 30.0,
+              height: 40.0,
+              elevation: 10,
+            ),
           ),
-        ),
-      ],
-      items: [
-        FortuneItem(
-          child: const RotatedBox(
-            quarterTurns: 1,
-            child: Text("♻️", style: TextStyle(fontSize: 55)),
+        ],
+        items: [
+          FortuneItem(
+            child: const RotatedBox(
+              quarterTurns: 1,
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 25),
+                // child: Text("♻️", style: TextStyle(fontSize: 45)),
+                child: Icon(
+                  Icons.recycling,
+                  color: Colors.white,
+                  size: 45,
+                ),
+              ),
+            ),
+            style: FortuneItemStyle(
+              color: Colors.blue.shade700.withAlpha(150),
+              borderWidth: 0,
+            ),
           ),
-          style: FortuneItemStyle(
-            color: Colors.green.shade200,
-            borderWidth: 0,
+          ..._losing90(
+            imagePath: "assets/images/trash.png",
+            color: Colors.white.withAlpha(140),
           ),
-        ),
-        ..._losing90(
-          imagePath: "assets/images/trash.png",
-          color: Colors.brown.shade700,
-        ),
-      ],
-      onFling: () {
-        // whatever we add to the controller is the value that will be picked
-        int outcome = _getOutcome();
-        debugPrint("Outcome: $outcome");
+        ],
+        onFling: () {
+          // whatever we add to the controller is the value that will be picked
+          int outcome = _getOutcome();
+          debugPrint("Outcome: $outcome");
 
-        if (outcome == 0) {
-          setState(() => spinWon = true);
-        }
+          if (outcome == 0) {
+            setState(() => spinWon = true);
+          }
 
-        controller.add(outcome);
-      },
-      onAnimationEnd: () async {
-        // Save Outcome to Hive
-        ref.read(hiveRepositoryProvider).saveSpin(didWin: spinWon);
+          controller.add(outcome);
+        },
+        onAnimationEnd: () async {
+          // Save Outcome to Hive
+          ref.read(hiveRepositoryProvider).saveSpin(didWin: spinWon);
 
-        // update hive counts with outcome
-        if (spinWon == true) {
-          context.goNamed(AppRoute.endWin.name);
-        } else {
-          context.goNamed(AppRoute.endRecycle.name);
-        }
-      },
+          // update hive counts with outcome
+          if (spinWon == true) {
+            context.goNamed(AppRoute.endWin.name);
+          } else {
+            context.goNamed(AppRoute.endRecycle.name);
+          }
+        },
+      ),
     );
   }
 

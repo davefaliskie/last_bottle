@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:last_bottle/constants.dart';
-import 'package:last_bottle/utils/sizes.dart';
 import 'package:last_bottle/widgets/wheel.dart';
 
 class RecycleEndScreen extends StatelessWidget {
@@ -9,36 +8,51 @@ class RecycleEndScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(defaultMargin),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              gapH32,
-              Text(
-                "♻️ Game Over ♻️",
-                style: Theme.of(context).textTheme.displayMedium,
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                "You recycled!",
-                style: Theme.of(context).textTheme.titleLarge,
-                textAlign: TextAlign.center,
-              ),
-              gapH12,
-              const Text(
-                "But that's not the end, unfortunately only 9% of plastic that's recycled gets reused.",
-                textAlign: TextAlign.center,
-              ),
-              const Expanded(child: Wheel()),
-              const Text(
-                "Spin the wheel to see if you're bottle will be reused",
-                textAlign: TextAlign.center,
-              ),
-              gapH32,
-            ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.white, Colors.blue.shade500],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(defaultMargin),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Spacer(),
+                const Text(
+                  "You Recycled",
+                  style: TextStyle(fontSize: 42.0, fontWeight: FontWeight.w500),
+                  textAlign: TextAlign.center,
+                ),
+                const Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+                  child: Text(
+                    "But that's not the end, unfortunately only 9% of plastic that's recycled gets reused.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 14.0),
+                  ),
+                ),
+                const Spacer(),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: MediaQuery.of(context).size.width * 0.9,
+                  child: const Wheel(),
+                ),
+                const Spacer(flex: 2),
+                const Text(
+                  "Spin the wheel to see where your bottle ends up",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.black87),
+                ),
+                const Spacer(),
+              ],
+            ),
           ),
         ),
       ),
