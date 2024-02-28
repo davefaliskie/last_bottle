@@ -1,4 +1,3 @@
-import 'package:animate_gradient/animate_gradient.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -72,19 +71,14 @@ class EndScreen extends ConsumerWidget {
             ),
             // BOTTOM HALF
             Expanded(
-              flex: award == true ? 13 : 8,
-              child: AnimateGradient(
-                duration: const Duration(seconds: 6),
-                primaryColors: [
-                  Colors.white,
-                  Colors.blue.shade100,
-                  bottomColor,
-                ],
-                secondaryColors: [
-                  Colors.white,
-                  Colors.blue.shade200,
-                  bottomColor
-                ],
+              flex: award == true ? 10 : 6,
+              child: Container(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                  colors: [Colors.white, bottomColor],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                )),
                 child: Column(
                   children: [
                     const Spacer(),
@@ -118,13 +112,9 @@ class EndScreen extends ConsumerWidget {
                             ),
                           ),
                           gapH16,
-                          // const Text(
-                          //   "New Trading Card",
-                          //   style: TextStyle(color: Colors.black87),
-                          // ),
                         ],
                       ),
-                    const Spacer(),
+                    const Spacer(flex: 2),
                     TextButton(
                       onPressed: () {
                         context.goNamed(AppRoute.menu.name);
