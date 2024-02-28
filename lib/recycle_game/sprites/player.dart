@@ -41,11 +41,11 @@ class Player extends SpriteComponent with HasGameRef<RecycleGame> {
     double maxX = gameRef.size.x / 2 - size.x / 2; // Right boundary
     newXPosition = newXPosition.clamp(minX, maxX);
 
-    if (newXPosition < position.x) {
-      angle = 0.5;
-    } else {
-      angle = -0.5;
-    }
+    // if (newXPosition < position.x) {
+    //   angle = 0.5;
+    // } else {
+    //   angle = -0.5;
+    // }
 
     position.x = newXPosition;
   }

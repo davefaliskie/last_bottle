@@ -73,11 +73,11 @@ class LevelData {
 
     level.addAll(obstacleRow(
       row: 8,
-      item1: ObstacleType.binTrash,
+      item1: ObstacleType.binRecycle,
       item2: ObstacleType.binTrash,
       item3: ObstacleType.binRecycle,
       item4: ObstacleType.binTrash,
-      item5: ObstacleType.binTrash,
+      item5: ObstacleType.binRecycle,
     ));
 
     return level;
@@ -89,43 +89,95 @@ class LevelData {
     level.addAll(obstacleRow(
       row: 0,
       item1: ObstacleType.trash,
+      item2: ObstacleType.trash,
+      item4: ObstacleType.trash,
+      item5: ObstacleType.trash,
     ));
 
     level.addAll(obstacleRow(
       row: 1,
       item1: ObstacleType.water,
-      item5: ObstacleType.trash,
+      item3: ObstacleType.water,
+      item5: ObstacleType.water,
     ));
 
     level.addAll(obstacleRow(
       row: 2,
+      item2: ObstacleType.water,
       item3: ObstacleType.water,
-      item4: ObstacleType.trash,
+      item4: ObstacleType.water,
+      item5: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 3,
+      item1: ObstacleType.trash,
+      item2: ObstacleType.trash,
+      item3: ObstacleType.trash,
+      item5: ObstacleType.trash,
     ));
 
     level.addAll(obstacleRow(
       row: 4,
-      item1: ObstacleType.trash,
+      item3: ObstacleType.water,
+      item4: ObstacleType.trash,
+      item5: ObstacleType.trash,
     ));
 
     level.addAll(obstacleRow(
       row: 5,
+      item1: ObstacleType.water,
       item4: ObstacleType.trash,
+      item5: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 6,
+      item2: ObstacleType.trash,
+      item3: ObstacleType.trash,
       item5: ObstacleType.trash,
     ));
 
     level.addAll(obstacleRow(
       row: 7,
-      item2: ObstacleType.trash,
+      item2: ObstacleType.binTrash,
+      item4: ObstacleType.binTrash,
     ));
 
     level.addAll(obstacleRow(
       row: 8,
-      item1: ObstacleType.binTrash,
+      item1: ObstacleType.water,
+      item5: ObstacleType.water,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 9,
+      item1: ObstacleType.water,
+      item2: ObstacleType.trash,
+      item3: ObstacleType.water,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 10,
+      item3: ObstacleType.water,
+      item4: ObstacleType.trash,
+      item5: ObstacleType.water,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 11,
+      item1: ObstacleType.trash,
+      item3: ObstacleType.trash,
+      item5: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 12,
+      item1: ObstacleType.binRecycle,
       item2: ObstacleType.binTrash,
-      item3: ObstacleType.binRecycle,
+      item3: ObstacleType.binTrash,
       item4: ObstacleType.binTrash,
-      item5: ObstacleType.binTrash,
+      item5: ObstacleType.binRecycle,
     ));
 
     return level;
