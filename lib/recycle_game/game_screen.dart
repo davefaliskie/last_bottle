@@ -1,6 +1,7 @@
 import 'package:flame/game.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:last_bottle/constants.dart';
@@ -26,7 +27,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
 
     if (ref.read(hiveRepositoryProvider).playSound) {
       FlameAudio.bgm.initialize();
-      FlameAudio.bgm.play('bg_game.mp3', volume: 0.5);
+      FlameAudio.bgm.play('bg_game.mp3', volume: 0.3);
     }
   }
 
@@ -37,6 +38,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
       endAndGo: (GameEndState endState) {
         // save attempt
         ref.read(hiveRepositoryProvider).saveAttempt(endState);
+        HapticFeedback.heavyImpact();
 
         // redirect
         switch (endState) {

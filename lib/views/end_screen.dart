@@ -1,5 +1,6 @@
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:last_bottle/achievements/domain/achievement.dart';
@@ -32,9 +33,9 @@ class _EndScreenState extends ConsumerState<EndScreen> {
     if (ref.read(hiveRepositoryProvider).playSound) {
       FlameAudio.bgm.initialize();
       if (widget.gameEndState == GameEndState.win) {
-        FlameAudio.bgm.play('bg_win.mp3', volume: 0.7);
+        FlameAudio.bgm.play('bg_win.mp3', volume: 0.3);
       } else {
-        FlameAudio.bgm.play('bg_end.mp3', volume: 0.5);
+        FlameAudio.bgm.play('bg_end.mp3', volume: 0.2);
       }
     }
   }
@@ -166,6 +167,7 @@ class _EndScreenState extends ConsumerState<EndScreen> {
                 if (winner) {
                   context.goNamed(AppRoute.menu.name);
                 } else {
+                  HapticFeedback.mediumImpact();
                   context.goNamed(AppRoute.game.name);
                 }
               },

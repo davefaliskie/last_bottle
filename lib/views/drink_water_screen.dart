@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 import 'package:last_bottle/router.dart';
@@ -70,6 +71,7 @@ class _DrinkWaterScreenState extends State<DrinkWaterScreen>
                     if (_controller?.isCompleted == true) ...[
                       ElevatedButton(
                         onPressed: () {
+                          HapticFeedback.mediumImpact();
                           context.goNamed(AppRoute.game.name);
                         },
                         child: const Text("Recycle The Bottle"),

@@ -1,5 +1,6 @@
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -25,7 +26,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
     super.initState();
     FlameAudio.bgm.initialize();
     if (ref.read(hiveRepositoryProvider).playSound) {
-      FlameAudio.bgm.play('bg_menu.mp3', volume: 0.3);
+      FlameAudio.bgm.play('bg_menu.mp3', volume: 0.2);
     }
   }
 
@@ -65,6 +66,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
               ElevatedButton(
                 onPressed: () {
                   Hive.box("gameData").clear();
+                  HapticFeedback.mediumImpact();
                   context.goNamed(AppRoute.game.name);
                 },
                 child: const Text("Reset Game"),
@@ -80,7 +82,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
                     setState(() => playSound = false);
                   } else {
                     // we now will play
-                    FlameAudio.bgm.play('bg_menu.mp3', volume: 0.3);
+                    FlameAudio.bgm.play('bg_menu.mp3', volume: 0.2);
                     setState(() => playSound = true);
                   }
                   ref.read(hiveRepositoryProvider).togglePlaySound();
@@ -104,6 +106,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
           padding: const EdgeInsets.all(defaultMargin),
           child: ElevatedButton(
             onPressed: () {
+              HapticFeedback.mediumImpact();
               context.goNamed(AppRoute.game.name);
             },
             style: primaryButtonStyle,
