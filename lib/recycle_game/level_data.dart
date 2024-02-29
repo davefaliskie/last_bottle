@@ -16,6 +16,8 @@ class ObstacleData {
   ObstacleData({required this.position, required this.type});
 }
 
+// Levels should have MAX 15 total rows (0..14)
+
 class LevelData {
   final leftSide = -(gameWidth / 2) + (obstacleSize / 2);
   final rightSide = (gameWidth / 2) - (obstacleSize / 2);
@@ -26,6 +28,8 @@ class LevelData {
     final Map<int, List<ObstacleData> Function()> levelConfigs = {
       1: () => _level1(),
       2: () => _level2(),
+      3: () => _level3(),
+      4: () => _level4(),
     };
     if (levelConfigs.containsKey(levelNumber)) {
       return levelConfigs[levelNumber]!();
@@ -34,8 +38,7 @@ class LevelData {
     }
   }
 
-  // MAX 15 total rows
-
+  // Easy Just Trash
   List<ObstacleData> _level1() {
     List<ObstacleData> level = [];
 
@@ -46,6 +49,7 @@ class LevelData {
 
     level.addAll(obstacleRow(
       row: 1,
+      item2: ObstacleType.trash,
       item5: ObstacleType.trash,
     ));
 
@@ -83,6 +87,7 @@ class LevelData {
     return level;
   }
 
+  // Water Introduced
   List<ObstacleData> _level2() {
     List<ObstacleData> level = [];
 
@@ -182,6 +187,121 @@ class LevelData {
 
     return level;
   }
+
+  // Fire Introduced
+  List<ObstacleData> _level3() {
+    List<ObstacleData> level = [];
+
+    level.addAll(obstacleRow(
+      row: 0,
+      item1: ObstacleType.fire,
+      item2: ObstacleType.fire,
+      item3: ObstacleType.fire,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 1,
+      item3: ObstacleType.water,
+      item4: ObstacleType.water,
+      item5: ObstacleType.water,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 2,
+      item1: ObstacleType.fire,
+      item2: ObstacleType.fire,
+      item5: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 3,
+      item1: ObstacleType.fire,
+      item3: ObstacleType.trash,
+      item4: ObstacleType.trash,
+      item5: ObstacleType.fire,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 4,
+      item1: ObstacleType.water,
+      item2: ObstacleType.water,
+      item3: ObstacleType.water,
+      item5: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 5,
+      item2: ObstacleType.water,
+      item3: ObstacleType.fire,
+      item4: ObstacleType.water,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 6,
+      item1: ObstacleType.fire,
+      item3: ObstacleType.trash,
+      item4: ObstacleType.trash,
+      item5: ObstacleType.fire,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 7,
+      item1: ObstacleType.binTrash,
+      item2: ObstacleType.binTrash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 8,
+      item2: ObstacleType.water,
+      item3: ObstacleType.water,
+      item4: ObstacleType.trash,
+      item5: ObstacleType.water,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 9,
+      item1: ObstacleType.fire,
+      item2: ObstacleType.fire,
+      item3: ObstacleType.fire,
+      item5: ObstacleType.water,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 10,
+      item3: ObstacleType.fire,
+      item4: ObstacleType.water,
+      item5: ObstacleType.fire,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 11,
+      item1: ObstacleType.fire,
+      item3: ObstacleType.trash,
+      item5: ObstacleType.fire,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 12,
+      item1: ObstacleType.fire,
+      item4: ObstacleType.fire,
+      item5: ObstacleType.fire,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 13,
+      item3: ObstacleType.binTrash,
+      item4: ObstacleType.binRecycle,
+      item5: ObstacleType.binTrash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 14,
+      item2: ObstacleType.binRecycle,
+    ));
+
+    return level;
+  }
+
 
   // Each obstacleRow can have 5 obstacles. Each will be 1/5 the screen width
   // this means if all 5 are included the player will have to hit one.

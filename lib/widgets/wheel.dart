@@ -136,7 +136,13 @@ class _WheelState extends ConsumerState<Wheel> {
       FortuneItem(
         child: RotatedBox(
           quarterTurns: 1,
-          child: Image.asset(imagePath, width: 60),
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 30.0),
+            child: Image.asset(
+              imagePath,
+              width: 70,
+            ),
+          ),
         ),
         style: FortuneItemStyle(color: color, borderWidth: 0),
       ),
