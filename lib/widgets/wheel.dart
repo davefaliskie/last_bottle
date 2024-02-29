@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -73,6 +74,10 @@ class _WheelState extends ConsumerState<Wheel> {
           ),
         ],
         onFling: () {
+          // play sounds effect
+          if (ref.read(hiveRepositoryProvider).playSound) {
+            FlameAudio.play('spin.mp3');
+          }
           // whatever we add to the controller is the value that will be picked
           int outcome = _getOutcome();
           log.d("Outcome: $outcome");
