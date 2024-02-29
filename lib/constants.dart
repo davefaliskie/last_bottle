@@ -15,6 +15,10 @@ const playerHeight = 150.0;
 // obstacle's image size are 200x200
 const obstacleSize = 216.0;
 
+// turtle
+const turtleHeight = 128.0;
+const turtleWidth = 160.0;
+
 const defaultMargin = 12.0;
 
 String get backendBaseUrl {

@@ -44,10 +44,11 @@ class EndScreenData {
 
       case GameEndState.turtle:
         return EndScreenData(
-          title: "Turtle",
+          title: "A Turtle Ate Your Bottle",
           passType: PassType.turtle,
-          subtitle: "This is the fate of xx% of plastic",
-          imagePath: "assets/images/trash.png",
+          subtitle:
+              "Turtles and other sea life are constantly mistaking plastic for food",
+          imagePath: "assets/images/turtle.png",
         );
 
       case GameEndState.recycle:

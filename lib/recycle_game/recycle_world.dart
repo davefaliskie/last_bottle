@@ -1,12 +1,15 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:flutter/foundation.dart';
 import 'package:last_bottle/constants.dart';
 import 'package:last_bottle/recycle_game/recycle_game.dart';
 import 'package:last_bottle/recycle_game/sprites/bin.dart';
 import 'package:last_bottle/recycle_game/sprites/obstacle.dart';
 import 'package:last_bottle/recycle_game/sprites/player.dart';
 import 'package:last_bottle/recycle_game/level_data.dart';
+import 'package:last_bottle/recycle_game/sprites/turtle.dart';
 
 class RecycleWorld extends World with HasGameRef<RecycleGame> {
   RecycleWorld({super.children});
@@ -46,6 +49,20 @@ class RecycleWorld extends World with HasGameRef<RecycleGame> {
     add(player);
 
     loadLevel(LevelData().getLevel(game.level));
+
+    if (game.level >= 4) {
+      // Add Turtle to level 4+
+      final randomHeight =
+          (gameHeight / 2) + Random().nextDouble() * gameHeight;
+
+      final startPosition = Vector2(gameWidth / 2, randomHeight);
+      final velocity = Vector2(-300, -200);
+      final turtle = Turtle(
+        velocity: velocity,
+        position: startPosition,
+      );
+      add(turtle);
+    }
   }
 
   @override

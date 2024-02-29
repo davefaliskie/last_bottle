@@ -56,12 +56,16 @@ class _GameScreenState extends ConsumerState<GameScreen> {
           case GameEndState.fire:
             context.goNamed(AppRoute.endFire.name);
             break;
+          case GameEndState.turtle:
+            context.goNamed(AppRoute.endTurtle.name);
+            break;
           case GameEndState.recycle:
             // go to spin wheel which will redirect to Win/Lose
             context.goNamed(AppRoute.spinWheel.name);
             break;
-          default:
-          // todo remove default & handle all cases
+          case GameEndState.win:
+            context.goNamed(AppRoute.endWin.name);
+            break;
         }
       },
     );

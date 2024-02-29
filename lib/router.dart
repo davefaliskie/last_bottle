@@ -16,6 +16,7 @@ enum AppRoute {
   endTrash,
   endWater,
   endFire,
+  endTurtle,
   endRecycle,
   endWin,
   spinWheel,
@@ -68,6 +69,15 @@ final GoRouter router = GoRouter(
         key: state.pageKey,
         fullscreenDialog: true,
         child: const EndScreen(gameEndState: GameEndState.fire),
+      ),
+    ),
+    GoRoute(
+      path: "/endTurtle",
+      name: AppRoute.endTurtle.name,
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        fullscreenDialog: true,
+        child: const EndScreen(gameEndState: GameEndState.turtle),
       ),
     ),
     GoRoute(
