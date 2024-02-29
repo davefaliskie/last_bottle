@@ -1,3 +1,4 @@
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -12,7 +13,7 @@ import 'package:last_bottle/theme.dart';
 import 'package:last_bottle/utils/sizes.dart';
 import 'package:last_bottle/widgets/floating_component.dart';
 
-class EndScreen extends ConsumerWidget {
+class EndScreen extends ConsumerStatefulWidget {
   const EndScreen({
     super.key,
     required this.gameEndState,
@@ -21,12 +22,30 @@ class EndScreen extends ConsumerWidget {
   final GameEndState gameEndState;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<EndScreen> createState() => _EndScreenState();
+}
+
+class _EndScreenState extends ConsumerState<EndScreen> {
+  @override
+  void initState() {
+    super.initState();
+    if (ref.read(hiveRepositoryProvider).playSound) {
+      FlameAudio.bgm.initialize();
+      if (widget.gameEndState == GameEndState.win) {
+        FlameAudio.bgm.play('bg_win.mp3', volume: 0.7);
+      } else {
+        FlameAudio.bgm.play('bg_end.mp3', volume: 0.5);
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     // for some game end states there is a potential pass that could be awarded
-    final endScreenData = EndScreenData.fromGameEndState(gameEndState);
+    final endScreenData = EndScreenData.fromGameEndState(widget.gameEndState);
     bool? award;
     Color bottomColor = Colors.blue.shade300;
-    bool winner = gameEndState == GameEndState.win;
+    bool winner = widget.gameEndState == GameEndState.win;
 
     if (endScreenData.passType != null) {
       award = ref

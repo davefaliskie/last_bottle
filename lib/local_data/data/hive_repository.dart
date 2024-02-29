@@ -101,6 +101,14 @@ class HiveRepository {
   bool passAwarded(PassType passType) {
     return box.get("${passType.name}PassAwarded", defaultValue: false);
   }
+
+  bool get playSound {
+    return box.get("playSound", defaultValue: true);
+  }
+
+  void togglePlaySound() {
+    box.put("playSound", !playSound);
+  }
 }
 
 @Riverpod(keepAlive: true)
