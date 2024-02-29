@@ -24,7 +24,7 @@ enum AppRoute {
 }
 
 final GoRouter router = GoRouter(
-  initialLocation: '/spinWheel',
+  initialLocation: '/menu',
   routes: <RouteBase>[
     GoRoute(
       path: '/',

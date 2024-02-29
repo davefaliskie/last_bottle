@@ -53,17 +53,19 @@ class HiveRepository {
 
   // The level will be set based on the attempt conditions
   int setLevel() {
-    // todo calculate which level to show.
     final recycleEnd = box.get("recycleEndCount", defaultValue: 0);
+
     if (recycleEnd == 0) {
       return 1;
     } else if (recycleEnd == 1) {
       return 2;
-    } else if (recycleEnd == 2) {
-      // return 3;
+    } else if (recycleEnd == 3) {
+      return 3;
+    } else if (recycleEnd == 4) {
+      return 4;
+    } else {
+      return 5; // randomly generated content so fine to stay.
     }
-
-    return 2;
   }
 
   bool canWin() {

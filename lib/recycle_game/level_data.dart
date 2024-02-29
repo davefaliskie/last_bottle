@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flame/components.dart';
 import 'package:last_bottle/constants.dart';
 
@@ -23,6 +25,7 @@ class LevelData {
   final rightSide = (gameWidth / 2) - (obstacleSize / 2);
   final initialMaxHeight = -(gameHeight / 2);
   final obstacleSpacing = obstacleSize + (playerHeight * 2);
+  final random = Random();
 
   List<ObstacleData> getLevel(int levelNumber) {
     final Map<int, List<ObstacleData> Function()> levelConfigs = {
@@ -30,6 +33,7 @@ class LevelData {
       2: () => _level2(),
       3: () => _level3(),
       4: () => _level4(),
+      5: () => _level5(),
     };
     if (levelConfigs.containsKey(levelNumber)) {
       return levelConfigs[levelNumber]!();
@@ -419,6 +423,57 @@ class LevelData {
     ));
 
     return level;
+  }
+
+  List<ObstacleData> _level5() {
+    List<ObstacleData> level = [];
+
+    // randomly generate the rows
+    for (int row = 0; row <= 13; row++) {
+      final generatedItems = randomRowObstacles();
+      level.addAll(obstacleRow(
+        row: row,
+        item1: generatedItems[0],
+        item2: generatedItems[1],
+        item3: generatedItems[2],
+        item4: generatedItems[3],
+        item5: generatedItems[4],
+      ));
+    }
+
+    // put the recycle bin in the final row at a random spot
+    final endBinSpace = random.nextInt(5) + 1;
+    level.addAll(obstacleRow(
+      row: 14,
+      item1: endBinSpace == 1 ? ObstacleType.binRecycle : null,
+      item2: endBinSpace == 2 ? ObstacleType.binRecycle : null,
+      item3: endBinSpace == 3 ? ObstacleType.binRecycle : null,
+      item4: endBinSpace == 4 ? ObstacleType.binRecycle : null,
+      item5: endBinSpace == 5 ? ObstacleType.binRecycle : null,
+    ));
+    return level;
+  }
+
+  List<ObstacleType?> randomRowObstacles() {
+    final availableObjects = [
+      ObstacleType.trash,
+      ObstacleType.water,
+      ObstacleType.fire,
+      ObstacleType.binTrash,
+      null,
+    ];
+
+    // ensure at least one item is null
+    List<ObstacleType?> result = [null];
+
+    // fill list with 4 more random items
+    for (int item = 1; item <= 4; item++) {
+      int randomIndex = random.nextInt(availableObjects.length);
+      result.add(availableObjects[randomIndex]);
+    }
+
+    result.shuffle(random);
+    return result;
   }
 
   // Each obstacleRow can have 5 obstacles. Each will be 1/5 the screen width
