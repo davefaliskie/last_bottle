@@ -302,6 +302,124 @@ class LevelData {
     return level;
   }
 
+  // Turtle Introduced
+  List<ObstacleData> _level4() {
+    List<ObstacleData> level = [];
+
+    level.addAll(obstacleRow(
+      row: 0,
+      item1: ObstacleType.fire,
+      item2: ObstacleType.water,
+      item4: ObstacleType.water,
+      item5: ObstacleType.fire,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 1,
+      item1: ObstacleType.trash,
+      item3: ObstacleType.trash,
+      item5: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 2,
+      item2: ObstacleType.fire,
+      item4: ObstacleType.fire,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 3,
+      item1: ObstacleType.fire,
+      item3: ObstacleType.trash,
+      item5: ObstacleType.fire,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 4,
+      item2: ObstacleType.water,
+      item3: ObstacleType.water,
+      item4: ObstacleType.water,
+      item5: ObstacleType.water,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 5,
+      item1: ObstacleType.water,
+      item2: ObstacleType.water,
+      item3: ObstacleType.water,
+      item5: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 6,
+      item1: ObstacleType.fire,
+      item2: ObstacleType.fire,
+      item4: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 7,
+      item1: ObstacleType.binTrash,
+      item3: ObstacleType.fire,
+      item5: ObstacleType.fire,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 8,
+      item1: ObstacleType.binTrash,
+      item2: ObstacleType.binTrash,
+      item4: ObstacleType.binTrash,
+      item5: ObstacleType.binTrash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 9,
+      item1: ObstacleType.trash,
+      item2: ObstacleType.water,
+      item4: ObstacleType.trash,
+      item5: ObstacleType.water,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 10,
+      item1: ObstacleType.trash,
+      item2: ObstacleType.fire,
+      item3: ObstacleType.fire,
+      item5: ObstacleType.water,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 11,
+      item1: ObstacleType.trash,
+      item2: ObstacleType.fire,
+      item3: ObstacleType.fire,
+      item4: ObstacleType.water,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 12,
+      item1: ObstacleType.fire,
+      item2: ObstacleType.trash,
+      item3: ObstacleType.trash,
+      item4: ObstacleType.fire,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 13,
+      item1: ObstacleType.fire,
+      item4: ObstacleType.fire,
+      item5: ObstacleType.fire,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 14,
+      item1: ObstacleType.fire,
+      item3: ObstacleType.binRecycle,
+      item5: ObstacleType.fire,
+    ));
+
+    return level;
+  }
 
   // Each obstacleRow can have 5 obstacles. Each will be 1/5 the screen width
   // this means if all 5 are included the player will have to hit one.
