@@ -1,11 +1,11 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+
 import 'package:last_bottle/constants.dart';
 import 'package:last_bottle/local_data/domain/game_end_state.dart';
 import 'package:last_bottle/recycle_game/recycle_game.dart';
 import 'package:last_bottle/recycle_game/sprites/player.dart';
+import 'package:logger/logger.dart';
 
 class Obstacle extends SpriteComponent
     with HasGameRef<RecycleGame>, CollisionCallbacks {
@@ -16,6 +16,7 @@ class Obstacle extends SpriteComponent
 
   final String spritePath;
   final bool cirlceHitbox;
+  final log = Logger();
 
   @override
   Future<void> onLoad() async {
@@ -53,7 +54,7 @@ class ObstacleTrash extends Obstacle {
     PositionComponent other,
   ) {
     if (other is Player) {
-      debugPrint("Hit Trash");
+      log.d("Hit Trash");
       game.endAndGo(GameEndState.trash);
     }
     super.onCollisionStart(intersectionPoints, other);
@@ -73,7 +74,7 @@ class ObstacleWater extends Obstacle {
     PositionComponent other,
   ) {
     if (other is Player) {
-      debugPrint("Hit Water");
+      log.d("Hit Water");
       game.endAndGo(GameEndState.water);
     }
     super.onCollisionStart(intersectionPoints, other);
@@ -93,7 +94,7 @@ class ObstacleFire extends Obstacle {
     PositionComponent other,
   ) {
     if (other is Player) {
-      debugPrint("Hit Fire");
+      log.d("Hit Fire");
       game.endAndGo(GameEndState.fire);
     }
     super.onCollisionStart(intersectionPoints, other);

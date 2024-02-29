@@ -1,13 +1,14 @@
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 import 'package:last_bottle/local_data/domain/game_end_state.dart';
+import 'package:logger/logger.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 part 'hive_repository.g.dart';
 
 class HiveRepository {
+  final log = Logger();
   final box = Hive.box("gameData");
 
   dynamic getValue(String key) {
@@ -36,7 +37,7 @@ class HiveRepository {
 
     awardPasses();
 
-    debugPrint("BOX: ${box.toMap()}");
+    log.d("BOX: ${box.toMap()}");
   }
 
   void saveSpin({required bool didWin}) {
@@ -48,24 +49,14 @@ class HiveRepository {
       box.put("trashSpinEndCount", trashEndCount + 1);
     }
     awardPasses();
-    debugPrint("BOX: ${box.toMap()}");
+    log.d("BOX: ${box.toMap()}");
   }
 
   // The level will be set based on the attempt conditions
   int setLevel() {
     final recycleEnd = box.get("recycleEndCount", defaultValue: 0);
-
-    if (recycleEnd == 0) {
-      return 1;
-    } else if (recycleEnd == 1) {
-      return 2;
-    } else if (recycleEnd == 3) {
-      return 3;
-    } else if (recycleEnd == 4) {
-      return 4;
-    } else {
-      return 5; // randomly generated content so fine to stay.
-    }
+    log.d("LEVEL: ${(recycleEnd + 1).clamp(1, 5)}");
+    return (recycleEnd + 1).clamp(1, 5);
   }
 
   bool canWin() {

@@ -1,11 +1,10 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:last_bottle/local_data/domain/game_end_state.dart';
 import 'package:last_bottle/recycle_game/recycle_game.dart';
 import 'package:last_bottle/recycle_game/sprites/obstacle.dart';
 import 'package:last_bottle/recycle_game/sprites/player.dart';
+import 'package:logger/logger.dart';
 
 class Bin extends SpriteComponent
     with HasGameRef<RecycleGame>, CollisionCallbacks {
@@ -14,6 +13,7 @@ class Bin extends SpriteComponent
   });
 
   final String spritePath;
+  final log = Logger();
 
   @override
   Future<void> onLoad() async {
@@ -42,7 +42,7 @@ class BinTrash extends Obstacle {
     PositionComponent other,
   ) {
     if (other is Player) {
-      debugPrint("Went in Trash Bin");
+      log.d("Went in Trash Bin");
       game.endAndGo(GameEndState.trash);
     }
     super.onCollisionStart(intersectionPoints, other);
@@ -58,7 +58,7 @@ class BinRecycle extends Obstacle {
     PositionComponent other,
   ) {
     if (other is Player) {
-      debugPrint("Went to Recycling Bin");
+      log.d("Went to Recycling Bin");
       game.endAndGo(GameEndState.recycle);
     }
     super.onCollisionStart(intersectionPoints, other);
