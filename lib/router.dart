@@ -22,6 +22,7 @@ enum AppRoute {
   spinWheel,
   menu,
   addToWallet,
+  error,
 }
 
 final GoRouter router = GoRouter(
@@ -116,6 +117,14 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
+      path: "/error",
+      name: AppRoute.error.name,
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const ErrorScreen(),
+      ),
+    ),
+    GoRoute(
       path: "/addToWallet",
       name: AppRoute.addToWallet.name,
       pageBuilder: (context, state) {
@@ -134,4 +143,7 @@ final GoRouter router = GoRouter(
       },
     ),
   ],
+  onException: (_, GoRouterState state, GoRouter router) {
+    return router.goNamed(AppRoute.error.name);
+  },
 );

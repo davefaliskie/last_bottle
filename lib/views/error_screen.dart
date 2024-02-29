@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:last_bottle/router.dart';
+import 'package:last_bottle/theme.dart';
 import 'package:last_bottle/utils/sizes.dart';
 
 class ErrorScreen extends StatelessWidget {
@@ -20,10 +21,13 @@ class ErrorScreen extends StatelessWidget {
             gapH24,
             ElevatedButton(
               onPressed: () {
-                // todo send to a main menu
-                context.goNamed(AppRoute.drinkWater.name);
+                context.goNamed(AppRoute.menu.name);
               },
-              child: const Text("Restart Game"),
+              style: primaryButtonStyle,
+              child: const Text(
+                "Go To Main Menu",
+                style: TextStyle(color: Colors.white),
+              ),
             )
           ],
         ),
