@@ -22,7 +22,7 @@ class EndScreenData {
           passType: PassType.trash,
           subtitle:
               "You weren't recycled and ended up in the landfill. This is the fate of xx% of plastic that's produced.",
-          imagePath: "assets/images/trash.png",
+          imagePath: "assets/images/display/trash.png",
         );
 
       case GameEndState.water:
@@ -31,7 +31,7 @@ class EndScreenData {
           passType: PassType.water,
           subtitle:
               "You weren't recycled and ended up in the ocean. This is the fate of xx% of plastic that's produced.",
-          imagePath: "assets/images/water.png",
+          imagePath: "assets/images/display/water.png",
         );
 
       case GameEndState.fire:
@@ -39,7 +39,7 @@ class EndScreenData {
           title: "To The Furnace For You",
           passType: PassType.fire,
           subtitle: "This is the fate of xx% of plastic",
-          imagePath: "assets/images/trash.png",
+          imagePath: "assets/images/display/fire.png",
         );
 
       case GameEndState.turtle:
@@ -48,15 +48,15 @@ class EndScreenData {
           passType: PassType.turtle,
           subtitle:
               "Turtles and other sea life are constantly mistaking plastic for food",
-          imagePath: "assets/images/turtle.png",
+          imagePath: "assets/images/display/turtle.png",
         );
 
       case GameEndState.recycle:
         return EndScreenData(
-          title: "You did your best",
+          title: "All that effort for nothing",
           passType: PassType.recycle,
           subtitle: "Only 9% of plastic producted is recycled",
-          imagePath: "assets/images/bin_recycle.png",
+          imagePath: "assets/images/display/bin_recycle.png",
         );
 
       case GameEndState.win:
@@ -64,7 +64,7 @@ class EndScreenData {
           title: "Congratulations",
           passType: PassType.recycleSuccess,
           subtitle: "You were one of the lucky 9% that was recycled",
-          imagePath: "assets/images/player.png",
+          imagePath: "assets/images/display/bottle_full.png",
         );
     }
   }

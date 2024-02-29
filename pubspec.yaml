@@ -44,6 +44,7 @@ flutter:
     - assets/audio/
     - assets/fonts/
     - assets/images/
+    - assets/images/display/
     - assets/images/background/
     - assets/images/google_wallet/
     - assets/images/logo/

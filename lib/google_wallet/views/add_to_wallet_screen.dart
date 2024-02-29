@@ -25,12 +25,12 @@ class AddToWalletScreen extends StatelessWidget {
       body: AnimateGradient(
         duration: const Duration(seconds: 5),
         primaryColors: [
-          Colors.blue.shade400,
           Colors.white,
+          Colors.blue.shade400,
         ],
         secondaryColors: [
-          Colors.blue.shade100,
           Colors.white,
+          Colors.blue.shade100,
         ],
         child: SafeArea(
           child: Padding(
