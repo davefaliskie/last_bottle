@@ -46,7 +46,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            gapH12,
+            gapH4,
             Text(
               "Trading Cards",
               style: Theme.of(context).textTheme.titleLarge,
@@ -66,21 +66,13 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
                 return AchievementCard(achievement: achievements[index]);
               },
             ),
-            gapH16,
+            gapH12,
             Text(
-              "Game Stats",
+              "Recycle Outcomes",
               style: Theme.of(context).textTheme.titleLarge,
               textAlign: TextAlign.left,
             ),
-            gapH8,
-            const Padding(
-              padding: EdgeInsets.only(left: 2.0),
-              child: Text(
-                "How successful your recycling attempts have been",
-                textAlign: TextAlign.left,
-              ),
-            ),
-            gapH16,
+            gapH12,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -91,6 +83,28 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
                 StatItem(
                   label: "Recycled",
                   value: db.percentOfTotalAttempts("winEndCount"),
+                  color: Colors.red.shade900,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                OutcomeStatCard(
+                  image: "assets/images/trash.png",
+                  value: db.percentOfTotalAttempts("trashEndCount"),
+                ),
+                OutcomeStatCard(
+                  image: "assets/images/water.png",
+                  value: db.percentOfTotalAttempts("waterEndCount"),
+                ),
+                OutcomeStatCard(
+                  image: "assets/images/fire.png",
+                  value: db.percentOfTotalAttempts("fireEndCount"),
+                ),
+                OutcomeStatCard(
+                  image: "assets/images/turtle_sq.png",
+                  value: db.percentOfTotalAttempts("turtleEndCount"),
                 ),
               ],
             ),

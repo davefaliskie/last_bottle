@@ -30,8 +30,9 @@ class AchievementCard extends StatelessWidget {
       child: Card(
         shadowColor: Colors.lightBlue,
         elevation: active ? 5 : 0,
-        color:
-            active ? achievement.passContent.dartColor : Colors.grey.shade400,
+        color: active
+            ? achievement.passContent.dartColor
+            : Colors.blueGrey.shade200,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(

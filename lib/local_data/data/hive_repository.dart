@@ -18,9 +18,17 @@ class HiveRepository {
   // given a key this will return the precent that key's value is of the totalAttempts
   String percentOfTotalAttempts(String key) {
     final totalAttempt = getValue("totalAttempts") ?? 0;
-    final portion = getValue(key) ?? 0;
+    int portion = getValue(key) ?? 0;
+
+    if (key == "trashEndCount") {
+      int failedSpins = getValue("trashSpinEndCount") ?? 0;
+      portion += failedSpins;
+    }
 
     double percent = (portion / totalAttempt) * 100;
+    if (percent == 0) {
+      return "zero";
+    }
     return "${percent.toStringAsFixed(1)}%";
   }
 
