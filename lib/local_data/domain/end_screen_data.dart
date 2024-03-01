@@ -21,7 +21,7 @@ class EndScreenData {
           title: "A Landfill Is Your Fate",
           passType: PassType.trash,
           subtitle:
-              "You weren't recycled and ended up in the landfill. This is the fate of xx% of plastic that's produced.",
+              "You weren't recycled and ended up in the landfill. This is sadly the fate of most plastic that's produced.",
           imagePath: "assets/images/display/trash.png",
         );
 
@@ -30,7 +30,7 @@ class EndScreenData {
           title: "The Ocean Is Where You'll Be",
           passType: PassType.water,
           subtitle:
-              "You weren't recycled and ended up in the ocean. This is the fate of xx% of plastic that's produced.",
+              "You're not alone, at least 14 million tons of plastic end up in the ocean every year",
           imagePath: "assets/images/display/water.png",
         );
 
@@ -38,24 +38,26 @@ class EndScreenData {
         return EndScreenData(
           title: "To The Furnace For You",
           passType: PassType.fire,
-          subtitle: "This is the fate of xx% of plastic",
+          subtitle: "About 12% of all plastic waste generated is incinerated",
           imagePath: "assets/images/display/fire.png",
         );
 
       case GameEndState.turtle:
         return EndScreenData(
-          title: "A Turtle Ate Your Bottle",
+          title: "You Were Mistaken As Food",
           passType: PassType.turtle,
+          // https://www.seeturtles.org/ocean-plastic
           subtitle:
-              "Turtles and other sea life are constantly mistaking plastic for food",
+              "Sea turtles and other marine creatures often mistake plastics and other garbage as food and ingest it.",
           imagePath: "assets/images/display/turtle.png",
         );
 
       case GameEndState.recycle:
         return EndScreenData(
-          title: "All that effort for nothing",
+          title: "All That Effort For Trash",
           passType: PassType.recycle,
-          subtitle: "Only 9% of plastic producted is recycled",
+          subtitle:
+              "Only 9% of plastic producted is recycled successfully, the rest goes to landfills or is burned.",
           imagePath: "assets/images/display/bin_recycle.png",
         );
 
@@ -63,7 +65,8 @@ class EndScreenData {
         return EndScreenData(
           title: "Congratulations",
           passType: PassType.recycleSuccess,
-          subtitle: "You were one of the lucky 9% that was recycled",
+          subtitle:
+              "You're among the 9% of plastic that's successfully recycled, highlighting recycling's inadequacy in solving the global plastic issue.",
           imagePath: "assets/images/display/bottle_full.png",
         );
     }
