@@ -15,6 +15,15 @@ class HiveRepository {
     return box.get(key);
   }
 
+  // given a key this will return the precent that key's value is of the totalAttempts
+  String percentOfTotalAttempts(String key) {
+    final totalAttempt = getValue("totalAttempts") ?? 0;
+    final portion = getValue(key) ?? 0;
+
+    double percent = (portion / totalAttempt) * 100;
+    return "${percent.toStringAsFixed(1)}%";
+  }
+
   String get userId {
     if (box.get("userId") != null) {
       return box.get("userId");
@@ -108,6 +117,10 @@ class HiveRepository {
 
   void togglePlaySound() {
     box.put("playSound", !playSound);
+  }
+
+  void resetGame() {
+    Hive.box("gameData").clear();
   }
 }
 
