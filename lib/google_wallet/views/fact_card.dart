@@ -22,13 +22,26 @@ class FactCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Padding(
+                padding:
+                    const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
+                child: Text(
+                  passContent.title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
               const Padding(
-                padding: EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
+                padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 4.0),
                 child: Text(
                   "Did You Know?",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24.0,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -38,7 +51,7 @@ class FactCard extends StatelessWidget {
                   passContent.header,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 16.0,
+                    fontSize: 14.0,
                   ),
                 ),
               ),
@@ -51,11 +64,25 @@ class FactCard extends StatelessWidget {
                 ),
                 child: const Text(
                   "Learn More",
-                  style: TextStyle(color: Colors.black87),
+                  style: TextStyle(color: Colors.amber),
                 ),
               ),
               gapH12,
-              Image.network(passContent.imageUrl),
+              Image.network(
+                passContent.imageUrl,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) {
+                    return child;
+                  }
+                  return const SizedBox(
+                    height: 100,
+                    child: Center(
+                        child: CircularProgressIndicator(
+                      color: Colors.white,
+                    )),
+                  );
+                },
+              ),
             ],
           ),
         ),
