@@ -54,7 +54,7 @@ class EndScreenData {
 
       case GameEndState.recycle:
         return EndScreenData(
-          title: "All That Effort For Trash",
+          title: "All That Effort For The Trash",
           passType: PassType.recycle,
           subtitle:
               "Only 9% of plastic producted is recycled successfully, the rest goes to landfills or is burned.",
