@@ -24,25 +24,25 @@ class Achievement {
     switch (passType) {
       case PassType.trash:
         return Achievement(
-          title: "Getting Dirty",
+          title: "Stay Awhile",
           hint: "End up in the landfill",
           passContent: PassContent.fromPassType(passType),
           obtained: obtained,
-          iconData: Icons.landscape,
+          iconData: Icons.timer,
         );
 
       case PassType.water:
         return Achievement(
-          title: "Floating",
+          title: "Float On",
           hint: "End up in the Ocean",
           passContent: PassContent.fromPassType(passType),
           obtained: obtained,
-          iconData: Icons.water_drop_outlined,
+          iconData: Icons.waves_sharp,
         );
 
       case PassType.fire:
         return Achievement(
-          title: "Heat Up",
+          title: "Toxic",
           hint: "End up in the fire",
           passContent: PassContent.fromPassType(passType),
           obtained: obtained,
@@ -51,29 +51,29 @@ class Achievement {
 
       case PassType.turtle:
         return Achievement(
-          title: "Sea More",
+          title: "Hazord",
           hint: "Have you seen a turtle",
           passContent: PassContent.fromPassType(passType),
           obtained: obtained,
-          iconData: Icons.water,
+          iconData: Icons.warning,
         );
 
       case PassType.recycle:
         return Achievement(
-          title: "Close Call",
-          hint: "Attempted to recycle but were unsuccessful",
+          title: "Mislead",
+          hint: "Attempt to recycle 5x",
           passContent: PassContent.fromPassType(passType),
           obtained: obtained,
-          iconData: Icons.balance_outlined,
+          iconData: Icons.emoji_symbols,
         );
 
       case PassType.recycleSuccess:
         return Achievement(
-          title: "New Life",
-          hint: "Get successfully recycled",
+          title: "End It",
+          hint: "Be successfully recycled",
           passContent: PassContent.fromPassType(passType),
           obtained: obtained,
-          iconData: Icons.recycling,
+          iconData: Icons.back_hand_outlined,
         );
     }
   }

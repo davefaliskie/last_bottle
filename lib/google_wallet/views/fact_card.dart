@@ -24,7 +24,7 @@ class FactCard extends StatelessWidget {
             children: [
               Padding(
                 padding:
-                    const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
+                    const EdgeInsets.only(left: 12.0, top: 12.0, right: 10.0),
                 child: Text(
                   passContent.title,
                   style: const TextStyle(
@@ -35,7 +35,7 @@ class FactCard extends StatelessWidget {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 4.0),
+                padding: EdgeInsets.only(left: 12.0, right: 12.0, top: 4.0),
                 child: Text(
                   "Did You Know?",
                   style: TextStyle(
@@ -46,7 +46,7 @@ class FactCard extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(12.0),
                 child: Text(
                   passContent.header,
                   style: const TextStyle(
@@ -62,9 +62,12 @@ class FactCard extends StatelessWidget {
                 style: ButtonStyle(
                   overlayColor: MaterialStateProperty.all(Colors.transparent),
                 ),
-                child: const Text(
-                  "Learn More",
-                  style: TextStyle(color: Colors.amber),
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 2.0),
+                  child: Text(
+                    "Learn More",
+                    style: TextStyle(color: Colors.amber),
+                  ),
                 ),
               ),
               gapH12,

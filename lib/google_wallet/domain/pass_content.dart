@@ -88,7 +88,7 @@ class PassContent {
         return PassContent(
           imageUrl: "https://last-bottle.s3.amazonaws.com/reuse.png",
           imageDesc: "Dead end with recycling symbol",
-          title: "Plastic Illusion",
+          title: "Recycling Dead-End",
           header:
               "The vast majority of all plastic produced can't be or won't be recycled. The plastics industry promoted recycling to keep plastic bans at bay.",
           sourceUrl:
