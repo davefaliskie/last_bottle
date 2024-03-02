@@ -16,6 +16,7 @@ class StatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Card(
+        elevation: 0,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -55,6 +56,7 @@ class OutcomeStatCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Card(
+        elevation: 0,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(

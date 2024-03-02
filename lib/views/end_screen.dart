@@ -173,8 +173,12 @@ class _EndScreenState extends ConsumerState<EndScreen> {
               },
               style: primaryButtonStyle,
               child: Text(
-                winner == true ? "Main Menu" : "Try Again",
-                style: const TextStyle(color: Colors.white),
+                winner == true ? "Main Menu" : "Play Again",
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ),

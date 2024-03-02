@@ -63,6 +63,7 @@ class Turtle extends SpriteComponent
   ) {
     if (other is Player) {
       log.d("Turtle Hit");
+      other.removeFromParent();
       game.endAndGo(GameEndState.turtle);
     }
     super.onCollisionStart(intersectionPoints, other);

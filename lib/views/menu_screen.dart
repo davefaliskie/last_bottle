@@ -134,7 +134,11 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
             style: primaryButtonStyle,
             child: const Text(
               "Start New Game",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ),
