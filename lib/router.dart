@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:last_bottle/bottle_game/bottle_game_screen.dart';
 import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 import 'package:last_bottle/google_wallet/views/add_to_wallet_screen.dart';
 import 'package:last_bottle/local_data/domain/game_end_state.dart';
@@ -11,6 +12,7 @@ import 'package:last_bottle/views/menu_screen.dart';
 import 'package:last_bottle/views/recycle_end_screen.dart';
 
 enum AppRoute {
+  bottleGame,
   drinkWater,
   game,
   endTrash,
@@ -26,10 +28,20 @@ enum AppRoute {
 }
 
 final GoRouter router = GoRouter(
-  initialLocation: '/menu',
+  initialLocation: '/',
   routes: <RouteBase>[
     GoRoute(
       path: '/',
+      name: AppRoute.bottleGame.name,
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        fullscreenDialog: true,
+        child: const BottleGameScreen(),
+      ),
+    ),
+    // todo remove👇
+    GoRoute(
+      path: '/drink',
       name: AppRoute.drinkWater.name,
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
