@@ -44,7 +44,7 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
     return Scaffold(
       appBar: bottleState == BottleState.over ? bottleAppBar(context) : null,
       floatingActionButton: const MuteButton(currentSong: "bg_intro.mp3"),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(

@@ -81,6 +81,34 @@ class LevelData {
 
     level.addAll(obstacleRow(
       row: 8,
+      item2: ObstacleType.trash,
+      item3: ObstacleType.trash,
+      item4: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 9,
+      item1: ObstacleType.trash,
+      item3: ObstacleType.trash,
+      item5: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 10,
+      item1: ObstacleType.trash,
+      item4: ObstacleType.trash,
+      item5: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 11,
+      item1: ObstacleType.trash,
+      item2: ObstacleType.trash,
+      item3: ObstacleType.trash,
+    ));
+
+    level.addAll(obstacleRow(
+      row: 12,
       item1: ObstacleType.binRecycle,
       item2: ObstacleType.binTrash,
       item3: ObstacleType.binRecycle,

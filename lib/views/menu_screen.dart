@@ -42,11 +42,12 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
     return Scaffold(
       appBar: bottleAppBar(context),
       body: Container(
-        margin: const EdgeInsets.all(defaultMargin),
+        margin: const EdgeInsets.only(
+            left: defaultMargin, right: defaultMargin, bottom: defaultMargin),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            gapH4,
+            const Spacer(),
             Text(
               "Trading Cards",
               style: Theme.of(context).textTheme.titleLarge,
@@ -66,7 +67,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
                 return AchievementCard(achievement: achievements[index]);
               },
             ),
-            gapH12,
+            const Spacer(),
             Text(
               "Recycle Outcomes",
               style: Theme.of(context).textTheme.titleLarge,
@@ -119,13 +120,13 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
                 ResetGameButton(),
               ],
             ),
-            const Spacer(),
           ],
         ),
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(defaultMargin),
+          padding: const EdgeInsets.only(
+              left: defaultMargin, right: defaultMargin, bottom: defaultMargin),
           child: ElevatedButton(
             onPressed: () {
               HapticFeedback.mediumImpact();
