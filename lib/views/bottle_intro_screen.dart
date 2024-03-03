@@ -31,10 +31,19 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
   Color actionColors = Colors.transparent;
 
   @override
+  void initState() {
+    super.initState();
+    FlameAudio.bgm.initialize();
+    if (ref.read(hiveRepositoryProvider).playSound) {
+      FlameAudio.bgm.play('bg_intro.mp3', volume: 0.2);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: bottleState == BottleState.over ? bottleAppBar(context) : null,
-      floatingActionButton: const MuteButton(),
+      floatingActionButton: const MuteButton(currentSong: "bg_intro.mp3"),
       floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
       body: SafeArea(
         child: Center(
@@ -96,11 +105,12 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
 
   void _startSpillingTimer() {
     if (!mounted) return;
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 4), () {
       if (!mounted) {
         return;
       }
       setState(() {
+        HapticFeedback.heavyImpact();
         bottleState = BottleState.empty;
       });
     });
@@ -127,6 +137,7 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
                 await FlameAudio.play('pop.mp3');
               }
               setState(() {
+                HapticFeedback.heavyImpact();
                 bottleState = BottleState.open;
               });
             },
@@ -150,9 +161,13 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
             height: 400,
             width: 150,
           ),
-          onHorizontalDragUpdate: (details) {
+          onHorizontalDragUpdate: (details) async {
             if (details.delta.dx > 0) {
+              if (ref.read(hiveRepositoryProvider).playSound) {
+                await FlameAudio.play('spilling.mp3');
+              }
               setState(() {
+                HapticFeedback.heavyImpact();
                 bottleState = BottleState.spilling;
               });
             }
@@ -190,7 +205,11 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
           ),
           onVerticalDragUpdate: (details) {
             if (details.delta.dy < 0) {
+              if (ref.read(hiveRepositoryProvider).playSound) {
+                FlameAudio.play('swish.mp3');
+              }
               setState(() {
+                HapticFeedback.heavyImpact();
                 bottleState = BottleState.over;
               });
             }
