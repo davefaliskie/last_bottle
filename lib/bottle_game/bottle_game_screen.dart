@@ -73,11 +73,17 @@ class _BottleGameScreenState extends ConsumerState<BottleGameScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
-            Container(
-              color: Colors.white,
-              child: AnimatedSwitcher(
-                duration: const Duration(seconds: 2),
-                child: _displayBottleWidget(),
+            Center(
+              child: FittedBox(
+                child: Container(
+                  width: 500,
+                  height: 500,
+                  color: Colors.white,
+                  child: AnimatedSwitcher(
+                    duration: const Duration(seconds: 2),
+                    child: _displayBottleWidget(),
+                  ),
+                ),
               ),
             ),
             const Spacer(),
@@ -116,13 +122,13 @@ class _BottleGameScreenState extends ConsumerState<BottleGameScreen> {
           "assets/images/bottles/closed.png",
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 70.0),
+          padding: const EdgeInsets.only(top: 90.0),
           child: InkWell(
             child: Container(
-              // color: Colors.green.withOpacity(0.3),
-              color: Colors.transparent,
-              height: 40,
-              width: 60,
+              color: Colors.green.withOpacity(0.3),
+              // color: Colors.transparent,
+              height: 50,
+              width: 70,
             ),
             onTap: () async {
               debugPrint("Opening Bottle");
