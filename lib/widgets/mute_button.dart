@@ -6,11 +6,11 @@ import 'package:last_bottle/local_data/data/hive_repository.dart';
 class MuteButton extends ConsumerStatefulWidget {
   const MuteButton({
     super.key,
-    required this.currentSong,
+    this.currentSong,
   });
 
   // currentSong is the song file for the background song to play on unMute
-  final String currentSong;
+  final String? currentSong;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _MuteButtonState();
@@ -32,7 +32,10 @@ class _MuteButtonState extends ConsumerState<MuteButton> {
           setState(() => playSound = false);
         } else {
           // we now will play
-          FlameAudio.bgm.play(widget.currentSong, volume: 0.2);
+          if (widget.currentSong != null) {
+            FlameAudio.bgm.play(widget.currentSong!, volume: 0.2);
+          }
+
           setState(() => playSound = true);
         }
         ref.read(hiveRepositoryProvider).togglePlaySound();

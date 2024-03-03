@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:last_bottle/bottle_game/bottle_game_screen.dart';
+import 'package:last_bottle/views/bottle_intro_screen.dart';
 import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 import 'package:last_bottle/google_wallet/views/add_to_wallet_screen.dart';
 import 'package:last_bottle/local_data/domain/game_end_state.dart';
 import 'package:last_bottle/recycle_game/game_screen.dart';
-import 'package:last_bottle/views/drink_water_screen.dart';
 import 'package:last_bottle/views/end_screen.dart';
 import 'package:last_bottle/views/error_screen.dart';
 import 'package:last_bottle/views/menu_screen.dart';
 import 'package:last_bottle/views/recycle_end_screen.dart';
 
 enum AppRoute {
-  bottleGame,
+  bottleIntro,
   drinkWater,
   game,
   endTrash,
@@ -32,21 +31,11 @@ final GoRouter router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
       path: '/',
-      name: AppRoute.bottleGame.name,
+      name: AppRoute.bottleIntro.name,
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
         fullscreenDialog: true,
-        child: const BottleGameScreen(),
-      ),
-    ),
-    // todo remove👇
-    GoRoute(
-      path: '/drink',
-      name: AppRoute.drinkWater.name,
-      pageBuilder: (context, state) => MaterialPage(
-        key: state.pageKey,
-        fullscreenDialog: true,
-        child: const DrinkWaterScreen(),
+        child: const BottleIntroScreen(),
       ),
     ),
     GoRoute(
