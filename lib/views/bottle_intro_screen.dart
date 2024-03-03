@@ -93,11 +93,11 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
       case BottleState.closed:
         return "Open the bottle";
       case BottleState.open:
-        return "Swipe right to drink the water";
+        return "Swipe right to empty the water";
       case BottleState.spilling:
-        return "Drinking...";
+        return "Emptying water...";
       case BottleState.empty:
-        return "That was fast! Swipe up toss it";
+        return "That was fast, swipe up toss it";
       case BottleState.over:
         return "";
     }
@@ -227,11 +227,11 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
         children: [
           const Icon(
             Icons.recycling,
-            size: 100,
+            size: 120,
           ),
           const Spacer(),
           const Text(
-            "You've finished consuming a single use plastic bottle",
+            "Your single use plastic water bottle is empty",
             style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
@@ -244,6 +244,7 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
           const Spacer(),
           ElevatedButton(
             onPressed: () {
+              ref.read(hiveRepositoryProvider).setIntroComplete();
               HapticFeedback.heavyImpact();
               context.goNamed(AppRoute.game.name);
             },

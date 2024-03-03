@@ -36,7 +36,7 @@ class ResetGameButton extends ConsumerWidget {
                   onPressed: () {
                     ref.read(hiveRepositoryProvider).resetGame();
                     HapticFeedback.mediumImpact();
-                    context.goNamed(AppRoute.game.name);
+                    context.goNamed(AppRoute.bottleIntro.name);
                   },
                   style: primaryButtonStyle,
                   child: const Text(

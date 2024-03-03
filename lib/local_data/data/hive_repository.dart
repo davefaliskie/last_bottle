@@ -15,6 +15,11 @@ class HiveRepository {
     return box.get(key);
   }
 
+  void setIntroComplete() {
+    box.put("introComplete", true);
+    log.d("BOX: ${box.toMap()}");
+  }
+
   // given a key this will return the precent that key's value is of the totalAttempts
   String percentOfTotalAttempts(String key) {
     final totalAttempt = getValue("totalAttempts") ?? 0;
