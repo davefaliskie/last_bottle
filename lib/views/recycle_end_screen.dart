@@ -46,7 +46,7 @@ class RecycleEndScreen extends StatelessWidget {
                 ),
                 const Spacer(flex: 2),
                 const Text(
-                  "Spin the wheel to see where your bottle ends up",
+                  "Spin the wheel to see if your bottle will be reused",
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.black87),
                 ),

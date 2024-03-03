@@ -55,6 +55,7 @@ class ObstacleTrash extends Obstacle {
   ) {
     if (other is Player) {
       log.d("Hit Trash");
+      other.removeFromParent();
       game.endAndGo(GameEndState.trash);
     }
     super.onCollisionStart(intersectionPoints, other);
@@ -75,6 +76,7 @@ class ObstacleWater extends Obstacle {
   ) {
     if (other is Player) {
       log.d("Hit Water");
+      other.removeFromParent();
       game.endAndGo(GameEndState.water);
     }
     super.onCollisionStart(intersectionPoints, other);
@@ -95,6 +97,7 @@ class ObstacleFire extends Obstacle {
   ) {
     if (other is Player) {
       log.d("Hit Fire");
+      other.removeFromParent();
       game.endAndGo(GameEndState.fire);
     }
     super.onCollisionStart(intersectionPoints, other);

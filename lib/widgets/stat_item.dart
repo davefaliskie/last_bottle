@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:last_bottle/utils/responsive_sizes.dart';
 
 class StatItem extends StatelessWidget {
   const StatItem({
@@ -16,6 +17,7 @@ class StatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Card(
+        elevation: 0,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -24,7 +26,7 @@ class StatItem extends StatelessWidget {
               Text(
                 value,
                 style: TextStyle(
-                  fontSize: 45.0,
+                  fontSize: ResponsiveSizes(context).statItemContentSize,
                   fontWeight: FontWeight.bold,
                   color: color,
                 ),
@@ -55,13 +57,14 @@ class OutcomeStatCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Card(
+        elevation: 0,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
               Image.asset(
                 image,
-                height: 45.0,
+                height: ResponsiveSizes(context).statItemContentSize,
               ),
               Text(value)
             ],

@@ -34,7 +34,7 @@ class Achievement {
       case PassType.water:
         return Achievement(
           title: "Float On",
-          hint: "End up in the Ocean",
+          hint: "End up in the water",
           passContent: PassContent.fromPassType(passType),
           obtained: obtained,
           iconData: Icons.waves_sharp,
@@ -43,7 +43,7 @@ class Achievement {
       case PassType.fire:
         return Achievement(
           title: "Toxic",
-          hint: "End up in the fire",
+          hint: "Try getting burned",
           passContent: PassContent.fromPassType(passType),
           obtained: obtained,
           iconData: Icons.local_fire_department,
@@ -70,7 +70,7 @@ class Achievement {
       case PassType.recycleSuccess:
         return Achievement(
           title: "End It",
-          hint: "Be successfully recycled",
+          hint: "Successfully recycle",
           passContent: PassContent.fromPassType(passType),
           obtained: obtained,
           iconData: Icons.back_hand_outlined,

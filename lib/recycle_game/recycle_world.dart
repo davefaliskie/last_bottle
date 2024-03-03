@@ -71,7 +71,7 @@ class RecycleWorld extends World with HasGameRef<RecycleGame> {
     children.whereType<Obstacle>().forEach((obstacle) {
       // Move obstacles up at the same rate the player was falling
       // THIS determines the speed of the game.
-      obstacle.position.y -= (400 * dt);
+      obstacle.position.y -= (600 * dt);
 
       // Optionally, respawn or recycle obstacles that move off-screen
       if (obstacle.position.y < -(gameRef.size.y / 2)) {

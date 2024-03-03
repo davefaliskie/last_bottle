@@ -79,7 +79,7 @@ class AddToWalletScreen extends StatelessWidget {
                       style: TextStyle(color: Colors.black87),
                     ),
                   ),
-                  gapH32,
+                  const Spacer(),
                 ],
               ),
             ),

@@ -43,6 +43,7 @@ class BinTrash extends Obstacle {
   ) {
     if (other is Player) {
       log.d("Went in Trash Bin");
+      other.removeFromParent();
       game.endAndGo(GameEndState.trash);
     }
     super.onCollisionStart(intersectionPoints, other);
@@ -59,6 +60,7 @@ class BinRecycle extends Obstacle {
   ) {
     if (other is Player) {
       log.d("Went to Recycling Bin");
+      other.removeFromParent();
       game.endAndGo(GameEndState.recycle);
     }
     super.onCollisionStart(intersectionPoints, other);
