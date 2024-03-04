@@ -33,7 +33,7 @@ class _MuteButtonState extends ConsumerState<MuteButton> {
         } else {
           // we now will play
           if (widget.currentSong != null) {
-            FlameAudio.bgm.play(widget.currentSong!, volume: 0.2);
+            FlameAudio.bgm.play(widget.currentSong!, volume: 0.1);
           }
 
           setState(() => playSound = true);

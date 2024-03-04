@@ -27,7 +27,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
 
     if (ref.read(hiveRepositoryProvider).playSound) {
       FlameAudio.bgm.initialize();
-      FlameAudio.bgm.play('bg_game.mp3', volume: 0.3);
+      FlameAudio.bgm.play('bg_game.mp3', volume: 0.2);
     }
   }
 

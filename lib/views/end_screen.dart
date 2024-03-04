@@ -33,7 +33,7 @@ class _EndScreenState extends ConsumerState<EndScreen> {
     if (ref.read(hiveRepositoryProvider).playSound) {
       FlameAudio.bgm.initialize();
       if (widget.gameEndState == GameEndState.win) {
-        FlameAudio.bgm.play('bg_win.mp3', volume: 0.3);
+        FlameAudio.bgm.play('bg_win.mp3', volume: 0.2);
       } else {
         FlameAudio.bgm.play('bg_end.mp3', volume: 0.2);
       }

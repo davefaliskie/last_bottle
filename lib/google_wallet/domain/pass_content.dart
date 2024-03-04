@@ -43,7 +43,7 @@ class PassContent {
           imageDesc: "Plastic water bottles floating in the ocean",
           title: "57,000 Year Cleanup",
           header:
-              "Great Pacific Garbage Patch has 1.8 Trillion Pieces of plastic. If we removed one piece per second it would take more than 57 thousand years to remove it all.",
+              "The Great Pacific Garbage Patch has 1.8 Trillion Pieces of plastic. If we removed one piece per second it would take more than 57 thousand years to remove it all.",
           sourceUrl:
               "https://www.npr.org/2020/03/31/822597631/plastic-wars-three-takeaways-from-the-fight-over-the-future-of-plastics",
           passType: passType,

@@ -35,7 +35,7 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
     super.initState();
     FlameAudio.bgm.initialize();
     if (ref.read(hiveRepositoryProvider).playSound) {
-      FlameAudio.bgm.play('bg_intro.mp3', volume: 0.2);
+      FlameAudio.bgm.play('bg_intro.mp3', volume: 0.1);
     }
   }
 
@@ -97,20 +97,21 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
       case BottleState.spilling:
         return "Emptying water...";
       case BottleState.empty:
-        return "That was fast, swipe up toss it";
+        return "That was fast, swipe up to toss it";
       case BottleState.over:
         return "";
     }
   }
 
   void _startSpillingTimer() {
+    HapticFeedback.heavyImpact();
     if (!mounted) return;
     Future.delayed(const Duration(seconds: 4), () {
       if (!mounted) {
         return;
       }
+      HapticFeedback.mediumImpact();
       setState(() {
-        HapticFeedback.heavyImpact();
         bottleState = BottleState.empty;
       });
     });
@@ -161,13 +162,12 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
             height: 400,
             width: 150,
           ),
-          onHorizontalDragUpdate: (details) async {
+          onHorizontalDragUpdate: (details) {
             if (details.delta.dx > 0) {
               if (ref.read(hiveRepositoryProvider).playSound) {
-                await FlameAudio.play('spilling.mp3');
+                FlameAudio.play('spilling.mp3', volume: 0.5);
               }
               setState(() {
-                HapticFeedback.heavyImpact();
                 bottleState = BottleState.spilling;
               });
             }
