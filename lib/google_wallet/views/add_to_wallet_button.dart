@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:last_bottle/google_wallet/data/google_wallet_repository.dart';
 import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 import 'package:last_bottle/local_data/data/hive_repository.dart';
@@ -18,12 +17,13 @@ class AddToWalletButton extends ConsumerWidget {
 
     return IconButton(
       onPressed: () async {
-        context.goNamed(AppRoute.menu.name);
         String? walletUrl = await GoogleWalletRepository().createPassUrl(
           userId: userId,
           passType: passType,
         );
         await launchUrl(Uri.parse(walletUrl));
+        // redirect to menu when returning to the app
+        ref.read(goRouterProvider).goNamed(AppRoute.menu.name);
       },
       icon: Image.asset(
         "assets/images/google_wallet/en_add_button.png",

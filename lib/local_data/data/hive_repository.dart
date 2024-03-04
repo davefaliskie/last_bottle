@@ -58,7 +58,6 @@ class HiveRepository {
     box.put(endCounterKey, endCount + 1);
 
     awardPasses();
-
     log.d("BOX: ${box.toMap()}");
   }
 
@@ -82,8 +81,8 @@ class HiveRepository {
   }
 
   bool canWin() {
-    // don't allow winning until player has attempted 5x & seen all levels
-    if (box.get("recycleEndCount", defaultValue: 0) > 4) {
+    // don't allow winning until player's 6th attempted so they see all levels
+    if (box.get("recycleEndCount", defaultValue: 0) > 5) {
       return true;
     }
     return false;
