@@ -21,3 +21,9 @@ ValueListenableBuilder(
   }),
 ),
 ```
+
+## Android build
+
+```
+flutter build appbundle
+```
