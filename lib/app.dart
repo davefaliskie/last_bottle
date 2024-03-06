@@ -19,6 +19,17 @@ class _MyAppState extends ConsumerState<RecycleApp> {
       debugShowCheckedModeBanner: false,
       routerConfig: goRouter,
       theme: themeData,
+      builder: (context, child) {
+        if (child == null) {
+          return const SizedBox.shrink();
+        }
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaler: const TextScaler.linear(1.0),
+          ),
+          child: child,
+        );
+      },
     );
   }
 }
