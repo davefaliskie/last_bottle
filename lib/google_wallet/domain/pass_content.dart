@@ -11,6 +11,7 @@ class PassContent {
   final String header;
   final String sourceUrl;
   final PassType passType;
+  final String imageAsset;
 
   const PassContent({
     required this.imageUrl,
@@ -19,6 +20,7 @@ class PassContent {
     required this.header,
     required this.sourceUrl,
     required this.passType,
+    required this.imageAsset,
     this.color = "#1A74D1",
     this.dartColor = const Color(0xFF1A74D1),
   });
@@ -35,6 +37,7 @@ class PassContent {
           sourceUrl:
               "https://www.liveabout.com/how-long-does-it-take-garbage-to-decompose-2878033",
           passType: passType,
+          imageAsset: "assets/images/google_wallet/trash.png",
         );
 
       case PassType.water:
@@ -47,6 +50,7 @@ class PassContent {
           sourceUrl:
               "https://www.npr.org/2020/03/31/822597631/plastic-wars-three-takeaways-from-the-fight-over-the-future-of-plastics",
           passType: passType,
+          imageAsset: "assets/images/google_wallet/water.png",
         );
 
       case PassType.fire:
@@ -59,6 +63,7 @@ class PassContent {
           sourceUrl:
               "https://www.greenpeace.org.uk/news/incineration-burning-plastic-crisis/",
           passType: passType,
+          imageAsset: "assets/images/google_wallet/fire.png",
         );
 
       case PassType.turtle:
@@ -70,6 +75,7 @@ class PassContent {
               "52% of sea turtles across the globe have some plastic in their guts and just one small piece that gets trapped in the wrong place can lead to death.",
           sourceUrl: "https://oceanblueproject.org/sea-turtle-facts/",
           passType: passType,
+          imageAsset: "assets/images/google_wallet/turtle.png",
         );
 
       case PassType.recycle:
@@ -82,6 +88,7 @@ class PassContent {
           sourceUrl:
               "https://plasticactioncentre.ca/directory/plastic-by-the-numbers/",
           passType: passType,
+          imageAsset: "assets/images/google_wallet/recycle.png",
         );
 
       case PassType.recycleSuccess:
@@ -94,6 +101,7 @@ class PassContent {
           sourceUrl:
               "https://www.npr.org/2020/03/31/822597631/plastic-wars-three-takeaways-from-the-fight-over-the-future-of-plastics",
           passType: passType,
+          imageAsset: "assets/images/google_wallet/reuse.png",
         );
     }
   }

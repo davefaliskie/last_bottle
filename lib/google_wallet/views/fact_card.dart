@@ -71,21 +71,7 @@ class FactCard extends StatelessWidget {
                 ),
               ),
               gapH12,
-              Image.network(
-                passContent.imageUrl,
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress == null) {
-                    return child;
-                  }
-                  return const SizedBox(
-                    height: 100,
-                    child: Center(
-                        child: CircularProgressIndicator(
-                      color: Colors.white,
-                    )),
-                  );
-                },
-              ),
+              Image.asset(passContent.imageAsset),
             ],
           ),
         ),
