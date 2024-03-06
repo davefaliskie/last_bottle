@@ -37,8 +37,8 @@ class Player extends SpriteComponent with HasGameRef<RecycleGame> {
     double newXPosition = position.x + deltaX;
 
     // Ensure the player does not move off-screen
-    double minX = -gameRef.size.x / 2 + size.x / 2; // Left boundary
-    double maxX = gameRef.size.x / 2 - size.x / 2; // Right boundary
+    double minX = -gameRef.size.x / 2 + (size.x + 10); // Left boundary
+    double maxX = gameRef.size.x / 2 - (size.x + 10); // Right boundary
     newXPosition = newXPosition.clamp(minX, maxX);
 
     // if (newXPosition < position.x) {
