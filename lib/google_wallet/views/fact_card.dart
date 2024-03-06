@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:last_bottle/google_wallet/domain/pass_content.dart';
-import 'package:last_bottle/utils/sizes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class FactCard extends StatelessWidget {
@@ -46,7 +45,8 @@ class FactCard extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.only(
+                    left: 12.0, right: 12.0, top: 12.0, bottom: 4.0),
                 child: Text(
                   passContent.header,
                   style: const TextStyle(
@@ -70,7 +70,6 @@ class FactCard extends StatelessWidget {
                   ),
                 ),
               ),
-              gapH12,
               Image.asset(passContent.imageAsset),
             ],
           ),

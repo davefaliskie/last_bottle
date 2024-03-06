@@ -54,7 +54,7 @@ class AddToWalletScreen extends StatelessWidget {
                     ),
                   ),
                   const Spacer(
-                    flex: 2,
+                    flex: 3,
                   ),
                   const Text(
                     "Share this with friends through Google Wallet",
