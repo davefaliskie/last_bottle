@@ -55,7 +55,7 @@ class PassContent {
           imageDesc: "Fire",
           title: "Toxic Flames",
           header:
-              "Plastic is almost entirely made from oil and gas. So burning it is essentially burning fossil fuels. For every tonne of dense plastic burned, two tonnes of CO2 is released.",
+              "Plastic is almost entirely made from oil and gas. So burning it is essentially burning fossil fuels. For every ton of dense plastic burned, two tons of CO2 is released.",
           sourceUrl:
               "https://www.greenpeace.org.uk/news/incineration-burning-plastic-crisis/",
           passType: passType,

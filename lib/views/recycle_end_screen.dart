@@ -24,16 +24,19 @@ class RecycleEndScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const Spacer(),
-                const Text(
-                  "You Recycled",
-                  style: TextStyle(fontSize: 42.0, fontWeight: FontWeight.w500),
-                  textAlign: TextAlign.center,
+                const FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    "Landed In The Recycle Bin",
+                    style: TextStyle(fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 const Padding(
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
                   child: Text(
-                    "But that's not the end, unfortunately only 9% of plastic that's recycled gets reused.",
+                    "But that's not the end, unfortunately most plastic doesn't get reused",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 14.0),
                   ),

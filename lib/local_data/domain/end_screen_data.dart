@@ -57,7 +57,7 @@ class EndScreenData {
           title: "All That Effort For The Trash",
           passType: PassType.recycle,
           subtitle:
-              "Only 9% of plastic producted is recycled successfully, the rest goes to landfills or is burned.",
+              "Only 9% of plastic produced is recycled successfully, the rest goes to landfills or is burned.",
           imagePath: "assets/images/display/bin_recycle.png",
         );
 

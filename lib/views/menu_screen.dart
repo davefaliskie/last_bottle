@@ -74,7 +74,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
               ),
               gapH8,
               Text(
-                "Recycle Outcomes",
+                "Your Outcomes",
                 style: Theme.of(context).textTheme.titleLarge,
                 textAlign: TextAlign.left,
               ),
@@ -87,7 +87,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
                     value: db.getValue("totalAttempts").toString(),
                   ),
                   StatItem(
-                    label: "Recycled",
+                    label: "Recycled Successfully",
                     value: db.percentOfTotalAttempts("winEndCount"),
                     color: Colors.red.shade900,
                   ),
