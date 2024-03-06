@@ -18,8 +18,11 @@ class PassData {
       "color": passContent.color,
       "image_url": passContent.imageUrl,
       "image_desc": passContent.imageDesc,
+      "image_desc_ja": passContent.imageDescJa,
       "title": passContent.title,
+      "title_ja": passContent.titleJa,
       "header": passContent.header,
+      "header_ja": passContent.headerJa,
       "source_url": passContent.sourceUrl,
     };
   }
