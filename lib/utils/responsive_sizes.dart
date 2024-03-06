@@ -15,7 +15,7 @@ class ResponsiveSizes {
   ResponsiveSizes(this.context);
   final BuildContext context;
 
-  ScreenSize _getScreenSize() {
+  ScreenSize getScreenSize() {
     final height = MediaQuery.of(context).size.height;
     if (height <= 700) {
       return ScreenSize.mSmall;
@@ -27,7 +27,7 @@ class ResponsiveSizes {
   }
 
   double get statItemContentSize {
-    if (_getScreenSize() == ScreenSize.mSmall) {
+    if (getScreenSize() == ScreenSize.mSmall) {
       return 30.0;
     }
     return 45.0;

@@ -133,9 +133,9 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
               height: 50,
               width: 70,
             ),
-            onTap: () async {
+            onTap: () {
               if (ref.read(hiveRepositoryProvider).playSound) {
-                await FlameAudio.play('pop.mp3');
+                FlameAudio.play('pop.mp3');
               }
               setState(() {
                 HapticFeedback.heavyImpact();

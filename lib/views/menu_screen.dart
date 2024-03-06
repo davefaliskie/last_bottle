@@ -9,6 +9,7 @@ import 'package:last_bottle/constants.dart';
 import 'package:last_bottle/local_data/data/hive_repository.dart';
 import 'package:last_bottle/router.dart';
 import 'package:last_bottle/theme.dart';
+import 'package:last_bottle/utils/responsive_sizes.dart';
 import 'package:last_bottle/utils/sizes.dart';
 import 'package:last_bottle/widgets/bottle_app_bar.dart';
 import 'package:last_bottle/widgets/mute_button.dart';
@@ -40,87 +41,90 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
     final db = ref.read(hiveRepositoryProvider);
 
     return Scaffold(
-      appBar: bottleAppBar(context),
+      appBar: ResponsiveSizes(context).getScreenSize() == ScreenSize.mSmall
+          ? null
+          : bottleAppBar(context),
       body: Container(
         margin: const EdgeInsets.only(
             left: defaultMargin, right: defaultMargin, bottom: defaultMargin),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Spacer(),
-            Text(
-              "Trading Cards",
-              style: Theme.of(context).textTheme.titleLarge,
-              textAlign: TextAlign.left,
-            ),
-            GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.symmetric(vertical: defaultMargin),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 4.0,
-                mainAxisSpacing: 4.0,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              gapH24,
+              Text(
+                "Trading Cards",
+                style: Theme.of(context).textTheme.titleLarge,
+                textAlign: TextAlign.left,
               ),
-              itemCount: achievements.length,
-              itemBuilder: (context, index) {
-                return AchievementCard(achievement: achievements[index]);
-              },
-            ),
-            const Spacer(),
-            Text(
-              "Recycle Outcomes",
-              style: Theme.of(context).textTheme.titleLarge,
-              textAlign: TextAlign.left,
-            ),
-            gapH12,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                StatItem(
-                  label: "Bottles Used",
-                  value: db.getValue("totalAttempts").toString(),
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                padding: const EdgeInsets.symmetric(vertical: defaultMargin),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 4.0,
+                  mainAxisSpacing: 4.0,
                 ),
-                StatItem(
-                  label: "Recycled",
-                  value: db.percentOfTotalAttempts("winEndCount"),
-                  color: Colors.red.shade900,
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                OutcomeStatCard(
-                  image: "assets/images/trash.png",
-                  value: db.percentOfTotalAttempts("trashEndCount"),
-                ),
-                OutcomeStatCard(
-                  image: "assets/images/water.png",
-                  value: db.percentOfTotalAttempts("waterEndCount"),
-                ),
-                OutcomeStatCard(
-                  image: "assets/images/fire.png",
-                  value: db.percentOfTotalAttempts("fireEndCount"),
-                ),
-                OutcomeStatCard(
-                  image: "assets/images/turtle_sq.png",
-                  value: db.percentOfTotalAttempts("turtleEndCount"),
-                ),
-              ],
-            ),
-            const Spacer(
-              flex: 2,
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MuteButton(currentSong: 'bg_menu.mp3'),
-                gapW12,
-                ResetGameButton(),
-              ],
-            ),
-          ],
+                itemCount: achievements.length,
+                itemBuilder: (context, index) {
+                  return AchievementCard(achievement: achievements[index]);
+                },
+              ),
+              gapH8,
+              Text(
+                "Recycle Outcomes",
+                style: Theme.of(context).textTheme.titleLarge,
+                textAlign: TextAlign.left,
+              ),
+              gapH12,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  StatItem(
+                    label: "Bottles Used",
+                    value: db.getValue("totalAttempts").toString(),
+                  ),
+                  StatItem(
+                    label: "Recycled",
+                    value: db.percentOfTotalAttempts("winEndCount"),
+                    color: Colors.red.shade900,
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  OutcomeStatCard(
+                    image: "assets/images/trash.png",
+                    value: db.percentOfTotalAttempts("trashEndCount"),
+                  ),
+                  OutcomeStatCard(
+                    image: "assets/images/water.png",
+                    value: db.percentOfTotalAttempts("waterEndCount"),
+                  ),
+                  OutcomeStatCard(
+                    image: "assets/images/fire.png",
+                    value: db.percentOfTotalAttempts("fireEndCount"),
+                  ),
+                  OutcomeStatCard(
+                    image: "assets/images/turtle_sq.png",
+                    value: db.percentOfTotalAttempts("turtleEndCount"),
+                  ),
+                ],
+              ),
+              gapH16,
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MuteButton(currentSong: 'bg_menu.mp3'),
+                  gapW12,
+                  ResetGameButton(),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: SafeArea(
