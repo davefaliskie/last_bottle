@@ -55,22 +55,22 @@ class _WheelState extends ConsumerState<Wheel> {
             child: const RotatedBox(
               quarterTurns: 1,
               child: Padding(
-                padding: EdgeInsets.only(bottom: 25),
+                padding: EdgeInsets.only(bottom: 50),
                 child: Icon(
                   Icons.recycling,
                   color: Colors.white,
-                  size: 45,
+                  size: 50,
                 ),
               ),
             ),
             style: FortuneItemStyle(
-              color: Colors.blue.shade700.withAlpha(150),
+              color: Colors.green.shade600.withAlpha(180),
               borderWidth: 0,
             ),
           ),
           ..._losing90(
             imagePath: "assets/images/trash.png",
-            color: Colors.white.withAlpha(140),
+            color: Colors.white.withAlpha(100),
           ),
         ],
         onFling: () {
@@ -121,52 +121,24 @@ class _WheelState extends ConsumerState<Wheel> {
     required String imagePath,
     required Color color,
   }) {
-    return [
-      FortuneItem(
-        child: const SizedBox.shrink(),
-        style: FortuneItemStyle(color: color, borderWidth: 0),
-      ),
-      FortuneItem(
-        child: const SizedBox.shrink(),
-        style: FortuneItemStyle(color: color, borderWidth: 0),
-      ),
-      FortuneItem(
-        child: const SizedBox.shrink(),
-        style: FortuneItemStyle(color: color, borderWidth: 0),
-      ),
-      FortuneItem(
-        child: const SizedBox.shrink(),
-        style: FortuneItemStyle(color: color, borderWidth: 0),
-      ),
-      FortuneItem(
-        child: RotatedBox(
-          quarterTurns: 1,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 30.0),
-            child: Image.asset(
-              imagePath,
-              width: 70,
+    List<FortuneItem> output = [];
+    for (var item = 0; item < 9; item++) {
+      output.add(
+        FortuneItem(
+          child: RotatedBox(
+            quarterTurns: 1,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 60.0),
+              child: Image.asset(
+                imagePath,
+                width: 65,
+              ),
             ),
           ),
+          style: FortuneItemStyle(color: color, borderWidth: 0),
         ),
-        style: FortuneItemStyle(color: color, borderWidth: 0),
-      ),
-      FortuneItem(
-        child: const SizedBox.shrink(),
-        style: FortuneItemStyle(color: color, borderWidth: 0),
-      ),
-      FortuneItem(
-        child: const SizedBox.shrink(),
-        style: FortuneItemStyle(color: color, borderWidth: 0),
-      ),
-      FortuneItem(
-        child: const SizedBox.shrink(),
-        style: FortuneItemStyle(color: color, borderWidth: 0),
-      ),
-      FortuneItem(
-        child: const SizedBox.shrink(),
-        style: FortuneItemStyle(color: color, borderWidth: 0),
-      ),
-    ];
+      );
+    }
+    return output;
   }
 }

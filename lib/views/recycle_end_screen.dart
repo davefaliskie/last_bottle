@@ -11,8 +11,8 @@ class RecycleEndScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.white, Colors.blue.shade500],
-            begin: Alignment.topCenter,
+            colors: [Colors.white, Colors.blue.shade800],
+            begin: Alignment.center,
             end: Alignment.bottomCenter,
           ),
         ),
@@ -51,7 +51,7 @@ class RecycleEndScreen extends StatelessWidget {
                 const Text(
                   "Spin the wheel to see if your bottle will be reused",
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black87),
+                  style: TextStyle(color: Colors.white),
                 ),
                 const Spacer(),
               ],
