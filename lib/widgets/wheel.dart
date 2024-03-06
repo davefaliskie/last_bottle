@@ -59,18 +59,18 @@ class _WheelState extends ConsumerState<Wheel> {
                 child: Icon(
                   Icons.recycling,
                   color: Colors.white,
-                  size: 50,
+                  size: 55,
                 ),
               ),
             ),
             style: FortuneItemStyle(
-              color: Colors.green.shade600.withAlpha(180),
+              color: Colors.blue.shade800.withAlpha(50),
               borderWidth: 0,
             ),
           ),
           ..._losing90(
             imagePath: "assets/images/trash.png",
-            color: Colors.white.withAlpha(100),
+            color: Colors.white.withAlpha(150),
           ),
         ],
         onFling: () {
@@ -131,7 +131,7 @@ class _WheelState extends ConsumerState<Wheel> {
               padding: const EdgeInsets.only(bottom: 60.0),
               child: Image.asset(
                 imagePath,
-                width: 65,
+                width: 55,
               ),
             ),
           ),

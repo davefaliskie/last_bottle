@@ -11,8 +11,8 @@ class RecycleEndScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.white, Colors.blue.shade800],
-            begin: Alignment.center,
+            colors: [Colors.blue.shade200, Colors.blue.shade800],
+            begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
         ),
@@ -27,18 +27,20 @@ class RecycleEndScreen extends StatelessWidget {
                 const FittedBox(
                   fit: BoxFit.fitWidth,
                   child: Text(
-                    "Landed In The Recycle Bin",
-                    style: TextStyle(fontWeight: FontWeight.w500),
+                    "Landed In Recycling Bin",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                 ),
                 const Padding(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+                      EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
                   child: Text(
                     "But that's not the end, unfortunately most plastic doesn't get reused",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 14.0),
+                    style: TextStyle(fontSize: 16.0),
                   ),
                 ),
                 const Spacer(),
@@ -51,7 +53,11 @@ class RecycleEndScreen extends StatelessWidget {
                 const Text(
                   "Spin the wheel to see if your bottle will be reused",
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 const Spacer(),
               ],
