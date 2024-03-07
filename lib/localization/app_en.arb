@@ -69,6 +69,11 @@
   "recycleSuccessLable": "Recycled Successfully",
   "startNewGame": "Start New Game",
 
+  "@_WHEEL": {},
+  "wheelScreenTitle": "Landed In Recycling Bin",
+  "wheelScreenSubTitle": "But that's not the end, unfortunately most plastic doesn't get reused",
+  "spinHint": "Spin the wheel to see if your bottle will be reused",
+
   "@_RESET_GAME": {},
 
 

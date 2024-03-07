@@ -68,6 +68,11 @@
   "recycleSuccessLable": "成功裏にリサイクル",
   "startNewGame": "新しいゲームを始める",
 
+  "@_WHEEL": {},
+  "wheelScreenTitle": "リサイクルボックスに着地",
+  "wheelScreenSubTitle": "しかし、それで終わりではありません。残念ながら、ほとんどのプラスチックは再利用されません",
+  "spinHint": "ホイールを回して、あなたのボトルが再利用されるかどうかを確認してください",
+
   "@_GOOGLE_WALLET": {},
   "walletScreenTitle": "新しいトレーディングカード",
   "walletBtnLabel": "Google Wallet を介して友達と共有",
