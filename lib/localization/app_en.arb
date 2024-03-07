@@ -63,7 +63,11 @@
 
   
   "@_MENU": {},
-
+  "tradingCardsTitle": "Trading Cards",
+  "statsTitle": "Your Outcomes",
+  "bottlesUsedLabel": "Bottles Used",
+  "recycleSuccessLable": "Recycled Successfully",
+  "startNewGame": "Start New Game",
 
   "@_RESET_GAME": {},
 

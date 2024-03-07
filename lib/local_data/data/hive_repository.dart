@@ -30,6 +30,10 @@ class HiveRepository {
     final totalAttempt = getValue("totalAttempts") ?? 0;
     int portion = getValue(key) ?? 0;
 
+    if (totalAttempt == 0) {
+      return ref.watch(appLocalizationsProvider).zero;
+    }
+
     if (key == "trashEndCount") {
       int failedSpins = getValue("trashSpinEndCount") ?? 0;
       portion += failedSpins;

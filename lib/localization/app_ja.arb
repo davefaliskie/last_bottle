@@ -62,6 +62,11 @@
   "endWinSubTitle": "成功裏にリサイクルされたプラスチックの9％に含まれており、リサイクルの不十分さが世界的なプラスチック問題を解決する上で浮き彫りになります。",
 
   "@_MENU": {},
+  "tradingCardsTitle": "トレーディングカード",
+  "statsTitle": "あなたの結果",
+  "bottlesUsedLabel": "使用したボトル",
+  "recycleSuccessLable": "成功裏にリサイクル",
+  "startNewGame": "新しいゲームを始める",
 
   "@_GOOGLE_WALLET": {},
   "walletScreenTitle": "新しいトレーディングカード",
