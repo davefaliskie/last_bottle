@@ -19,6 +19,7 @@ class AchievementsRepository {
         Achievement.fromPassType(
           passType: value,
           obtained: ref.watch(hiveRepositoryProvider).passAwarded(value),
+          ref: ref,
         ),
       );
     }

@@ -3,8 +3,30 @@
   "appTitle": "Last Bottle",
 
   "@_BUTTONS": {},
-  "close": "close",
+  "close": "Close",
   "learnMore": "Learn More",
+
+  "@_ACHIEVEMENTS": {},
+  "hintTitle": "Here's a Hint",
+
+  "trashPassTitle": "Stay Awhile",
+  "trashPassHint": "End up in the landfill",
+
+  "waterPassTitle": "Float On",
+  "waterPassHint": "End up in the water",
+
+  "firePassTitle": "Toxic",
+  "firePassHint": "Try getting burned",
+
+  "turtlePassTitle": "Hazord",
+  "turtlePassHint": "Have you seen a turtle",
+
+  "recyclePassTitle": "Mislead",
+  "recyclePassHint": "Attempt to recycle 5x",
+
+  "recycleSuccessPassTitle": "End It",
+  "recycleSuccessPassHint": "Successfully recycle",
+
 
   "@_GOOGLE_WALLET": {},
   "walletScreenTitle": "New Trading Card",

@@ -128,6 +128,7 @@ class _EndScreenState extends ConsumerState<EndScreen> {
                                   achievement: Achievement.fromPassType(
                                     passType: endScreenData.passType!,
                                     obtained: true,
+                                    ref: ref,
                                   ),
                                 ),
                               ),

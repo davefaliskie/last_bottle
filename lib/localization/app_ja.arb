@@ -6,6 +6,10 @@
   "close": "閉じる",
   "learnMore": "もっと詳しく",
 
+  "@_ACHIEVEMENTS": {},
+  "trashPassTitle": "少しまって",
+  "trashPassHint": "最終的には埋め立て地に行き着く",
+
   "@_GOOGLE_WALLET": {},
   "walletScreenTitle": "新しいトレーディングカード",
   "walletBtnLabel": "Google Wallet を介して友達と共有",
