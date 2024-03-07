@@ -1,6 +1,8 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 import 'package:last_bottle/local_data/domain/game_end_state.dart';
+import 'package:last_bottle/localization/app_localizations_provider.dart';
 import 'package:logger/logger.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
@@ -8,6 +10,9 @@ import 'package:uuid/uuid.dart';
 part 'hive_repository.g.dart';
 
 class HiveRepository {
+  HiveRepository(this.ref);
+  final Ref ref;
+
   final log = Logger();
   final box = Hive.box("gameData");
 
@@ -25,6 +30,10 @@ class HiveRepository {
     final totalAttempt = getValue("totalAttempts") ?? 0;
     int portion = getValue(key) ?? 0;
 
+    if (totalAttempt == 0) {
+      return ref.watch(appLocalizationsProvider).zero;
+    }
+
     if (key == "trashEndCount") {
       int failedSpins = getValue("trashSpinEndCount") ?? 0;
       portion += failedSpins;
@@ -32,7 +41,7 @@ class HiveRepository {
 
     double percent = (portion / totalAttempt) * 100;
     if (percent == 0) {
-      return "zero";
+      return ref.watch(appLocalizationsProvider).zero;
     }
     return "${percent.toStringAsFixed(1)}%";
   }
@@ -138,5 +147,5 @@ class HiveRepository {
 
 @Riverpod(keepAlive: true)
 HiveRepository hiveRepository(HiveRepositoryRef ref) {
-  return HiveRepository();
+  return HiveRepository(ref);
 }

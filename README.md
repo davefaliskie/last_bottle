@@ -27,3 +27,11 @@ ValueListenableBuilder(
 ```
 flutter build appbundle
 ```
+
+## Localization
+
+check the current local:
+
+```
+Localizations.localeOf(context).languageCode
+```

@@ -1,5 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:last_bottle/google_wallet/domain/pass_content.dart';
+import 'package:last_bottle/localization/app_localizations_context.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class FactCard extends StatelessWidget {
@@ -12,6 +14,8 @@ class FactCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool jaLoc = Localizations.localeOf(context).languageCode == 'ja';
+
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 30.0),
       child: ClipRRect(
@@ -29,20 +33,22 @@ class FactCard extends StatelessWidget {
                 Padding(
                   padding:
                       const EdgeInsets.only(left: 12.0, top: 12.0, right: 10.0),
-                  child: Text(
-                    passContent.title,
+                  child: AutoSizeText(
+                    jaLoc ? passContent.titleJa : passContent.title,
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 24.0,
                       fontWeight: FontWeight.w600,
                     ),
+                    maxLines: 1,
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 12.0, right: 12.0, top: 4.0),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 12.0, right: 12.0, top: 4.0),
                   child: Text(
-                    "Did You Know?",
-                    style: TextStyle(
+                    context.loc.didYouKnowQ,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 14.0,
                       fontWeight: FontWeight.w600,
@@ -53,7 +59,7 @@ class FactCard extends StatelessWidget {
                   padding: const EdgeInsets.only(
                       left: 12.0, right: 12.0, top: 12.0, bottom: 4.0),
                   child: Text(
-                    passContent.header,
+                    jaLoc ? passContent.headerJa : passContent.header,
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 14.0,
@@ -67,11 +73,11 @@ class FactCard extends StatelessWidget {
                   style: ButtonStyle(
                     overlayColor: MaterialStateProperty.all(Colors.transparent),
                   ),
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 2.0),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 2.0),
                     child: Text(
-                      "Learn More",
-                      style: TextStyle(color: Colors.amber),
+                      context.loc.learnMore,
+                      style: const TextStyle(color: Colors.amber),
                     ),
                   ),
                 ),

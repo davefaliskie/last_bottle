@@ -1,0 +1,88 @@
+{
+  "@@locale": "ja",
+  "appTitle": "ラストボトル",
+
+  "@_GENERAL": {},
+  "close": "閉じる",
+  "learnMore": "もっと詳しく",
+  "zero": "ゼロ",
+  "newLabel": "新しい",
+  "mainMenu": "メインメニュー",
+  "playAgain": "もう一度プレイ",
+  "errorTitle": "何かがうまくいかなかった",
+  "goMainMenuBtn": "メインメニューに戻る",
+
+  "@_ACHIEVEMENTS": {},
+  "hintTitle": "ここにヒントがあります",
+
+  "trashPassTitle": "しばらくここにいて",
+  "trashPassHint": "最終的には埋立地に行き着く",
+
+  "waterPassTitle": "浮かんでいけ",
+  "waterPassHint": "水中に行き着く",
+
+  "firePassTitle": "有害",
+  "firePassHint": "火傷してみて",
+
+  "turtlePassTitle": "危険",
+  "turtlePassHint": "亀を見たことがありますか",
+
+  "recyclePassTitle": "誤解を招く",
+  "recyclePassHint": "5回リサイクルを試みる",
+
+  "recycleSuccessPassTitle": "それを終わらせる",
+  "recycleSuccessPassHint": "成功してリサイクルする",
+
+  "@_INTRO_SCREEN": {},
+  "hintBottleClosed": "ボトルを開けてください",
+  "hintBottleOpen": "右にスワイプして水を空にしてください",
+  "hintBottleSpilling": "水を空にしています...",
+  "hintBottleEmpty": "それは速かった、上にスワイプして投げてください",
+  "beginGameTitle": "使い捨てのプラスチック製水ボトルが空です",
+  "beginGameSubTitle": "リサイクルしてみましょう",
+  "beginGameBtn": "リサイクルの旅を始める",
+
+  "@_END_SECREEN": {},
+  "endTrashTitle": "埋立地があなたの運命です",
+  "endTrashSubTitle": "リサイクルされずに埋立地に終わった。これは、生産されるプラスチックのほとんどが悲しいかな運命です。",
+
+  "endWaterTitle": "海があなたの行き先です",
+  "endWaterSubTitle": "あなただけではありません、毎年少なくとも1400万トンのプラスチックが海に流れ着きます",
+
+  "endFireTitle": "あなたは炉へ",
+  "endFireSubTitle": "生成される全プラスチック廃棄物の約12％が焼却されます",
+
+  "endTurtleTitle": "食べ物と間違えられました",
+  "endTurtleSubTitle": "海亀や他の海洋生物は、プラスチックやその他のごみを食べ物と間違えて摂取することがよくあります。",
+
+  "endRecycleTitle": "ゴミのためのその全ての努力",
+  "endRecycleSubTitle": "生産されるプラスチックのわずか9％が成功裏にリサイクルされ、残りは埋立地へ行くか焼却されます。",
+
+  "endWinTitle": "おめでとうございます",
+  "endWinSubTitle": "成功裏にリサイクルされたプラスチックの9％に含まれており、リサイクルの不十分さが世界的なプラスチック問題を解決する上で浮き彫りになります。",
+
+  "@_MENU": {},
+  "tradingCardsTitle": "トレーディングカード",
+  "statsTitle": "あなたの結果",
+  "bottlesUsedLabel": "使用したボトル",
+  "recycleSuccessLable": "成功裏にリサイクル",
+  "startNewGame": "新しいゲームを始める",
+
+  "@_WHEEL": {},
+  "wheelScreenTitle": "リサイクルボックスに着地",
+  "wheelScreenSubTitle": "しかし、それで終わりではありません。残念ながら、ほとんどのプラスチックは再利用されません",
+  "spinHint": "ホイールを回して、あなたのボトルが再利用されるかどうかを確認してください",
+
+  "@_RESET_GAME": {},
+  "resetGameTitle": "ゲームをリセット",
+  "resetGameBody": "本当によろしいですか？ すべての進捗が失われ、全てがリセットされます。これは元に戻すことができません。",
+  "resetGameCancel": "いいえ、キャンセル",
+  "resetGameConfirm": "はい、ゲームをリセット",
+
+  "@_GOOGLE_WALLET": {},
+  "walletScreenTitle": "新しいトレーディングカード",
+  "walletBtnLabel": "Google Wallet を介して友達と共有",
+  "didYouKnowQ": "知っていましたか",
+
+  "@_END": {}
+}

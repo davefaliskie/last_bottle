@@ -1,7 +1,9 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:last_bottle/achievements/domain/achievement.dart';
 import 'package:last_bottle/constants.dart';
+import 'package:last_bottle/localization/app_localizations_context.dart';
 import 'package:last_bottle/router.dart';
 
 class AchievementCard extends StatelessWidget {
@@ -39,7 +41,7 @@ class AchievementCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
+              AutoSizeText(
                 achievement.title,
                 style: TextStyle(
                   color: active ? Colors.white : Colors.black,
@@ -47,6 +49,7 @@ class AchievementCard extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
+                maxLines: 1,
               ),
               Icon(
                 active ? achievement.iconData : Icons.lock,
@@ -66,7 +69,7 @@ class AchievementCard extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           insetPadding: const EdgeInsets.all(defaultMargin),
-          title: const Text("Here's a Hint"),
+          title: Text(context.loc.hintTitle),
           content: Text(
             hint,
             style: const TextStyle(fontSize: 18),
@@ -77,7 +80,7 @@ class AchievementCard extends StatelessWidget {
               onPressed: () {
                 context.pop();
               },
-              child: const Text("Close"),
+              child: Text(context.loc.close),
             ),
           ],
         );

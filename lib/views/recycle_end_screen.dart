@@ -1,5 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:last_bottle/constants.dart';
+import 'package:last_bottle/localization/app_localizations_context.dart';
 import 'package:last_bottle/widgets/wheel.dart';
 
 class RecycleEndScreen extends StatelessWidget {
@@ -24,23 +26,23 @@ class RecycleEndScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const Spacer(),
-                const FittedBox(
-                  fit: BoxFit.fitWidth,
-                  child: Text(
-                    "Landed In Recycling Bin",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                    ),
-                    textAlign: TextAlign.center,
+                AutoSizeText(
+                  context.loc.wheelScreenTitle,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 32.0,
                   ),
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
                 ),
-                const Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
-                  child: Text(
-                    "But that's not the end, unfortunately most plastic doesn't get reused",
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 12.0),
+                  child: AutoSizeText(
+                    context.loc.wheelScreenSubTitle,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16.0),
+                    style: const TextStyle(fontSize: 16.0),
+                    maxLines: 2,
                   ),
                 ),
                 const Spacer(),
@@ -50,14 +52,15 @@ class RecycleEndScreen extends StatelessWidget {
                   child: const Wheel(),
                 ),
                 const Spacer(flex: 2),
-                const Text(
-                  "Spin the wheel to see if your bottle will be reused",
+                AutoSizeText(
+                  context.loc.spinHint,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500,
                   ),
+                  maxLines: 1,
                 ),
                 const Spacer(),
               ],

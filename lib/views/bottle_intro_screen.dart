@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:last_bottle/constants.dart';
 import 'package:last_bottle/local_data/data/hive_repository.dart';
+import 'package:last_bottle/localization/app_localizations_context.dart';
 import 'package:last_bottle/router.dart';
 import 'package:last_bottle/theme.dart';
 import 'package:last_bottle/utils/sizes.dart';
@@ -91,13 +92,13 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
   String _hintText() {
     switch (bottleState) {
       case BottleState.closed:
-        return "Open the bottle";
+        return context.loc.hintBottleClosed;
       case BottleState.open:
-        return "Swipe right to empty the water";
+        return context.loc.hintBottleOpen;
       case BottleState.spilling:
-        return "Emptying water...";
+        return context.loc.hintBottleSpilling;
       case BottleState.empty:
-        return "That was fast, swipe up to toss it";
+        return context.loc.hintBottleEmpty;
       case BottleState.over:
         return "";
     }
@@ -230,15 +231,15 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
             size: 120,
           ),
           const Spacer(),
-          const Text(
-            "Your single use plastic water bottle is empty",
-            style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+          Text(
+            context.loc.beginGameTitle,
+            style: const TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
           gapH24,
-          const Text(
-            "Let's try to recycle it",
-            style: TextStyle(fontSize: 20.0),
+          Text(
+            context.loc.beginGameSubTitle,
+            style: const TextStyle(fontSize: 20.0),
             textAlign: TextAlign.center,
           ),
           const Spacer(),
@@ -249,11 +250,11 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
               context.goNamed(AppRoute.game.name);
             },
             style: primaryButtonStyle,
-            child: const Padding(
-              padding: EdgeInsets.all(12.0),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
               child: Text(
-                "Begin Recycling Journey",
-                style: TextStyle(color: Colors.white, fontSize: 24.0),
+                context.loc.beginGameBtn,
+                style: const TextStyle(color: Colors.white, fontSize: 24.0),
               ),
             ),
           ),

@@ -7,6 +7,7 @@ import 'package:last_bottle/achievements/data/achievements_repository.dart';
 import 'package:last_bottle/achievements/views/achievement_card.dart';
 import 'package:last_bottle/constants.dart';
 import 'package:last_bottle/local_data/data/hive_repository.dart';
+import 'package:last_bottle/localization/app_localizations_context.dart';
 import 'package:last_bottle/router.dart';
 import 'package:last_bottle/theme.dart';
 import 'package:last_bottle/utils/responsive_sizes.dart';
@@ -54,7 +55,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
             children: [
               gapH24,
               Text(
-                "Trading Cards",
+                context.loc.tradingCardsTitle,
                 style: Theme.of(context).textTheme.titleLarge,
                 textAlign: TextAlign.left,
               ),
@@ -74,7 +75,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
               ),
               gapH8,
               Text(
-                "Your Outcomes",
+                context.loc.statsTitle,
                 style: Theme.of(context).textTheme.titleLarge,
                 textAlign: TextAlign.left,
               ),
@@ -83,11 +84,11 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   StatItem(
-                    label: "Bottles Used",
-                    value: db.getValue("totalAttempts").toString(),
+                    label: context.loc.bottlesUsedLabel,
+                    value: (db.getValue("totalAttempts") ?? 0).toString(),
                   ),
                   StatItem(
-                    label: "Recycled Successfully",
+                    label: context.loc.recycleSuccessLable,
                     value: db.percentOfTotalAttempts("winEndCount"),
                     color: Colors.red.shade900,
                   ),
@@ -137,9 +138,9 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
               context.goNamed(AppRoute.game.name);
             },
             style: primaryButtonStyle,
-            child: const Text(
-              "Start New Game",
-              style: TextStyle(
+            child: Text(
+              context.loc.startNewGame,
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w600,

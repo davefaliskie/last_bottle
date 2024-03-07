@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:last_bottle/router.dart';
 import 'package:last_bottle/theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RecycleApp extends ConsumerStatefulWidget {
   const RecycleApp({super.key});
@@ -19,6 +20,11 @@ class _MyAppState extends ConsumerState<RecycleApp> {
       debugShowCheckedModeBanner: false,
       routerConfig: goRouter,
       theme: themeData,
+
+      // Localization
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+
       builder: (context, child) {
         if (child == null) {
           return const SizedBox.shrink();
