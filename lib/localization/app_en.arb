@@ -9,6 +9,8 @@
   "newLabel": "new",
   "mainMenu": "Main Menu",
   "playAgain": "Play Again",
+  "errorTitle": "Something Went Wrong",
+  "goMainMenuBtn": "Go To Main Menu",
 
   "@_ACHIEVEMENTS": {},
   "hintTitle": "Here's a Hint",
@@ -30,6 +32,15 @@
 
   "recycleSuccessPassTitle": "End It",
   "recycleSuccessPassHint": "Successfully recycle",
+
+  "@_INTRO_SCREEN": {},
+  "hintBottleClosed": "Open the bottle",
+  "hintBottleOpen": "Swipe right to empty the water",
+  "hintBottleSpilling": "Emptying water...",
+  "hintBottleEmpty": "That was fast, swipe up to toss it",
+  "beginGameTitle": "Your single use plastic water bottle is empty",
+  "beginGameSubTitle": "Let's try to recycle it",
+  "beginGameBtn": "Begin Recycling Journey",
 
   "@_END_SECREEN": {},
   "endTrashTitle": "A Landfill Is Your Fate",
@@ -53,6 +64,8 @@
   
   "@_MENU": {},
 
+
+  "@_RESET_GAME": {},
 
 
   "@_GOOGLE_WALLET": {},

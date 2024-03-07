@@ -9,6 +9,8 @@
   "newLabel": "新しい",
   "mainMenu": "メインメニュー",
   "playAgain": "もう一度プレイ",
+  "errorTitle": "何かがうまくいかなかった",
+  "goMainMenuBtn": "メインメニューに戻る",
 
   "@_ACHIEVEMENTS": {},
   "hintTitle": "ここにヒントがあります",
@@ -30,6 +32,15 @@
 
   "recycleSuccessPassTitle": "それを終わらせる",
   "recycleSuccessPassHint": "成功してリサイクルする",
+
+  "@_INTRO_SCREEN": {},
+  "hintBottleClosed": "ボトルを開けてください",
+  "hintBottleOpen": "右にスワイプして水を空にしてください",
+  "hintBottleSpilling": "水を空にしています...",
+  "hintBottleEmpty": "それは速かった、上にスワイプして投げてください",
+  "beginGameTitle": "使い捨てのプラスチック製水ボトルが空です",
+  "beginGameSubTitle": "リサイクルしてみましょう",
+  "beginGameBtn": "リサイクルの旅を始める",
 
   "@_END_SECREEN": {},
   "endTrashTitle": "埋立地があなたの運命です",
