@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +10,7 @@ import 'package:last_bottle/constants.dart';
 import 'package:last_bottle/local_data/data/hive_repository.dart';
 import 'package:last_bottle/local_data/domain/end_screen_data.dart';
 import 'package:last_bottle/local_data/domain/game_end_state.dart';
+import 'package:last_bottle/localization/app_localizations_context.dart';
 import 'package:last_bottle/router.dart';
 import 'package:last_bottle/theme.dart';
 import 'package:last_bottle/utils/sizes.dart';
@@ -43,7 +45,10 @@ class _EndScreenState extends ConsumerState<EndScreen> {
   @override
   Widget build(BuildContext context) {
     // for some game end states there is a potential pass that could be awarded
-    final endScreenData = EndScreenData.fromGameEndState(widget.gameEndState);
+    final endScreenData = EndScreenData.fromGameEndState(
+      endState: widget.gameEndState,
+      ref: ref,
+    );
     bool? award;
     Color bottomColor = Colors.blue.shade300;
     bool winner = widget.gameEndState == GameEndState.win;
@@ -67,10 +72,11 @@ class _EndScreenState extends ConsumerState<EndScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  AutoSizeText(
                     endScreenData.title,
                     style: Theme.of(context).textTheme.titleLarge,
                     textAlign: TextAlign.center,
+                    maxLines: 1,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
@@ -110,9 +116,9 @@ class _EndScreenState extends ConsumerState<EndScreen> {
                           FloatingComponent(
                             child: Badge(
                               offset: const Offset(-6, -6),
-                              label: const Text(
-                                "New",
-                                style: TextStyle(
+                              label: Text(
+                                context.loc.newLabel,
+                                style: const TextStyle(
                                   fontSize: 12,
                                 ),
                               ),
@@ -144,7 +150,7 @@ class _EndScreenState extends ConsumerState<EndScreen> {
                           context.goNamed(AppRoute.menu.name);
                         },
                         child: Text(
-                          "Main Menu",
+                          context.loc.mainMenu,
                           style: TextStyle(
                             color: Colors.blue.shade900,
                             fontSize: 16,
@@ -174,7 +180,7 @@ class _EndScreenState extends ConsumerState<EndScreen> {
               },
               style: primaryButtonStyle,
               child: Text(
-                winner == true ? "Main Menu" : "Play Again",
+                winner == true ? context.loc.mainMenu : context.loc.playAgain,
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16.0,

@@ -2,9 +2,13 @@
   "@@locale": "en",
   "appTitle": "Last Bottle",
 
-  "@_BUTTONS": {},
+  "@_GENERAL": {},
   "close": "Close",
   "learnMore": "Learn More",
+  "zero": "zero",
+  "newLabel": "new",
+  "mainMenu": "Main Menu",
+  "playAgain": "Play Again",
 
   "@_ACHIEVEMENTS": {},
   "hintTitle": "Here's a Hint",
@@ -27,9 +31,28 @@
   "recycleSuccessPassTitle": "End It",
   "recycleSuccessPassHint": "Successfully recycle",
 
+  "@_END_SECREEN": {},
+  "endTrashTitle": "A Landfill Is Your Fate",
+  "endTrashSubTitle": "You weren't recycled and ended up in the landfill. This is sadly the fate of most plastic that's produced.",
+
+  "endWaterTitle": "The Ocean Is Where You'll Be",
+  "endWaterSubTitle": "You're not alone, at least 14 million tons of plastic end up in the ocean every year",
+
+  "endFireTitle": "To The Furnace For You",
+  "endFireSubTitle": "About 12% of all plastic waste generated is incinerated",
+
+  "endTurtleTitle": "You Were Mistaken As Food",
+  "endTurtleSubTitle": "Sea turtles and other marine creatures often mistake plastics and other garbage as food and ingest it.",
+
+  "endRecycleTitle": "All That Effort For The Trash",
+  "endRecycleSubTitle": "Only 9% of plastic produced is recycled successfully, the rest goes to landfills or is burned.",
+
+  "endWinTitle": "Congratulations",
+  "endWinSubTitle": "You're among the 9% of plastic that's successfully recycled, highlighting recycling's inadequacy in solving the global plastic issue.",
+
   
   "@_MENU": {},
-  "zero": "zero",
+
 
 
   "@_GOOGLE_WALLET": {},

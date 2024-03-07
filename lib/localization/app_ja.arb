@@ -2,9 +2,13 @@
   "@@locale": "ja",
   "appTitle": "ラストボトル",
 
-  "@_BUTTONS": {},
+  "@_GENERAL": {},
   "close": "閉じる",
   "learnMore": "もっと詳しく",
+  "zero": "ゼロ",
+  "newLabel": "新しい",
+  "mainMenu": "メインメニュー",
+  "playAgain": "もう一度プレイ",
 
   "@_ACHIEVEMENTS": {},
   "hintTitle": "ここにヒントがあります",
@@ -27,8 +31,26 @@
   "recycleSuccessPassTitle": "それを終わらせる",
   "recycleSuccessPassHint": "成功してリサイクルする",
 
+  "@_END_SECREEN": {},
+  "endTrashTitle": "埋立地があなたの運命です",
+  "endTrashSubTitle": "リサイクルされずに埋立地に終わった。これは、生産されるプラスチックのほとんどが悲しいかな運命です。",
+
+  "endWaterTitle": "海があなたの行き先です",
+  "endWaterSubTitle": "あなただけではありません、毎年少なくとも1400万トンのプラスチックが海に流れ着きます",
+
+  "endFireTitle": "あなたは炉へ",
+  "endFireSubTitle": "生成される全プラスチック廃棄物の約12％が焼却されます",
+
+  "endTurtleTitle": "食べ物と間違えられました",
+  "endTurtleSubTitle": "海亀や他の海洋生物は、プラスチックやその他のごみを食べ物と間違えて摂取することがよくあります。",
+
+  "endRecycleTitle": "ゴミのためのその全ての努力",
+  "endRecycleSubTitle": "生産されるプラスチックのわずか9％が成功裏にリサイクルされ、残りは埋立地へ行くか焼却されます。",
+
+  "endWinTitle": "おめでとうございます",
+  "endWinSubTitle": "成功裏にリサイクルされたプラスチックの9％に含まれており、リサイクルの不十分さが世界的なプラスチック問題を解決する上で浮き彫りになります。",
+
   "@_MENU": {},
-  "zero": "ゼロ",
 
   "@_GOOGLE_WALLET": {},
   "walletScreenTitle": "新しいトレーディングカード",
