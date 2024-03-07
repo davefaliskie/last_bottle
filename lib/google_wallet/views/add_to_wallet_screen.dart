@@ -1,4 +1,5 @@
 import 'package:animate_gradient/animate_gradient.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:last_bottle/constants.dart';
@@ -6,6 +7,7 @@ import 'package:last_bottle/google_wallet/domain/pass_content.dart';
 import 'package:last_bottle/google_wallet/domain/pass_type.dart';
 import 'package:last_bottle/google_wallet/views/add_to_wallet_button.dart';
 import 'package:last_bottle/google_wallet/views/fact_card.dart';
+import 'package:last_bottle/localization/app_localizations_context.dart';
 import 'package:last_bottle/router.dart';
 import 'package:last_bottle/utils/sizes.dart';
 import 'package:last_bottle/widgets/floating_component.dart';
@@ -40,12 +42,13 @@ class AddToWalletScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(),
-                  const Text(
-                    "New Trading Card",
-                    style: TextStyle(
+                  AutoSizeText(
+                    context.loc.walletScreenTitle,
+                    style: const TextStyle(
                       fontSize: 32.0,
                       fontWeight: FontWeight.w500,
                     ),
+                    maxLines: 1,
                   ),
                   const Spacer(),
                   FloatingComponent(
@@ -56,9 +59,9 @@ class AddToWalletScreen extends StatelessWidget {
                   const Spacer(
                     flex: 3,
                   ),
-                  const Text(
-                    "Share this with friends through Google Wallet",
-                    style: TextStyle(
+                  Text(
+                    context.loc.walletBtnLabel,
+                    style: const TextStyle(
                       color: Colors.black54,
                       fontSize: 12.0,
                     ),
@@ -74,9 +77,9 @@ class AddToWalletScreen extends StatelessWidget {
                         context.goNamed(AppRoute.menu.name);
                       }
                     },
-                    child: const Text(
-                      "Close",
-                      style: TextStyle(color: Colors.black87),
+                    child: Text(
+                      context.loc.close,
+                      style: const TextStyle(color: Colors.black87),
                     ),
                   ),
                   const Spacer(),

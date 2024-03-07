@@ -1,4 +1,15 @@
 {
   "@@locale": "ja",
-  "helloWorld": "こんにちは世界"
+  "appTitle": "ラストボトル",
+
+  "@_BUTTONS": {},
+  "close": "閉じる",
+  "learnMore": "もっと詳しく",
+
+  "@_GOOGLE_WALLET": {},
+  "walletScreenTitle": "新しいトレーディングカード",
+  "walletBtnLabel": "Google Wallet を介して友達と共有",
+  "didYouKnowQ": "知っていましたか",
+
+  "@_END": {}
 }

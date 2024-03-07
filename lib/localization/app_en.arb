@@ -1,7 +1,15 @@
 {
   "@@locale": "en",
-  "helloWorld": "Hello World!",
-  "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
-  }
+  "appTitle": "Last Bottle",
+
+  "@_BUTTONS": {},
+  "close": "close",
+  "learnMore": "Learn More",
+
+  "@_GOOGLE_WALLET": {},
+  "walletScreenTitle": "New Trading Card",
+  "walletBtnLabel": "Share this with friends through Google Wallet",
+  "didYouKnowQ": "Did You Know?",
+
+  "@_END": {}
 }
