@@ -18,7 +18,7 @@
   "firePassTitle": "Toxic",
   "firePassHint": "Try getting burned",
 
-  "turtlePassTitle": "Hazord",
+  "turtlePassTitle": "Hazard",
   "turtlePassHint": "Have you seen a turtle",
 
   "recyclePassTitle": "Mislead",
@@ -26,6 +26,10 @@
 
   "recycleSuccessPassTitle": "End It",
   "recycleSuccessPassHint": "Successfully recycle",
+
+  
+  "@_MENU": {},
+  "zero": "zero",
 
 
   "@_GOOGLE_WALLET": {},

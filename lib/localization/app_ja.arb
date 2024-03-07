@@ -7,8 +7,28 @@
   "learnMore": "もっと詳しく",
 
   "@_ACHIEVEMENTS": {},
-  "trashPassTitle": "少しまって",
-  "trashPassHint": "最終的には埋め立て地に行き着く",
+  "hintTitle": "ここにヒントがあります",
+
+  "trashPassTitle": "しばらくここにいて",
+  "trashPassHint": "最終的には埋立地に行き着く",
+
+  "waterPassTitle": "浮かんでいけ",
+  "waterPassHint": "水中に行き着く",
+
+  "firePassTitle": "有害",
+  "firePassHint": "火傷してみて",
+
+  "turtlePassTitle": "危険",
+  "turtlePassHint": "亀を見たことがありますか",
+
+  "recyclePassTitle": "誤解を招く",
+  "recyclePassHint": "5回リサイクルを試みる",
+
+  "recycleSuccessPassTitle": "それを終わらせる",
+  "recycleSuccessPassHint": "成功してリサイクルする",
+
+  "@_MENU": {},
+  "zero": "ゼロ",
 
   "@_GOOGLE_WALLET": {},
   "walletScreenTitle": "新しいトレーディングカード",
