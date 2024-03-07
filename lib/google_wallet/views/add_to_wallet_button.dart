@@ -14,6 +14,11 @@ class AddToWalletButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userId = ref.watch(hiveRepositoryProvider).userId;
+    String imagePath = "assets/images/google_wallet/en_add_button.png";
+
+    if (Localizations.localeOf(context).languageCode == "ja") {
+      imagePath = "assets/images/google_wallet/ja_add_button.png";
+    }
 
     return IconButton(
       onPressed: () async {
@@ -26,7 +31,7 @@ class AddToWalletButton extends ConsumerWidget {
         ref.read(goRouterProvider).goNamed(AppRoute.menu.name);
       },
       icon: Image.asset(
-        "assets/images/google_wallet/en_add_button.png",
+        imagePath,
         height: 48,
       ),
     );
