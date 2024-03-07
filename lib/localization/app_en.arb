@@ -75,6 +75,10 @@
   "spinHint": "Spin the wheel to see if your bottle will be reused",
 
   "@_RESET_GAME": {},
+  "resetGameTitle": "Reset The Game",
+  "resetGameBody": "Are you sure? You will lose all progress and everything will be reset. This can't be undone.",
+  "resetGameCancel": "No, Cancel",
+  "resetGameConfirm": "Yes, Reset Game",
 
 
   "@_GOOGLE_WALLET": {},
