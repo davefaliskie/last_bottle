@@ -1,54 +1,39 @@
 import 'package:flutter/material.dart';
 
-class AppColors {
-  bool isDark = false;
-  get brightness => isDark ? Brightness.dark : Brightness.light;
-  get defaultBackground => isDark ? Colors.grey.shade700 : Colors.white;
-  get secBackground => isDark ? Colors.grey.shade800 : Colors.grey.shade200;
-  get defaultText => isDark ? Colors.white : Colors.black;
-  get secText => isDark ? Colors.black : Colors.white;
-  get greyText => isDark ? Colors.grey.shade400 : Colors.grey.shade700;
-  get defaultBtnColor => isDark ? Colors.white : Colors.black;
-  get accentGrey => Colors.grey;
-  get defaultLine => Colors.grey.shade400;
-}
-
 ThemeData get themeData {
-  final colors = AppColors();
-
   return ThemeData(
     primarySwatch: Colors.blue,
     fontFamily: 'Inter',
-    brightness: colors.brightness,
+    brightness: Brightness.light,
     colorScheme: ColorScheme.fromSeed(
       seedColor: Colors.blue,
-      brightness: colors.brightness,
+      brightness: Brightness.light,
     ),
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       centerTitle: false,
       elevation: 0,
-      backgroundColor: colors.defaultBackground,
-      foregroundColor: colors.defaultText,
+      backgroundColor: Colors.white,
+      foregroundColor: Colors.black,
       titleSpacing: 0,
-      surfaceTintColor: colors.defaultBackground,
+      surfaceTintColor: Colors.white,
     ),
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       size: 32,
-      color: colors.defaultText,
+      color: Colors.black,
     ),
     cardTheme: CardTheme(
-      color: colors.secBackground,
+      color: Colors.grey.shade200,
       surfaceTintColor: Colors.transparent,
     ),
-    scaffoldBackgroundColor: colors.defaultBackground,
+    scaffoldBackgroundColor: Colors.white,
     textTheme: const TextTheme(
       titleLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w700),
       titleMedium: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
       bodyMedium: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w400),
       bodySmall: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w300),
     ).apply(
-      bodyColor: colors.defaultText,
-      displayColor: colors.defaultText,
+      bodyColor: Colors.black,
+      displayColor: Colors.black,
     ),
   );
 }

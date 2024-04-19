@@ -23,19 +23,17 @@ class _MuteButtonState extends ConsumerState<MuteButton> {
 
     return IconButton(
       onPressed: () {
-        // playSound in hive won't react to the update, so useing a state
-        // in this view this is only since leaving this screen will recheck
-        // if sound show play in it's init.
+        // playSound in hive won't react to the update, so using setState
+        // in this widget for instant change, then on rebuild playSound will update
         if (ref.read(hiveRepositoryProvider).playSound == true) {
           // we will now mute
           FlameAudio.bgm.stop();
           setState(() => playSound = false);
         } else {
-          // we now will play
+          // we will now play
           if (widget.currentSong != null) {
             FlameAudio.bgm.play(widget.currentSong!, volume: 0.1);
           }
-
           setState(() => playSound = true);
         }
         ref.read(hiveRepositoryProvider).togglePlaySound();
