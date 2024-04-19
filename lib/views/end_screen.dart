@@ -60,7 +60,6 @@ class _EndScreenState extends ConsumerState<EndScreen> {
     }
 
     return Scaffold(
-      // appBar: bottleAppBar(context),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

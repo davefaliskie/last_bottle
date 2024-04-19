@@ -4,7 +4,6 @@ import 'dart:math';
 import 'package:flame/components.dart';
 import 'package:last_bottle/constants.dart';
 import 'package:last_bottle/recycle_game/recycle_game.dart';
-import 'package:last_bottle/recycle_game/sprites/bin.dart';
 import 'package:last_bottle/recycle_game/sprites/obstacle.dart';
 import 'package:last_bottle/recycle_game/sprites/player.dart';
 import 'package:last_bottle/recycle_game/level_data.dart';
@@ -43,7 +42,7 @@ class RecycleWorld extends World with HasGameRef<RecycleGame> {
   FutureOr<void> onLoad() {
     super.onLoad();
 
-    // Add player first so it's behind trash
+    // Add player first so it's behind everything
     player = Player();
     add(player);
 
@@ -69,11 +68,10 @@ class RecycleWorld extends World with HasGameRef<RecycleGame> {
     super.update(dt);
 
     children.whereType<Obstacle>().forEach((obstacle) {
-      // Move obstacles up at the same rate the player was falling
-      // THIS determines the speed of the game.
+      // Move obstacles up, this determines the speed of the game.
       obstacle.position.y -= (600 * dt);
 
-      // Optionally, respawn or recycle obstacles that move off-screen
+      // Respawn obstacles that move off-screen, creating infiniate level loop
       if (obstacle.position.y < -(gameRef.size.y / 2)) {
         obstacle.position.y += extendedHeight;
       }

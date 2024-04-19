@@ -19,12 +19,7 @@ void main() async {
 }
 
 Future<void> initHive() async {
-  // Initialize Hive & open a box
+  // Initialize Hive & open gameData box
   await Hive.initFlutter();
   await Hive.openBox('gameData');
-
-  // Set appStartTime on first app launch
-  if (Hive.box("gameData").get("appStartTime") == null) {
-    Hive.box("gameData").put("appStartTime", DateTime.now());
-  }
 }

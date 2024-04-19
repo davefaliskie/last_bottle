@@ -2,7 +2,7 @@ name: last_bottle
 description: "End Single Use Plastic"
 publish_to: "none"
 
-version: 1.1.0+4
+version: 1.1.1+5
 
 environment:
   sdk: ">=3.2.6 <4.0.0"
@@ -51,7 +51,6 @@ flutter:
     - assets/fonts/
     - assets/images/
     - assets/images/display/
-    - assets/images/background/
     - assets/images/bottles/
     - assets/images/google_wallet/
     - assets/images/logo/

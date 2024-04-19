@@ -103,3 +103,37 @@ class ObstacleFire extends Obstacle {
     super.onCollisionStart(intersectionPoints, other);
   }
 }
+
+class BinTrash extends Obstacle {
+  BinTrash() : super(spritePath: 'bin_trash.png');
+
+  @override
+  void onCollisionStart(
+    Set<Vector2> intersectionPoints,
+    PositionComponent other,
+  ) {
+    if (other is Player) {
+      log.d("Went in Trash Bin");
+      other.removeFromParent();
+      game.endAndGo(GameEndState.trash);
+    }
+    super.onCollisionStart(intersectionPoints, other);
+  }
+}
+
+class BinRecycle extends Obstacle {
+  BinRecycle() : super(spritePath: 'bin_recycle.png');
+
+  @override
+  void onCollisionStart(
+    Set<Vector2> intersectionPoints,
+    PositionComponent other,
+  ) {
+    if (other is Player) {
+      log.d("Went to Recycling Bin");
+      other.removeFromParent();
+      game.endAndGo(GameEndState.recycle);
+    }
+    super.onCollisionStart(intersectionPoints, other);
+  }
+}
