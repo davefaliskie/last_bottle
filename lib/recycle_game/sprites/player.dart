@@ -17,16 +17,12 @@ class Player extends SpriteComponent with HasGameRef<RecycleGame> {
   @override
   void update(double dt) {
     super.update(dt);
-    // This makes the sprite fall down
+    // make the sprite fall down
     double newYPosition = position.y + (400 * dt);
 
+    // don't fall past 1/4 of screen
     if (newYPosition > -(gameHeight / 4)) {
       newYPosition = -(gameHeight / 4);
-    }
-
-    // THIS PREVENTS GOING PAST BOTTOM
-    if (newYPosition > (gameRef.size.y / 2) - (size.y / 2)) {
-      newYPosition = (gameRef.size.y / 2) - (size.y / 2);
     }
 
     // Apply the calculated or adjusted Y position
@@ -40,12 +36,6 @@ class Player extends SpriteComponent with HasGameRef<RecycleGame> {
     double minX = -gameRef.size.x / 2 + (size.x + 10); // Left boundary
     double maxX = gameRef.size.x / 2 - (size.x + 10); // Right boundary
     newXPosition = newXPosition.clamp(minX, maxX);
-
-    // if (newXPosition < position.x) {
-    //   angle = 0.5;
-    // } else {
-    //   angle = -0.5;
-    // }
 
     position.x = newXPosition;
   }

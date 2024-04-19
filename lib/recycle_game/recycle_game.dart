@@ -24,14 +24,6 @@ class RecycleGame extends FlameGame<RecycleWorld>
   final void Function(GameEndState endState) endAndGo;
 
   @override
-  Future<void> onLoad() async {
-    super.onLoad();
-    // debugMode = true;
-
-    // camera.backdrop.add(Background(speed: 10));
-  }
-
-  @override
   Color backgroundColor() {
     return Colors.white;
   }

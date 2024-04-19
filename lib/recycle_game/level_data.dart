@@ -334,7 +334,7 @@ class LevelData {
     return level;
   }
 
-  // Turtle Introduced
+  // Turtle Introduced (on game world)
   List<ObstacleData> _level4() {
     List<ObstacleData> level = [];
 
@@ -453,6 +453,7 @@ class LevelData {
     return level;
   }
 
+  // Randmly Generated Objects
   List<ObstacleData> _level5() {
     List<ObstacleData> level = [];
 

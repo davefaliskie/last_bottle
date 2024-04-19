@@ -31,6 +31,8 @@ class Turtle extends SpriteComponent
 
     position.add(velocity * dt);
 
+    // - move turtle left and right at an angle
+    // - move off screen by 200 & piviot while also fliping sprite direction
     if (position.x < -(gameWidth / 2) - 200) {
       velocity.x = -velocity.x;
 
@@ -43,17 +45,6 @@ class Turtle extends SpriteComponent
       flipHorizontally();
       angle = 0.7;
     }
-  }
-
-  void move(double deltaX) {
-    double newXPosition = position.x + deltaX;
-
-    // Ensure the player does not move off-screen
-    double minX = -gameRef.size.x / 2 + size.x / 2; // Left boundary
-    double maxX = gameRef.size.x / 2 - size.x / 2; // Right boundary
-    newXPosition = newXPosition.clamp(minX, maxX);
-
-    position.x = newXPosition;
   }
 
   @override
