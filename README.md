@@ -8,20 +8,6 @@ A Flutter Game Built With Flame.
 dart run build_runner watch -d
 ```
 
-# Hive Help
-
-this is a way to show a hive value with real time updates
-
-```
-ValueListenableBuilder(
-  valueListenable: Hive.box("gameData").listenable(keys: ['appStartTime']),
-  builder: ((context, box, child) {
-    final time = box.get("appStartTime");
-    return Text("start time: $time");
-  }),
-),
-```
-
 ## Android build
 
 ```
