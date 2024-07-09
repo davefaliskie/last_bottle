@@ -132,13 +132,13 @@ class HiveRepository {
     return box.get("${passType.name}PassAwarded", defaultValue: false);
   }
 
-  bool get playSound {
-    return box.get("playSound", defaultValue: true);
-  }
+  // bool get playSound {
+  //   return box.get("playSound", defaultValue: true);
+  // }
 
-  void togglePlaySound() {
-    box.put("playSound", !playSound);
-  }
+  // void togglePlaySound() {
+  //   box.put("playSound", !playSound);
+  // }
 
   void resetGame() {
     Hive.box("gameData").clear();
@@ -148,4 +148,16 @@ class HiveRepository {
 @Riverpod(keepAlive: true)
 HiveRepository hiveRepository(HiveRepositoryRef ref) {
   return HiveRepository(ref);
+}
+
+@riverpod
+class CanPlaySound extends _$CanPlaySound {
+  @override
+  bool build() => Hive.box("gameData").get("playSound", defaultValue: true);
+
+  void toggle() {
+    final canPlay = Hive.box("gameData").get("playSound", defaultValue: true);
+    Hive.box("gameData").put("playSound", !canPlay);
+    state = !canPlay;
+  }
 }

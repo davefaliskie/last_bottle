@@ -19,24 +19,22 @@ class MuteButton extends ConsumerStatefulWidget {
 class _MuteButtonState extends ConsumerState<MuteButton> {
   @override
   Widget build(BuildContext context) {
-    bool playSound = ref.watch(hiveRepositoryProvider).playSound;
+    bool playSound = ref.watch(canPlaySoundProvider);
 
     return IconButton(
       onPressed: () {
         // playSound in hive won't react to the update, so using setState
         // in this widget for instant change, then on rebuild playSound will update
-        if (ref.read(hiveRepositoryProvider).playSound == true) {
+        if (ref.read(canPlaySoundProvider) == true) {
           // we will now mute
           FlameAudio.bgm.stop();
-          setState(() => playSound = false);
         } else {
           // we will now play
           if (widget.currentSong != null) {
             FlameAudio.bgm.play(widget.currentSong!, volume: 0.1);
           }
-          setState(() => playSound = true);
         }
-        ref.read(hiveRepositoryProvider).togglePlaySound();
+        ref.read(canPlaySoundProvider.notifier).toggle();
       },
       icon: playSound
           ? const Icon(Icons.music_note_rounded)

@@ -35,7 +35,7 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
   void initState() {
     super.initState();
     FlameAudio.bgm.initialize();
-    if (ref.read(hiveRepositoryProvider).playSound) {
+    if (ref.read(canPlaySoundProvider)) {
       FlameAudio.bgm.play('bg_intro.mp3', volume: 0.1);
     }
   }
@@ -135,7 +135,7 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
               width: 70,
             ),
             onTap: () {
-              if (ref.read(hiveRepositoryProvider).playSound) {
+              if (ref.read(canPlaySoundProvider)) {
                 FlameAudio.play('pop.mp3');
               }
               setState(() {
@@ -165,7 +165,7 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
           ),
           onHorizontalDragUpdate: (details) {
             if (details.delta.dx > 0) {
-              if (ref.read(hiveRepositoryProvider).playSound) {
+              if (ref.read(canPlaySoundProvider)) {
                 FlameAudio.play('spilling.mp3', volume: 0.5);
               }
               setState(() {
@@ -206,7 +206,7 @@ class _BottleGameScreenState extends ConsumerState<BottleIntroScreen> {
           ),
           onVerticalDragUpdate: (details) {
             if (details.delta.dy < 0) {
-              if (ref.read(hiveRepositoryProvider).playSound) {
+              if (ref.read(canPlaySoundProvider)) {
                 FlameAudio.play('swish.mp3');
               }
               setState(() {

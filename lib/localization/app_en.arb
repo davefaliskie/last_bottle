@@ -1,7 +1,6 @@
 {
   "@@locale": "en",
   "appTitle": "Last Bottle",
-
   "@_GENERAL": {},
   "close": "Close",
   "learnMore": "Learn More",
@@ -11,28 +10,20 @@
   "playAgain": "Play Again",
   "errorTitle": "Something Went Wrong",
   "goMainMenuBtn": "Go To Main Menu",
-
   "@_ACHIEVEMENTS": {},
   "hintTitle": "Here's a Hint",
-
   "trashPassTitle": "Stay Awhile",
   "trashPassHint": "End up in the landfill",
-
   "waterPassTitle": "Float On",
   "waterPassHint": "End up in the water",
-
   "firePassTitle": "Toxic",
   "firePassHint": "Try getting burned",
-
   "turtlePassTitle": "Hazard",
   "turtlePassHint": "Have you seen a turtle",
-
   "recyclePassTitle": "Mislead",
   "recyclePassHint": "Attempt to recycle 5x",
-
   "recycleSuccessPassTitle": "End It",
   "recycleSuccessPassHint": "Successfully recycle",
-
   "@_INTRO_SCREEN": {},
   "hintBottleClosed": "Open the bottle",
   "hintBottleOpen": "Swipe right to empty the water",
@@ -41,50 +32,37 @@
   "beginGameTitle": "Your single use plastic water bottle is empty",
   "beginGameSubTitle": "Let's try to recycle it",
   "beginGameBtn": "Begin Recycling Journey",
-
   "@_END_SECREEN": {},
   "endTrashTitle": "A Landfill Is Your Fate",
   "endTrashSubTitle": "You weren't recycled and ended up in the landfill. This is sadly the fate of most plastic that's produced.",
-
   "endWaterTitle": "The Ocean Is Where You'll Be",
   "endWaterSubTitle": "You're not alone, at least 14 million tons of plastic end up in the ocean every year",
-
   "endFireTitle": "To The Furnace For You",
   "endFireSubTitle": "About 12% of all plastic waste generated is incinerated",
-
   "endTurtleTitle": "You Were Mistaken As Food",
   "endTurtleSubTitle": "Sea turtles and other marine creatures often mistake plastics and other garbage as food and ingest it.",
-
   "endRecycleTitle": "All That Effort For The Trash",
   "endRecycleSubTitle": "Only 9% of plastic produced is recycled successfully, the rest goes to landfills or is burned.",
-
   "endWinTitle": "Congratulations",
   "endWinSubTitle": "You're among the 9% of plastic that's successfully recycled, highlighting recycling's inadequacy in solving the global plastic issue.",
-
-  
   "@_MENU": {},
   "tradingCardsTitle": "Trading Cards",
   "statsTitle": "Your Outcomes",
   "bottlesUsedLabel": "Bottles Used",
   "recycleSuccessLable": "Recycled Successfully",
   "startNewGame": "Start New Game",
-
   "@_WHEEL": {},
   "wheelScreenTitle": "Landed In Recycling Bin",
   "wheelScreenSubTitle": "But that's not the end, unfortunately most plastic doesn't get reused",
   "spinHint": "Spin the wheel to see if your bottle will be reused",
-
   "@_RESET_GAME": {},
   "resetGameTitle": "Reset The Game",
   "resetGameBody": "Are you sure? You will lose all progress and everything will be reset. This can't be undone.",
   "resetGameCancel": "No, Cancel",
   "resetGameConfirm": "Yes, Reset Game",
-
-
   "@_GOOGLE_WALLET": {},
   "walletScreenTitle": "New Trading Card",
   "walletBtnLabel": "Share this with friends through Google Wallet",
   "didYouKnowQ": "Did You Know?",
-
   "@_END": {}
 }

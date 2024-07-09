@@ -75,7 +75,7 @@ class _WheelState extends ConsumerState<Wheel> {
         ],
         onFling: () {
           // play sounds effect
-          if (ref.read(hiveRepositoryProvider).playSound) {
+          if (ref.read(canPlaySoundProvider)) {
             FlameAudio.play('spin.mp3');
           }
           // whatever we add to the controller is the value that will be picked

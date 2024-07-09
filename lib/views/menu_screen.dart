@@ -29,7 +29,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
   void initState() {
     super.initState();
     FlameAudio.bgm.initialize();
-    if (ref.read(hiveRepositoryProvider).playSound) {
+    if (ref.read(canPlaySoundProvider)) {
       FlameAudio.bgm.play('bg_menu.mp3', volume: 0.2);
     }
   }

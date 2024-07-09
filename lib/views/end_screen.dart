@@ -32,7 +32,7 @@ class _EndScreenState extends ConsumerState<EndScreen> {
   @override
   void initState() {
     super.initState();
-    if (ref.read(hiveRepositoryProvider).playSound) {
+    if (ref.read(canPlaySoundProvider)) {
       FlameAudio.bgm.initialize();
       if (widget.gameEndState == GameEndState.win) {
         FlameAudio.bgm.play('bg_win.mp3', volume: 0.2);
