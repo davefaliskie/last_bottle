@@ -36,10 +36,10 @@ class RecycleGame extends FlameGame<RecycleWorld>
 
   @override
   KeyEventResult onKeyEvent(
-      RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
+      KeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
     const double moveSpeed = 55.0;
 
-    if (event is RawKeyDownEvent) {
+    if (event is KeyDownEvent) {
       if (keysPressed.contains(LogicalKeyboardKey.arrowRight)) {
         world.player.move(moveSpeed);
         return KeyEventResult.handled;

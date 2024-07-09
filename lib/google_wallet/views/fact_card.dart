@@ -71,7 +71,7 @@ class FactCard extends StatelessWidget {
                     await launchUrl(Uri.parse(passContent.sourceUrl));
                   },
                   style: ButtonStyle(
-                    overlayColor: MaterialStateProperty.all(Colors.transparent),
+                    overlayColor: WidgetStateProperty.all(Colors.transparent),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 2.0),
